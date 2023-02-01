@@ -5,27 +5,20 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        background: black;
     }
+
     .app-content {
         background: var(--background);
         flex: 1 1 auto;
-        padding: 2px * $point;
+        padding: $point * 2;
+
         .button-list {
-            display: flex;
             @media screen and (max-width: 720px) {
-                flex-direction: column;
-                > .x-button {
-                    margin-bottom: 1px * $point
-                }
-                .x-button:last-child {
-                    margin-bottom: none;
-                }
+                @include vertical-list();
             }
+
             @media screen and (min-width: 721px) {
-                > .x-button {
-                    margin-right: 1px * $point
-                }
+                @include horizontal-list();
             }
         }
     }

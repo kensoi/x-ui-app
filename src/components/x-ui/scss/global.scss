@@ -1,14 +1,4 @@
-$point: 8;
-$border-thin: 1px;
-$separator-common: rgba(122, 122, 122, 0.507);
-
-$notification-background: #FFFFFF;
-$notification-wrapper-background: rgba(0, 0, 0, 0.274);
-
-
-$header-height: 7px;
-$footer-height: 7px;
-
+$point: 8px;
 
 @mixin centering() {
     display: flex;
@@ -19,4 +9,31 @@ $footer-height: 7px;
 @mixin blur-backdrop() {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+
+@mixin vertical-list() {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+        margin-bottom: $point;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+@mixin horizontal-list() {
+    display: flex;
+    flex-direction: row;
+
+    > * {
+        margin-right: $point;
+    }
+    
+    :last-child {
+        margin-right: 0;
+    }
 }

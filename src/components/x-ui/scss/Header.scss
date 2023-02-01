@@ -1,9 +1,7 @@
 @import "./global.scss";
 @import "./box-shadows.scss";
 
-$header-width: 120px;
 $header-background: #000000;
-$header-content-background: #000000;
 $header-text-color: #FFFFFF;
 $header-logo-size: 3px;
 
@@ -11,32 +9,38 @@ $header-logo-size: 3px;
     .header {
         @include centering();
         @include box-shadow($box-border);
-        position: sticky;
-        top: 0;
-        height: $point * $header-height;
+        
         background: $header-background;
         color: $header-text-color;
-        z-index: 100;
+
+        position: sticky;
+        top: 0;
+        height: $point * 7;
+        z-index: 99;
 
         .header-content {
             @include centering();
+
+            max-width: $point * 120;
+
             justify-content: space-between;
-            max-width: $point * $header-width;
             width: 100%;
-            height: $point * $header-height;
-            background: $header-content-background;
-            padding: 0 $point * 2px;
+            height: $point * 7;
+            
+            padding: 0 $point * 2;
+
             .header-logo {
                 font-family: 'TT Commons';
-                font-weight: 600;
-                font-size: $point * $header-logo-size;
+                font-weight: 500;
+                font-size: $point * 3;
                 user-select: none;
             }
+
             .header-buttons {
                 @include centering();
                 > * {
-                    margin-left: 0.5px * $point;
-                    margin-right: 0.5px * $point;
+                    margin-left: $point * 0.5;
+                    margin-right: $point * 0.5;
                 }
                 :first-child {
                     margin-left: 0;

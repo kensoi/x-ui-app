@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 function HeaderLogo (props) {
     return <div className="header-logo">
-        x-ui шаблон
+        X-UI шаблон
     </div>
 }
 
