@@ -1,0 +1,25 @@
+@import "./global.scss";
+@import "./box-shadows.scss";
+
+$footer-width: 120px;
+$footer-background: #000000;
+$footer-content-background: #000000;
+$footer-text-color: #FFFFFF;
+
+.x-ui {
+    .footer {
+        @include centering();
+        @include box-shadow($box-border);
+        height: $point * $footer-height;
+        background: $footer-background;
+        color: $footer-text-color;
+
+        .footer-content {
+            max-width: $point * $footer-width;
+            width: 100%;
+            height: $point * $footer-height;
+            background: $footer-content-background;
+            padding: 0 $point * 2px;
+        }
+    }
+}

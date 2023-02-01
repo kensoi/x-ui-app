@@ -1,0 +1,187 @@
+@import "./global.scss";
+@import "./box-shadows.scss";
+
+.x-ui {
+    .wrapper {
+        @include blur-backdrop();
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        min-height: 100vh;
+        padding: 5vw 0;
+        background: $notification-wrapper-background;
+        box-sizing: border-box;
+        z-index: 101;
+    }
+
+    .note {
+        $notification-border-radius: 4px;
+        $notification-margin-x: 4px;
+        $notification-margin-y: 4px;
+        $notification-padding-x: 4px;
+        $notification-padding-y-top: 4px; 
+        $notification-padding-y-bottom: 8px;
+
+        $notification-close-icon-offset-top: 4px;
+        $notification-close-icon-offset-bottom: 0px;
+        $notification-close-icon-size: $notification-padding-y-bottom - $notification-close-icon-offset-top;
+        
+        $text-padding-x: $notification-padding-y-bottom;
+        $paragraph-padding-x: $text-padding-x;
+        $paragraph-padding-y: 1px;
+        $paragraph-font-size: 2px;
+        
+        $headline-padding-x: $text-padding-x;
+        $headline-padding-y: 0px;
+        $headline-font-size: 6px;
+        $headline-height: 7px;
+
+        $note-block-shadow: $box-shadow, $box-border;
+        @include box-shadow($note-block-shadow);
+
+        background: $notification-background;
+        border-radius: $notification-border-radius * $point;
+        margin: $point * $notification-margin-y $point * $notification-margin-x;
+        padding: $point * $notification-padding-y-top $point * $notification-padding-x $point * $notification-padding-y-bottom;
+        max-width: $point * 90px;
+    
+        .headline {
+            padding: $point * $headline-padding-y $point * $headline-padding-x;
+            min-height: $headline-height * $point;
+            line-height: $headline-height * $point;
+            font-size: $headline-font-size * $point;
+            font-family: 'TT Commons';
+            font-weight: 600;
+        }
+        
+        .paragraph {
+            padding: $point * $paragraph-padding-y $point * $paragraph-padding-x;
+            font-size: $paragraph-font-size * $point;
+        }
+
+        .icon {
+            @include centering();
+            position: sticky;
+            top: $point * $notification-close-icon-offset-top;
+            bottom: $point * $notification-close-icon-offset-bottom;
+            width: $point * $notification-close-icon-size;
+            height: $point * $notification-close-icon-size;
+            background: rgb(180, 20, 20);
+            border-radius: $point * 2px;
+
+        }
+        @media screen and (max-width: 425px) {
+            $notification-border-radius: 4px;
+            $notification-margin-x: 0px;
+            $notification-margin-y: 0px;
+            $notification-padding-x: 4px;
+            $notification-padding-y-top: 4px; 
+            $notification-padding-y-bottom: 8px;
+
+            $notification-close-icon-offset-top: 4px;
+            $notification-close-icon-offset-bottom: 4px;
+            $notification-close-icon-size: $notification-padding-y-bottom - $notification-close-icon-offset-top;
+            
+            $text-padding-x: 0px;
+            $paragraph-padding-x: $text-padding-x;
+            $paragraph-padding-y: 1px;
+            $paragraph-font-size: 2px;
+            
+            $headline-padding-x: $text-padding-x;
+            $headline-padding-y: 0px;
+            $headline-font-size: 6px;
+            $headline-height: 7px;
+
+            $note-block-shadow: $box-shadow, $box-border;
+            @include box-shadow($note-block-shadow);
+
+            background: $notification-background;
+            border-radius: $notification-border-radius * $point;
+            margin: $point * $notification-margin-y $point * $notification-margin-x;
+            padding: $point * $notification-padding-y-top $point * $notification-padding-x $point * $notification-padding-y-bottom;
+            max-width: $point * 90px;
+        
+            .headline {
+                padding: $point * $headline-padding-y $point * $headline-padding-x;
+                min-height: $headline-height * $point;
+                line-height: $headline-height * $point;
+                font-size: $headline-font-size * $point;
+                font-family: 'TT Commons';
+                font-weight: 600;
+            }
+            
+            .paragraph {
+                padding: $point * $paragraph-padding-y $point * $paragraph-padding-x;
+                font-size: $paragraph-font-size * $point;
+            }
+
+            .icon {
+                @include centering();
+                position: sticky;
+                top: $point * $notification-close-icon-offset-top;
+                bottom: $point * $notification-close-icon-offset-top;
+                margin-bottom: $point * $notification-close-icon-offset-bottom;
+                width: $point * $notification-close-icon-size;
+                height: $point * $notification-close-icon-size;
+                border-radius: $point * 2px;
+
+            }
+        }
+        @media screen and (min-width: 425px) and (max-width: 768px) {
+            $notification-border-radius: 4px;
+            $notification-margin-x: 4px;
+            $notification-margin-y: 4px;
+            $notification-padding-x: 4px;
+            $notification-padding-y-top: 4px; 
+            $notification-padding-y-bottom: 8px;
+
+            $notification-close-icon-offset-top: 4px;
+            $notification-close-icon-offset-bottom: 4px;
+            $notification-close-icon-size: $notification-padding-y-bottom - $notification-close-icon-offset-top;
+            
+            $text-padding-x: 0px;
+            $paragraph-padding-x: $text-padding-x;
+            $paragraph-padding-y: 1px;
+            $paragraph-font-size: 2px;
+            
+            $headline-padding-x: $text-padding-x;
+            $headline-padding-y: 0px;
+            $headline-font-size: 6px;
+            $headline-height: 7px;
+
+            $note-block-shadow: $box-shadow, $box-border;
+            @include box-shadow($note-block-shadow);
+
+            background: $notification-background;
+            border-radius: $notification-border-radius * $point;
+            margin: $point * $notification-margin-y $point * $notification-margin-x;
+            padding: $point * $notification-padding-y-top $point * $notification-padding-x $point * $notification-padding-y-bottom;
+            max-width: $point * 90px;
+        
+            .headline {
+                padding: $point * $headline-padding-y $point * $headline-padding-x;
+                min-height: $headline-height * $point;
+                line-height: $headline-height * $point;
+                font-size: $headline-font-size * $point;
+            }
+            
+            .paragraph {
+                padding: $point * $paragraph-padding-y $point * $paragraph-padding-x;
+                font-size: $paragraph-font-size * $point;
+            }
+
+            .icon {
+                top: $point * $notification-close-icon-offset-top;
+                bottom: $point * $notification-close-icon-offset-top;
+                margin-bottom: $point * $notification-close-icon-offset-bottom;
+                width: $point * $notification-close-icon-size;
+                height: $point * $notification-close-icon-size;
+                border-radius: $point * 2px;
+
+            }
+        }
+    }
+}

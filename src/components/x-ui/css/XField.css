@@ -1,0 +1,15 @@
+
+.x-field {
+    flex: 1 1 auto;
+    outline: none;
+}
+
+.x-field:focus {
+    background: var(--x-field-selected);
+}
+
+.x-field[contenteditable=true]:empty:before{
+    content: attr(data-placeholder);
+    pointer-events: none;
+    display: block; /* For Firefox */
+  }

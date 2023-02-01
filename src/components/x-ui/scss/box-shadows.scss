@@ -1,0 +1,12 @@
+@import "./global.scss";
+
+$box-shadow: 0 $point $point * 3 rgba(141, 141, 141, 0.055);
+$box-border: 0 0 0 $border-thin $separator-common;
+
+
+@mixin box-shadow($property) {
+  -webkit-box-shadow: $property;
+  -ms-box-shadow: $property;
+  box-shadow: $property;
+}
+// .box { @include box-shadow(rotate(30deg)); }

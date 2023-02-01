@@ -1,0 +1,7 @@
+@import "./layout-theme.css";
+
+:root {
+    --x-button-height: 40px;
+    --border-radius: 16px;
+    --padding: 16px;
+}

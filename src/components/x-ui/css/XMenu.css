@@ -1,0 +1,88 @@
+/* x-menu wrapper & dropdown content stylesheet */
+
+.x-menu {
+    position: relative;
+    display: inline-block;
+
+    --transition: 0.1s;
+
+    --x-menu-button-height: 32px;
+    --x-menu-icon-width: 32px;
+    --x-menu-padding-x: calc(var(--padding) / 2);
+    --x-menu-padding-y: calc(var(--padding) / 2);
+    --x-menu-button-padding-vert: var(--x-menu-padding-y);
+    --x-menu-button-padding-hori: var(--x-menu-padding-x);
+    --x-menu-dropdown-offset: 0px;
+    --x-menu-dropdown-height: 0vh;
+    --x-menu-dropdown-opacity: 0;
+    --dropdown-content-angle: 0deg;
+    --dropdown-icon-transition: 0.1s;
+}
+
+.x-menu.active {
+    --x-menu-dropdown-offset: calc(var(--padding) / 3);
+    --x-menu-dropdown-height: 100vh;
+    --x-menu-dropdown-opacity: 1;
+    --dropdown-content-angle: 180deg;
+}
+
+
+
+.x-menu .x-menu-dropdown {
+    position: absolute;
+    z-index: 990;
+    width: fit-content;
+    height: 0;
+    margin: auto;
+    transition: max-height var(--transition) ease-in-out;
+    font-family: 'TT Commons';
+    /* text-transform: lowercase; */
+    font-size: 18px;
+
+    --x-button-background: var(--x-menu-background);
+    --x-button-background-hover: var(--x-menu-accent-color);
+    --x-button-text: var(--x-menu-text);
+    --x-button-icon: var(--x-menu-icon);
+}
+
+.x-menu.rightAlign .x-menu-dropdown {
+    right: 0;
+}
+
+.x-menu.active .x-menu-dropdown {
+    height: fit-content;
+}
+
+.x-menu .x-menu-dropdown.x {
+    --flex-direction: row;
+}
+
+.x-menu .x-menu-dropdown.y {
+    --flex-direction: column;
+}
+
+.x-menu .x-menu-dropdown .x-menu-dropdown-content {
+    display: flex;
+    flex-direction: var(--flex-direction);
+    margin-top: var(--x-menu-dropdown-offset);
+    width: fit-content;
+    padding: var(--x-menu-padding-y) var(--x-menu-padding-x);
+    box-shadow: var(--box-shadow);
+    pointer-events: none;
+
+    border-radius: calc(var(--border-radius) + 2px);
+    opacity: var(--x-menu-dropdown-opacity);
+    box-sizing: unset;
+    background: var(--x-menu-background);
+    color: var(--x-menu-accent-color);
+    transition: opacity var(--transition) ease-in-out, margin-top var(--transition) ease-in-out;
+}
+.x-menu.active .x-menu-dropdown .x-menu-dropdown-content {
+    pointer-events: all;
+}
+
+/* x-menu buttons stylesheet */
+
+.x-menu-dropdown-content .x-button {
+    margin-right: 0!important;
+}

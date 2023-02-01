@@ -1,0 +1,22 @@
+$point: 8;
+$border-thin: 1px;
+$separator-common: rgba(122, 122, 122, 0.507);
+
+$notification-background: #FFFFFF;
+$notification-wrapper-background: rgba(0, 0, 0, 0.274);
+
+
+$header-height: 7px;
+$footer-height: 7px;
+
+
+@mixin centering() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin blur-backdrop() {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
