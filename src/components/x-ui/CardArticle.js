@@ -1,6 +1,6 @@
-import "./scss/Notification.scss";
+import "./scss/CardArticle.scss";
 
-export function NoteBlock (props) {
+export function CardArticle (props) {
     if (props.enabled) {
         return (
             <div className="wrapper">
@@ -14,13 +14,13 @@ export function NoteBlock (props) {
     }
 }
 
-export function NoteH (props) {
+export function CardAH (props) {
     return <div className="headline">
         {props.children}
     </div>
 }
 
-export function NoteP (props) {
+export function CardAP (props) {
     return <div className="paragraph">
         {props.children}
     </div>

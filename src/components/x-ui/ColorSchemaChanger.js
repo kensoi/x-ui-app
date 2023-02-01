@@ -7,9 +7,9 @@ import HdrAutoIcon from '@mui/icons-material/HdrAuto';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import XButton from "./XButton";
 
-
-function ThemeChanger({toolkit}) {
-    const ThemeModeICON = {"l": {
+function ColorSchemaChanger({toolkit}) {
+    const ChangerButtonData = {
+        "l": {
             "icon": <LightModeIcon/>,
             "title": ""
         },
@@ -26,31 +26,32 @@ function ThemeChanger({toolkit}) {
             "title": "AUTO"
         },
     }
-    const ThemeModeList = [
+
+    const List = [
         {  
             "icon": <LightModeIcon/>,
             "title": "Светлая",
-            "action": () => {toolkit.setDm("l")},
+            "action": () => {toolkit.setColorSchema("l")},
         },
         {
             "icon": <NightlightIcon/>,
             "title": "Тёмная",
-            "action": () => {toolkit.setDm("d")},
+            "action": () => {toolkit.setColorSchema("d")},
         },
         // {
         //     "icon": <AutoAwesomeIcon/>,
         //     "title": "Розовая",
-        //     "action": () => {toolkit.setDm("r")},
+        //     "action": () => {toolkit.setColorSchema("r")},
         // },
         {
             "icon": <HdrAutoIcon/>,
             "title": "Системная",
-            "action": () => {toolkit.setDm("a")},
+            "action": () => {toolkit.setColorSchema("a")},
         },
     ]
-    let ThemeButton = <XButton icon={ThemeModeICON[toolkit.dm]["icon"]} text={ThemeModeICON[toolkit.dm]["title"]} is_xmenu={true} />
+    let ChangerButton = <XButton icon={ChangerButtonData[toolkit.colorSchema]["icon"]} text={ChangerButtonData[toolkit.colorSchema]["title"]} is_xmenu={true} />
 
-    return <XMenu button={ThemeButton} dropdown={ThemeModeList} rightAlign={true}/>
+    return <XMenu button={ChangerButton} dropdown={List} rightAlign={true}/>
 }
 
-export default ThemeChanger;
+export default ColorSchemaChanger;

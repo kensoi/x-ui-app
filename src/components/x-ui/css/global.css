@@ -1,4 +1,4 @@
-@import "./layout-theme.css";
+@import "./color-schema.css";
 
 :root {
     --x-button-height: 40px;

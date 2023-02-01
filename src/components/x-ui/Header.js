@@ -1,6 +1,6 @@
 
 import "./scss/Header.scss";
-import ThemeChanger from "./ThemeChanger";
+import ColorSchemaChanger from "./ColorSchemaChanger";
 import XButton from "./XButton";
 import XMenu from "./XMenu";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -27,8 +27,10 @@ export function Header (props) {
             "action": () => {window.location.href = "https://github.com/kensoi/"},
         },
     ]
+    
     let MenuButton = <XButton icon={<MenuIcon/>} />
     let Menu = <XMenu button={MenuButton} dropdown={MenuList}/>
+
     if (props.toolkit.enableHeader) {
         return (
             <div className="header dark">
@@ -37,7 +39,7 @@ export function Header (props) {
                         {Menu}
                         <HeaderLogo />
                     </div>
-                    <ThemeChanger toolkit={props.toolkit}/>
+                    <ColorSchemaChanger toolkit={props.toolkit}/>
                 </div>
             </div>
         )
