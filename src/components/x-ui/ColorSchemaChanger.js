@@ -1,57 +1,71 @@
-/* */
+/* Color Schema Menu Selector */
 
-import XMenu from "./XMenu";
+/* X-UI components */
+import XButton from "./XButton";
+import XDropdown from "./XDropdown";
+
+/* Material UI icons */
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightlightIcon from '@mui/icons-material/Nightlight';
-import HdrAutoIcon from '@mui/icons-material/HdrAuto';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import XButton from "./XButton";
+import TuneIcon from '@mui/icons-material/Tune';
 
-function ColorSchemaChanger({toolkit}) {
-    const ChangerButtonData = {
-        "l": {
-            "icon": <LightModeIcon/>,
-            "title": ""
-        },
-        "d": {
-            "icon": <NightlightIcon/>,
-            "title": ""
-        },
-        "r": {
-            "icon": <AutoAwesomeIcon/>,
-            "title": ""
-        },
-        "a": {
-            "icon": "",
-            "title": "AUTO"
-        },
-    }
+const changerButtonData = {
+    "l": {
+        "icon": <LightModeIcon/>,
+        "title": ""
+    },
+    "d": {
+        "icon": <NightlightIcon/>,
+        "title": ""
+    },
+    "r": {
+        "icon": <TuneIcon/>,
+        "title": ""
+    },
+    "a": {
+        "icon": <AutoAwesomeIcon/>,
+        "title": ""
+    },
+}
 
+function ColorSchemaChanger(props) {
     const List = [
         {  
-            "icon": <LightModeIcon/>,
+            "icon": <LightModeIcon/>, 
             "title": "Светлая",
-            "action": () => {toolkit.setColorSchema("l")},
+            "action": () => {props.toolkit.setColorSchema("l")},
         },
         {
-            "icon": <NightlightIcon/>,
+            "icon": <NightlightIcon/>, 
             "title": "Тёмная",
-            "action": () => {toolkit.setColorSchema("d")},
+            "action": () => {props.toolkit.setColorSchema("d")},
         },
-        // {
-        //     "icon": <AutoAwesomeIcon/>,
-        //     "title": "Розовая",
-        //     "action": () => {toolkit.setColorSchema("r")},
-        // },
         {
-            "icon": <HdrAutoIcon/>,
+            "icon": <AutoAwesomeIcon/>, 
             "title": "Системная",
-            "action": () => {toolkit.setColorSchema("a")},
+            "action": () => {props.toolkit.setColorSchema("a")},
+        },
+        {
+            "icon": <TuneIcon/>, 
+            "title": "Кастомная",
+            "x-dropdown": [
+                {  
+                    "icon": <TuneIcon/>, 
+                    "title": "Розовая",
+                    "action": () => {props.toolkit.setColorSchema("r")},
+                },
+            ]
         },
     ]
-    let ChangerButton = <XButton icon={ChangerButtonData[toolkit.colorSchema]["icon"]} text={ChangerButtonData[toolkit.colorSchema]["title"]} is_xmenu={true} />
 
-    return <XMenu button={ChangerButton} dropdown={List} rightAlign={true}/>
+    return <XDropdown dropdownListContent={List} alignBy="right"> 
+        <XButton 
+                icon={changerButtonData[props.toolkit.colorSchema]["icon"]}
+                isDropdown={true}>
+            {changerButtonData[props.toolkit.colorSchema]["title"]} 
+        </XButton>
+    </XDropdown>
 }
 
 export default ColorSchemaChanger;

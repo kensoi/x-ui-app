@@ -1,4 +1,4 @@
-import "./scss/Footer.scss";
+import "./scss/footer.scss";
 
 export function Footer (props) {
     if (props.toolkit.enableFooter) {

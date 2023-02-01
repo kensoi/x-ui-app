@@ -1,0 +1,111 @@
+@import "./global.scss";
+@import "./box-shadows.scss";
+
+.x-ui {
+    .x-dropdown {
+        position: relative;
+        display: inline-block;
+
+        $transition: 0.1s;
+
+        $padding: $point;
+        $padding-x: $padding;
+        $padding-y: $padding;
+        --x-button-height: #{ $point * 5 };
+        --dropdown-icon-transition: 0.1s;
+        .x-dropdown-content {
+            position: absolute;
+            z-index: 990;
+            width: fit-content;
+            margin: auto;
+            transition: max-height $transition ease-in-out;
+            font-family: 'TT Commons';
+            font-size: 18px;
+        
+            --x-button-background: var(--x-menu-background);
+            --x-button-background-hover: var(--x-menu-accent-color);
+            --x-button-text: var(--x-menu-text);
+            --x-button-icon: var(--x-menu-icon);
+
+            &.column {
+                --flex-direction: column;
+            }
+
+            &.row {
+                --flex-direction: row;
+            }
+
+            .x-dropdown-list {
+                display: flex;
+                flex-direction: var(--flex-direction);
+
+                opacity: var(--x-menu-dropdown-opacity);
+                padding: $padding-x $padding-y;
+                width: fit-content;
+                box-shadow: var(--box-shadow);
+
+                border-radius: calc(var(--border-radius) + 2px);
+                box-sizing: unset;
+                background: var(--x-menu-background);
+                color: var(--x-menu-accent-color);
+                transition: opacity $transition ease-in-out, margin-top $transition ease-in-out;
+
+                @include box-shadow($box-shadow);
+            }
+
+            .x-button {
+                flex: 1 1 auto;
+                width: 100%;
+            }
+        }
+
+        &.closed {
+            --x-menu-dropdown-height: 0vh;
+            --x-menu-dropdown-opacity: 0;
+            --dropdown-content-angle: 0deg;
+            overflow: hidden;
+            
+            .x-dropdown-content {
+                max-height: 0;
+                pointer-events: none;
+                
+                .x-dropdown-list {
+                    margin-top: 0;
+                }
+            }
+        }
+        &.opened {
+            --x-menu-dropdown-height: 100vh;
+            --x-menu-dropdown-opacity: 1;
+            --dropdown-content-angle: 180deg;
+            overflow: visible;
+
+            .x-dropdown-content {
+                max-height: fit-content;
+                pointer-events: all;
+
+                .x-dropdown-list {
+                    margin-top: $point * 2;
+                }
+            }
+        }
+        &.align-left {
+            .x-dropdown-content {
+                left: 0;
+                .x-dropdown-list {
+                    border-top-left-radius: 0!important;
+                }
+            }
+        }
+        &.align-right {
+            .x-dropdown-content {
+                right: 0;
+                .x-dropdown-list {
+                    border-top-right-radius: 0!important;
+                }
+            }
+        }
+
+
+    }
+}

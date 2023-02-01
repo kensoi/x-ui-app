@@ -21,7 +21,7 @@ $header-logo-size: 3px;
         .header-content {
             @include centering();
 
-            max-width: $point * 120;
+            // max-width: $point * 120;
 
             justify-content: space-between;
             width: 100%;

@@ -1,11 +1,14 @@
-import "../css/XField.css";
-function XField ({placeHolder, field, setField, classList=[]}) {
-    let classListString = ["x-field", ...classList].join(" ");
+import "./scss/x-field.scss";
 
-    return <div className={classListString} contentEditable="true" suppressContentEditableWarning={true} data-placeholder={placeHolder} onChange={(event) => {
-        setField(event.target.innerHTML)}}>
-            {field}
-    </div>
+export function XField (props) {
+    // {placeholder, field, setField}
+    // {children, field, setField}
+    return <div className="x-field">
+        <div 
+                className="x-field-input" contentEditable="true" 
+                suppressContentEditableWarning={true} 
+                data-placeholder={props.children} onChange={(event) => {props.setField(event.target.innerHTML)}}>
+            {props.field}
+        </div>
+    </div> 
 }
-
-export default XField;

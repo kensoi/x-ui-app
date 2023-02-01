@@ -1,0 +1,30 @@
+@import "./global.scss";
+@import "./box-shadows.scss";
+
+.x-ui {
+    .x-field {
+        $note-block-shadow: $box-shadow, $box-border;
+
+        @include box-shadow($note-block-shadow);
+        min-height: var(--x-button-height);
+        box-sizing: border-box;
+        padding: $point;
+        @include centering();
+        background: var(--x-button-background);
+        border-radius: $point;
+        color: var(--x-button-text);
+
+        .x-field-input {
+            flex: 1 1 auto;
+            outline: none;
+            &[contenteditable=true]:empty:before{
+                content: attr(data-placeholder);
+                pointer-events: none;
+                display: block; /* For Firefox */
+            }
+        }
+        &.selected {
+            background: var(--x-field-selected);
+        }
+    }
+}

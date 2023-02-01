@@ -11,15 +11,5 @@
         background: var(--background);
         flex: 1 1 auto;
         padding: $point * 2;
-
-        .button-list {
-            @media screen and (max-width: 720px) {
-                @include vertical-list();
-            }
-
-            @media screen and (min-width: 721px) {
-                @include horizontal-list();
-            }
-        }
     }
 }

@@ -10,6 +10,8 @@ $footer-text-color: #FFFFFF;
         @include centering();
         @include box-shadow($box-border);
         
+        position: sticky;
+        bottom: 0;
         background: $footer-background;
         color: $footer-text-color;
 

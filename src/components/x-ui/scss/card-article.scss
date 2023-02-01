@@ -40,6 +40,7 @@
                 $notification-close-icon-size: 4;
     
                 @include centering();
+                @include box-shadow($note-block-shadow);
     
                 background: rgb(180, 20, 20);
                 position: sticky;
@@ -49,6 +50,13 @@
                 width: $point * $notification-close-icon-size;
                 height: $point * $notification-close-icon-size;
                 border-radius: $point * 2;
+                color: #FFFFFF;
+                cursor: pointer;
+
+                svg {
+                    width: 75%;
+                    height: 75%;
+                }
 
                 &:hover {
                     background: rgb(218, 39, 33);

@@ -1,0 +1,23 @@
+@import "./global.scss";
+@import "./box-shadows.scss";
+
+.x-list {
+    $note-block-shadow: $box-shadow, $box-border;
+    border-radius: $point * 2;
+    padding: $point;
+    background: var(--x-menu-background);
+    margin-bottom: $point;
+
+    @include box-shadow($note-block-shadow);
+
+    @media screen and (max-width: 720px) {
+        @include vertical-list();
+    }
+
+    @media screen and (min-width: 721px) {
+        @include horizontal-list();
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
