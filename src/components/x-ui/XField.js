@@ -1,8 +1,6 @@
 import "./scss/x-field.scss";
 
-export function XField (props) {
-    // {placeholder, field, setField}
-    // {children, field, setField}
+function XField (props) {
     return <div className="x-field">
         <div 
                 className="x-field-input" contentEditable="true" 
@@ -12,3 +10,5 @@ export function XField (props) {
         </div>
     </div> 
 }
+
+export default XField;

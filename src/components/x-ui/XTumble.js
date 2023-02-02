@@ -11,10 +11,12 @@ function XTumbleButton({item, context, setContext}) {
         </div>
 }
 
-export function XTumble({tumbleConfig, context, setContext}) {
+function XTumble({tumbleConfig, context, setContext}) {
     return <div className="xtumble"> 
         <div className="xtumble-wrapper">
                 {tumbleConfig.map(item => XTumbleButton({item, context, setContext}))}
             </div>
         </div>
-  }
+}
+
+export default XTumble;

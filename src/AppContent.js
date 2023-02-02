@@ -1,9 +1,9 @@
 
 
 import "./components/x-ui/scss/app-content.scss";
-import { XSlider } from "./components/x-ui/XSlider";
-import { XList } from "./components/x-ui/XList";
-import { XField } from "./components/x-ui/XField";
+import XSlider from "./components/x-ui/XSlider";
+import XList from "./components/x-ui/XList";
+import XField from "./components/x-ui/XField";
 import XButton from "./components/x-ui/XButton";
 import { useState } from "react";
 

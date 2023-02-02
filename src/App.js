@@ -1,33 +1,17 @@
 import { useState } from "react";
-import { Footer } from "./components/x-ui/Footer";
-import { Header } from "./components/x-ui/Header";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 import { CardArticle, CardAH, CardAP } from "./components/x-ui/CardArticle";
 import "./components/x-ui/css/global.css";
 import { AppContent } from "./AppContent";
-import { XList } from "./components/x-ui/XList";
+import XList from "./components/x-ui/XList";
 import XButton from "./components/x-ui/XButton";
-
-function CSSTheme(theme_mode) {
-    switch (theme_mode) {
-        case "l":
-            return "light"
-
-        case "d":
-            return "dark"
-
-        case "r":
-            return "rose" // Даша привет)
-        
-        default:
-            return "auto"
-    }
-}
 
 function App() {
     const [cardArticleState, setCardArticleState] = useState(true);
     const [enableHeader, setHeaderState] = useState(true);
     const [enableFooter, setFooterState] = useState(false);
-    const [colorSchema, setColorSchema] = useState("a");
+    const [colorSchema, setColorSchema] = useState("auto");
 
     const toolkit = {
         colorSchema: colorSchema, setColorSchema : setColorSchema,
@@ -36,7 +20,7 @@ function App() {
         enableFooter: enableFooter, setFooterState: setFooterState,
     }
     return <div className="x-ui">
-        <div className={`app-layout ${CSSTheme(toolkit.colorSchema)}`}>
+        <div className={`app-layout ${toolkit.colorSchema}`}>
             <Header toolkit={toolkit}/>
             <AppContent toolkit={toolkit}/>
             <Footer toolkit={toolkit}/>
@@ -66,4 +50,5 @@ function App() {
         </CardArticle>
     </div>
 }
+
 export default App;
