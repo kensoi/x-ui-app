@@ -15,6 +15,13 @@
         padding: 5vw 0;
         box-sizing: border-box;
         z-index: 100;
+        transition: .2s;
+        &.opened {
+            opacity: 1;
+        }
+        &.closed {
+            opacity: 0;
+        }
 
         .note {
             $text-padding-x: 8;
@@ -24,13 +31,25 @@
     
             background-color: var(--card-background);
             color: var(--color);
+            transition: .1s;
+            &.opened {
+                opacity: 1;
+                margin-top: 0px;
+            }
+            &.closed {
+                opacity: 0;
+                margin-top: $point * 4;
+            }
             max-width: $point * 90;
             width: 100%;
             border-radius: $point * 4;
         
-            .headline {
+            .headline, .subline {
                 font-family: 'TT Commons';
                 font-weight: 600;
+            }
+            .subline {
+                text-align: center;
             }
             
             .paragraph {
@@ -79,6 +98,13 @@
                     line-height: $point * $headline-height;
                     font-size: $point * 6;
                 }
+                .subline {
+                    $headline-height: 4;
+                    
+                    min-height: $point * $headline-height;
+                    line-height: $point * $headline-height;
+                    font-size: $point * 3;
+                }
                 
                 .paragraph {
                     padding: $point 0;
@@ -100,6 +126,14 @@
                     padding: 0 $point * $text-padding-x;
                     font-size: $point * 6;
                 }
+                .subline {
+                    $headline-height: 4;
+
+                    min-height: $point * $headline-height;
+                    line-height: $point * $headline-height;
+                    padding: 0 $point * $text-padding-x;
+                    font-size: $point * 4;
+                }
     
                 .paragraph {
                     padding: $point $point * $text-padding-x;
@@ -120,6 +154,14 @@
                     line-height: $point * $headline-height;
                     padding: 0 $point * $text-padding-x;
                     font-size: $point * 6;
+                }
+                .subline {
+                    $headline-height: 4;
+                    
+                    min-height: $point * $headline-height;
+                    line-height: $point * $headline-height;
+                    padding: 0 $point * $text-padding-x;
+                    font-size: $point * 3;
                 }
                 
                 .paragraph {

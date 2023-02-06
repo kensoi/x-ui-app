@@ -1,4 +1,4 @@
-import { CardAH, CardAP } from "../x-ui/CardArticle";
+import { Headline, CardAP, Subline } from "../x-ui/CardArticle";
 import { XRaw } from "../x-ui/Separators";
 import ColorSchemaChanger from "../ColorSchemaChanger";
 import XTumble from "../x-ui/XTumble";
@@ -16,14 +16,13 @@ function NotifyCard (props) {
         },
     ]
     return <> 
-        <CardAH> 
+        <Headline> 
             Настройки 
-        </CardAH>
+        </Headline>
+        <Subline> 
+            Компоненты 
+        </Subline>
         <CardAP> 
-            <XRaw>
-                Цветовая схема
-                <ColorSchemaChanger toolkit={props.toolkit} />
-            </XRaw>
             <XRaw>
                 Включить Header
                 <XTumble tumbleConfig={contexts} context={props.toolkit.enableHeader} setContext={props.toolkit.setHeaderState}/>
@@ -31,6 +30,15 @@ function NotifyCard (props) {
             <XRaw>
                 Включить Footer
                 <XTumble tumbleConfig={contexts} context={props.toolkit.enableFooter} setContext={props.toolkit.setFooterState}/>
+            </XRaw>
+        </CardAP>
+        <Subline> 
+            Дополнительное 
+        </Subline>
+        <CardAP> 
+            <XRaw>
+                Цветовая схема
+                <ColorSchemaChanger toolkit={props.toolkit} />
             </XRaw>
         </CardAP>
     </>

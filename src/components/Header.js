@@ -1,6 +1,5 @@
 import "./scss/header.scss";
 
-import ColorSchemaChanger from "./ColorSchemaChanger";
 import XButton from "./x-ui/XButton";
 import XDropdown from "./x-ui/XDropdown";
 import MenuList from "./MenuList";
@@ -18,7 +17,6 @@ export function Header (props) {
                         </XDropdown>
                         <HeaderLogo />
                     </div>
-                    <ColorSchemaChanger toolkit={props.toolkit}/>
                 </div>
             </div>
         )

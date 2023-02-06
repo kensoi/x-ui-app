@@ -1,4 +1,4 @@
-import { CardAH, CardAP } from "../x-ui/CardArticle";
+import { Headline, CardAP } from "../x-ui/CardArticle";
 import { XRaw } from "../x-ui/Separators";
 import XTumble from "../x-ui/XTumble";
 import { useState } from "react";
@@ -19,9 +19,9 @@ function NotifyCard (props) {
     ]
     const [context, setContext] = useState(contexts[0].context); // state test
     return <> 
-        <CardAH> 
+        <Headline> 
             Проверка тумблета 
-        </CardAH>
+        </Headline>
         <CardAP> 
             <XRaw>
                 Включить свет

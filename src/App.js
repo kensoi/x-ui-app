@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
-import { CardArticle } from "./components/x-ui/CardArticle";
+import { CardWrap } from "./components/x-ui/CardArticle";
 import "./components/x-ui/css/global.css";
 import { AppContent } from "./AppContent";
 
@@ -40,6 +40,7 @@ class App extends React.Component {
         closeCard: () => this.setState({cardArticleState: false}),
         openCard: (content) => {
             this.setState({cardArticleState: true, cardLayout: content})
+            
         },
 
         enableHeader: this.state.headerState, 
@@ -74,7 +75,8 @@ class App extends React.Component {
         <Header toolkit={toolkit}/>
         <AppContent toolkit={toolkit}/>
         <Footer toolkit={toolkit}/>
-        <CardArticle toolkit={toolkit}/>
+        {toolkit.cardArticleState ? <CardWrap toolkit={toolkit}/> : ""}
+        
     </div>
     }
 }

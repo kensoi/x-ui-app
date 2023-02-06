@@ -1,6 +1,6 @@
 {
   "name": "x-ui-app",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://kensoi.github.io/x-ui-app",
   "private": true,
   "dependencies": {

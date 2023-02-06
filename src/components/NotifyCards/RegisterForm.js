@@ -1,4 +1,4 @@
-import { CardAH, CardAP } from "../x-ui/CardArticle";
+import { Headline, CardAP } from "../x-ui/CardArticle";
 import XButton from "../x-ui/XButton";
 import XField from "../x-ui/XField";
 import { XList } from "../x-ui/Separators";
@@ -17,9 +17,9 @@ function NotifyCard (props) {
         props.toolkit.closeCard();
     }
     return <> 
-        <CardAH> 
+        <Headline> 
             Регистрация пользователя 
-        </CardAH>
+        </Headline>
         <CardAP> 
             <XList>
                 <XField field = {name} setField = {setName}>
