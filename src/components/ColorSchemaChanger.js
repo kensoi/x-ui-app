@@ -1,9 +1,14 @@
+/* Color Schema Menu Selector */
+
+/* X-UI components */
+import XButton from "./x-ui/XButton";
+import XDropdown from "./x-ui/XDropdown";
+
 /* Material UI icons */
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import TuneIcon from '@mui/icons-material/Tune';
-
 
 export function List (props) {
     return [
@@ -35,3 +40,36 @@ export function List (props) {
         // },
     ]
 }
+export const changerButtonData = {
+    "light": {
+        "icon": <LightModeIcon/>,
+        "title": ""
+    },
+    "dark": {
+        "icon": <NightlightIcon/>,
+        "title": ""
+    },
+    "pink": {
+        "icon": <TuneIcon/>,
+        "title": ""
+    },
+    "auto": {
+        "icon": <AutoAwesomeIcon/>,
+        "title": ""
+    },
+}
+
+function ColorSchemaChanger(props) {
+    return <XDropdown dropdownListContent={List(props)} alignBy="right"
+        onClickOpen={true}
+        onClickClose={true}
+        onMouseLeave={true}> 
+        <XButton 
+                icon={changerButtonData[props.toolkit.colorSchema]["icon"]}
+                isDropdown={true}>
+            {changerButtonData[props.toolkit.colorSchema]["title"]} 
+        </XButton>
+    </XDropdown>
+}
+
+export default ColorSchemaChanger;

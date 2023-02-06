@@ -1,6 +1,6 @@
 import "./scss/header.scss";
 
-import ColorSchemaChanger from "./x-ui/colorSchema/Changer";
+import ColorSchemaChanger from "./ColorSchemaChanger";
 import XButton from "./x-ui/XButton";
 import XDropdown from "./x-ui/XDropdown";
 import MenuList from "./MenuList";

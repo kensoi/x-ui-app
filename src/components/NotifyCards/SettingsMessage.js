@@ -1,6 +1,6 @@
 import { CardAH, CardAP } from "../x-ui/CardArticle";
 import { XRaw } from "../x-ui/Separators";
-import ColorSchemaChanger from "../x-ui/colorSchema/Changer";
+import ColorSchemaChanger from "../ColorSchemaChanger";
 import XDropdown from "../x-ui/XDropdown";
 import XButton from "../x-ui/XButton";
 

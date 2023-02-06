@@ -9,10 +9,7 @@ function XDropdownButton (props) {
     let icon = props.button["icon"]
     let title = props.button["title"]
     let XDropdownObj = props.button["x-dropdown"]
-    let overflow = props.overflow
-    if (!overflow) {
-        return
-    }
+    let Close = props.close
     if (XDropdownObj) {
         return <XDropdown dropdownListContent={XDropdownObj} alignBy={props.alignBy}>
             <XButton 
@@ -26,7 +23,7 @@ function XDropdownButton (props) {
         return <XButton 
                 icon={icon} 
                 onClick={() => {
-                        props.onClick(); onButtonClick();
+                        props.onClick(); onButtonClick(); Close();
                     }
                 }>
             {title}
@@ -54,15 +51,18 @@ class XDropdown extends React.Component {
             }, 100)
         }
         else {
-            this.setState({
-                wonderbread: true,
-                overflow: true,
-            })
+            setTimeout(() => {
+                console.log("done!")
+                this.setState({
+                    wonderbread: true,
+                })
+            }, 100)
+            this.setState({overflow: true})
 
         }
     }
     
-    onMouseLeave = () => {
+    Close = () => {
         this.setState({
             wonderbread: false,
         })
@@ -76,9 +76,9 @@ class XDropdown extends React.Component {
     XDropdownContent = () => {
         return <div className={`x-dropdown-content ${this.state.listDirection}`}>
                 <div className="x-dropdown-list"
-                    onMouseLeave={this.onMouseLeave} >
+                    onMouseLeave={this.Close} >
                     {
-                        this.state.dropdownListContent.map(button => <XDropdownButton button={button} key={nanoid()} overflow={this.state.overflow} onClick={
+                        this.state.dropdownListContent.map(button => <XDropdownButton button={button} key={nanoid()} close={this.Close} onClick={
                             () => {
                                 this.setState({
                                     wonderbread: false,
@@ -93,8 +93,7 @@ class XDropdown extends React.Component {
     
     render () {
         return <div className={`x-dropdown ${this.state.wonderbread ? "opened" : "closed"} align-${this.state.alignBy}`}>
-            <div className="x-dropdown-clickarea" onClick={this.onClickToToggle}></div>
-            <this.ChildButton />
+            <div className="x-dropdown-clickarea" onClick={this.onClickToToggle}><this.ChildButton /></div>
             {this.state.overflow ? <this.XDropdownContent /> : ""}
         </div>
     }
