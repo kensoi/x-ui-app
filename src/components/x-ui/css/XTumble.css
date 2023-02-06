@@ -5,6 +5,9 @@
     --blue: #0077ff;
     --blued: #0061cf;
     --blueb: #0026cf;
+    border-radius: 12px;
+    font-family: 'TT Commons';
+    font-size: 24px;
 }
 .xtumble .xtumble-wrapper {
     display: flex;
@@ -13,16 +16,18 @@
 
 }
 .xtumble .xtumble-item {
+    background: black;
+    color: white;
     width: fit-content;
-    height: 44px;
+    height: 40px;
     line-height: 40px;
     box-sizing: border-box;
-
     padding: 0 8px;
-    margin: 8px 4px;
+    margin: 0 8px;
+    min-width: 64px;
+    text-align: center;
     
     font-weight: 500;
-    font-size: 20px;
     transition: transform 2s;
     border-radius: 8px;
     border: 2px solid var(--blueb);
@@ -49,22 +54,4 @@
 .xtumble .xtumble-item.svg svg {
     display: inline;
     transform: translateY(-1px);
-}
-
-.light .xtumble svg {
-    fill: var(--dark);
-}
-.dark  .xtumble svg {
-    fill: var(--light);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    .auto .xtumble svg {
-        fill: var(--light);
-    }    
-}
-@media screen and (prefers-color-scheme: light) {
-    .auto .xtumble svg {
-        fill: var(--light);
-    }    
 }

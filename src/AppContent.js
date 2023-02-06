@@ -18,6 +18,9 @@ export function AppContent (props) {
                 <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.register)}>
                     Открыть форму регистрации 
                 </XButton>
+                <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.tumblet)}>
+                    Открыть проверку тумблета 
+                </XButton>
             </XList>
         </XBlock>
     </div>

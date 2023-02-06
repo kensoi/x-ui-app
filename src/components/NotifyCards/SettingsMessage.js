@@ -1,30 +1,20 @@
 import { CardAH, CardAP } from "../x-ui/CardArticle";
 import { XRaw } from "../x-ui/Separators";
 import ColorSchemaChanger from "../ColorSchemaChanger";
-import XDropdown from "../x-ui/XDropdown";
-import XButton from "../x-ui/XButton";
-
-function Dropdown ({currentState, setCurrentState}) {
-    const DropdownData = [
-        {  
-            "title": "Включен",
-            "action": () => {setCurrentState(true)},
-        },
-        {
-            "title": "Выключен",
-            "action": () => {setCurrentState(false)},
-        }
-    ]
-    return <XDropdown dropdownListContent={DropdownData} alignBy="right"> 
-        <XButton 
-                isDropdown={true}>
-            {currentState ? "Включен": "Выключен"}
-        </XButton>
-    </XDropdown>
-}
+import XTumble from "../x-ui/XTumble";
 
 
 function NotifyCard (props) {
+    const contexts = [
+        {
+            name: "OFF",
+            context: false
+        },
+        {
+            name: "ON",
+            context: true
+        },
+    ]
     return <> 
         <CardAH> 
             Настройки 
@@ -36,21 +26,11 @@ function NotifyCard (props) {
             </XRaw>
             <XRaw>
                 Включить Header
-                <Dropdown 
-                    onClickOpen={true}
-                    onMissClickClose={true}
-                    onMouseOver={true}
-                    currentState={props.toolkit.enableHeader} 
-                    setCurrentState={props.toolkit.setHeaderState} />
+                <XTumble tumbleConfig={contexts} context={props.toolkit.enableHeader} setContext={props.toolkit.setHeaderState}/>
             </XRaw>
             <XRaw>
                 Включить Footer
-                <Dropdown 
-                    onClickOpen={true}
-                    onClickClose={true}
-                    onMouseOver={true}
-                    currentState={props.toolkit.enableFooter} 
-                    setCurrentState={props.toolkit.setFooterState} />
+                <XTumble tumbleConfig={contexts} context={props.toolkit.enableFooter} setContext={props.toolkit.setFooterState}/>
             </XRaw>
         </CardAP>
     </>

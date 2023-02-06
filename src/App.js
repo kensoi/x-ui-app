@@ -8,6 +8,7 @@ import { AppContent } from "./AppContent";
 import GreetingsMessage from "./components/NotifyCards/GreetingsMessage";
 import SettingsMessage from "./components/NotifyCards/SettingsMessage";
 import RegisterForm from "./components/NotifyCards/RegisterForm";
+import TumbletTest from "./components/NotifyCards/TumbletTest";
 
 class App extends React.Component {
     state = {
@@ -55,7 +56,8 @@ class App extends React.Component {
         cardLayouts: {
             hello: GreetingsMessage,
             settings: SettingsMessage,
-            register: RegisterForm
+            register: RegisterForm,
+            tumblet: TumbletTest,
         }
     }
     
