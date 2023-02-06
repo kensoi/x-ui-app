@@ -64,16 +64,16 @@ class App extends React.Component {
         localStorage.setItem("HelloMessage", JSON.stringify(true))
         this.setState({
             cardArticleState: true,
-            cardContent: toolkit.cardLayouts.GreetingsMessage,
+            cardContent: toolkit.cardLayouts.hello,
         })
     }
 
-      return <div className={`x-ui app-layout ${toolkit.colorSchema}`}>
-            <Header toolkit={toolkit}/>
-            <AppContent toolkit={toolkit}/>
-            <Footer toolkit={toolkit}/>
-            <CardArticle toolkit={toolkit}/>
-      </div>
+    return <div className={`x-ui app-layout ${toolkit.colorSchema}`}>
+        <Header toolkit={toolkit}/>
+        <AppContent toolkit={toolkit}/>
+        <Footer toolkit={toolkit}/>
+        <CardArticle toolkit={toolkit}/>
+    </div>
     }
 }
 

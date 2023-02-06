@@ -12,6 +12,9 @@ export function AppContent (props) {
                 <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.settings)}>
                     Открыть настройки 
                 </XButton>
+                <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.hello)}>
+                    Открыть приветствие 
+                </XButton>
                 <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.register)}>
                     Открыть форму регистрации 
                 </XButton>
