@@ -14,8 +14,8 @@ class App extends React.Component {
         cardArticleState: false,
         cardLayout: null,
         cardResponse: null,
-        headerState: true,
-        footerState: true,
+        headerState: JSON.parse(localStorage.getItem("headerState")) || true,
+        footerState: JSON.parse(localStorage.getItem("footerState")) || false,
         colorSchema: localStorage.getItem("colorSchema") || "auto",
     }
 
@@ -42,10 +42,16 @@ class App extends React.Component {
         },
 
         enableHeader: this.state.headerState, 
-        setHeaderState: state => this.setState({headerState: state}),
+        setHeaderState: state => {
+            this.setState({headerState: state})
+            localStorage.setItem("headerState", JSON.stringify(this.state.headerState))
+        },
         
         enableFooter: this.state.footerState, 
-        setFooterState: state => this.setState({footerState: state}),
+        setFooterState: state => {
+            this.setState({footerState: state})
+            localStorage.setItem("footerState", JSON.stringify(this.state.footerState))
+        },
         cardLayouts: {
             hello: GreetingsMessage,
             settings: SettingsMessage,
