@@ -29,9 +29,10 @@ function XDropdownButton (props) {
 }
 
 function XDropdownContent (props) {
+    const arr = Array.from(props.dropdownListContent);
     return <div className={`x-dropdown-content ${props.listDirection}`}>
             <div className="x-dropdown-list">
-                {props.dropdownListContent.map(button => <XDropdownButton button={button} key={nanoid()} onClick={props.onClick} alignBy={props.alignBy} />)}
+                {arr.map(button => <XDropdownButton button={button} key={nanoid()} onClick={props.onClick} alignBy={props.alignBy} />)}
             </div>
         </div>
 }

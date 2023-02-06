@@ -1,54 +1,74 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
-import { CardArticle, CardAH, CardAP } from "./components/x-ui/CardArticle";
+import { CardArticle } from "./components/x-ui/CardArticle";
 import "./components/x-ui/css/global.css";
 import { AppContent } from "./AppContent";
-import XList from "./components/x-ui/XList";
-import XButton from "./components/x-ui/XButton";
 
-function App() {
-    const [cardArticleState, setCardArticleState] = useState(true);
-    const [enableHeader, setHeaderState] = useState(true);
-    const [enableFooter, setFooterState] = useState(false);
-    const [colorSchema, setColorSchema] = useState("auto");
+import GreetingsMessage from "./components/NotifyCards/GreetingsMessage";
+import SettingsMessage from "./components/NotifyCards/SettingsMessage";
+import RegisterForm from "./components/NotifyCards/RegisterForm";
 
-    const toolkit = {
-        colorSchema: colorSchema, setColorSchema : setColorSchema,
-        cardArticleState: cardArticleState, setCardArticleState: setCardArticleState,
-        enableHeader: enableHeader, setHeaderState: setHeaderState,
-        enableFooter: enableFooter, setFooterState: setFooterState,
+class App extends React.Component {
+    state = {
+        cardArticleState: false,
+        cardLayout: null,
+        cardResponse: null,
+        headerState: true,
+        footerState: true,
+        colorSchema: localStorage.getItem("colorSchema") || "auto",
     }
-    return <div className="x-ui">
-        <div className={`app-layout ${toolkit.colorSchema}`}>
+
+    render () {
+      const toolkit = {
+        cardResponse: this.state.cardResponse,
+        saveCardResponse: response => this.setState(
+            {cardResponse: response}
+        ),
+        colorSchema: this.state.colorSchema, 
+        setColorSchema : schema => {
+          localStorage.setItem("colorSchema", schema)
+          this.setState({colorSchema: schema})
+          },
+
+        cardArticleState: this.state.cardArticleState, 
+        cardLayout: this.state.cardLayout,
+        setCardArticleState: state => this.setState({cardArticleState: state}),
+        setCardLayout: content => this.setState({cardLayout: content}),
+
+        closeCard: () => this.setState({cardArticleState: false}),
+        openCard: (content) => {
+            this.setState({cardArticleState: true, cardLayout: content})
+        },
+
+        enableHeader: this.state.headerState, 
+        setHeaderState: state => this.setState({headerState: state}),
+        
+        enableFooter: this.state.footerState, 
+        setFooterState: state => this.setState({footerState: state}),
+        cardLayouts: {
+            hello: GreetingsMessage,
+            settings: SettingsMessage,
+            register: RegisterForm
+        }
+    }
+    
+    const helloMessage = JSON.parse(localStorage.getItem("HelloMessage")) || false
+    if (!helloMessage) {
+        localStorage.setItem("HelloMessage", JSON.stringify(true))
+        this.setState({
+            cardArticleState: true,
+            cardContent: toolkit.cardLayouts.GreetingsMessage,
+        })
+    }
+
+      return <div className={`x-ui app-layout ${toolkit.colorSchema}`}>
             <Header toolkit={toolkit}/>
             <AppContent toolkit={toolkit}/>
             <Footer toolkit={toolkit}/>
-        </div>
-        <CardArticle enabled={cardArticleState} onClose={setCardArticleState}>
-            <CardAH> 
-                О приложении 
-            </CardAH>
-            <CardAP> 
-                Данный репозиторий служит демонстрацией компонентов X-UI (название в следствии может быть изменено), а также может быть использован в качестве шаблона для других приложений.
-            </CardAP>
-            <CardAP> 
-                По всем вопросам можно будет обратиться к автору программы. Чтобы закрыть эту карточку-статью, нажмите на красный кружок.
-            </CardAP>
-            <CardAP> 
-                <XList>
-                    <XButton 
-                            onClick={() => window.open("https://github.com/kensoi")}>
-                        Разработчик
-                    </XButton>
-                    <XButton 
-                            onClick={() => window.open("https://github.com/kensoi/x-ui-app")}>
-                        Репозиторий
-                    </XButton>
-                </XList>
-            </CardAP>
-        </CardArticle>
-    </div>
+            <CardArticle toolkit={toolkit}/>
+      </div>
+    }
 }
 
 export default App;

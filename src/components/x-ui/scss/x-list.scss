@@ -1,15 +1,16 @@
 @import "./global.scss";
 @import "./box-shadows.scss";
 
-.x-list {
+.x-block {
     $note-block-shadow: $box-shadow, $box-border;
     border-radius: $point * 2;
     padding: $point;
-    background: var(--x-menu-background);
+    background: var(--card-background);
     margin-bottom: $point;
+}
 
-    @include box-shadow($note-block-shadow);
-
+.x-list {
+    margin-bottom: $point;
     @media screen and (max-width: 720px) {
         @include vertical-list();
     }
@@ -17,7 +18,11 @@
     @media screen and (min-width: 721px) {
         @include horizontal-list();
     }
-    &:last-child {
-        margin-bottom: 0;
-    }
+}
+
+.x-raw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $point;
 }

@@ -22,8 +22,10 @@
     
             @include box-shadow($note-block-shadow);
     
-            background: #FFFFFF;
+            background-color: var(--card-background);
+            color: var(--color);
             max-width: $point * 90;
+            width: 100%;
             border-radius: $point * 4;
         
             .headline {
@@ -40,7 +42,6 @@
                 $notification-close-icon-size: 4;
     
                 @include centering();
-                @include box-shadow($note-block-shadow);
     
                 background: rgb(180, 20, 20);
                 position: sticky;
@@ -50,7 +51,7 @@
                 width: $point * $notification-close-icon-size;
                 height: $point * $notification-close-icon-size;
                 border-radius: $point * 2;
-                color: #FFFFFF;
+                color: var(--card-background);
                 cursor: pointer;
 
                 svg {

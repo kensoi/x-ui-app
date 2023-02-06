@@ -2,14 +2,14 @@ import "./scss/card-article.scss";
 import CloseIcon from '@mui/icons-material/Close';
 
 export function CardArticle (props) {
-    if (props.enabled) {
+    if (props.toolkit.cardArticleState) {
         return (
             <div className="wrapper">
-                <div className="note light">
-                    <div className="icon" onClick={() => {props.onClose(false)}}>
+                <div className="note">
+                    <div className="icon" onClick={() => {props.toolkit.closeCard(false)}}>
                         <CloseIcon/>
                     </div>
-                    {props.children}
+                    <props.toolkit.cardLayout toolkit={props.toolkit}/>
                 </div>
             </div>
         )

@@ -1,12 +1,6 @@
 @import "./global.scss";
 
 .x-ui {
-    .app-layout {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-
     .app-content {
         background: var(--background);
         flex: 1 1 auto;

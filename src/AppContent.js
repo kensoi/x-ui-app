@@ -2,7 +2,7 @@
 
 import "./components/x-ui/scss/app-content.scss";
 import XSlider from "./components/x-ui/XSlider";
-import XList from "./components/x-ui/XList";
+import {XList} from "./components/x-ui/XList";
 import XField from "./components/x-ui/XField";
 import XButton from "./components/x-ui/XButton";
 import { useState } from "react";
@@ -18,17 +18,11 @@ export function AppContent (props) {
     const [field, setField] = useState("");
     return <div className="app-content">
         <XList>
-            <XButton 
-                    onClick={() => ToggleState(props.toolkit.enableHeader, props.toolkit.setHeaderState)}>
-                toggle Header
+            <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.settings)}>
+                Открыть настройки 
             </XButton>
-            <XButton 
-                    onClick={() => ToggleState(props.toolkit.enableFooter, props.toolkit.setFooterState)}>
-                toggle Footer
-            </XButton>
-            <XButton 
-                    onClick={() => props.toolkit.setCardArticleState(true)}>
-                toggle Note
+            <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.register)}>
+                Открыть форму регистрации 
             </XButton>
         </XList>
         <XList>

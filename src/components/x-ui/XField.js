@@ -1,14 +1,42 @@
 import "./scss/x-field.scss";
+import React from "react";
 
-function XField (props) {
-    return <div className="x-field">
-        <div 
-                className="x-field-input" contentEditable="true" 
-                suppressContentEditableWarning={true} 
-                data-placeholder={props.children} onChange={(event) => {props.setField(event.target.innerHTML)}}>
-            {props.field}
-        </div>
-    </div> 
+class XField extends React.Component {
+    state = {
+        field: ""
+    }
+    componentWillMount () {
+        this.state.field = this.props.field
+    }
+    componentWillUnmount () {
+        this.state.field = ""
+    }
+    render () {
+        return <div className="x-field">
+            <div 
+                    className="x-field-input" contentEditable="true" 
+                    suppressContentEditableWarning={true} 
+                    onInput={e=> this.props.setField(e.target.innerHTML)}
+                    data-placeholder={this.props.children} 
+                >
+                {this.state.field}
+            </div>
+        </div> 
+    }
 }
 
+// var XField = React.createClass({
+//     render: function(){
+//         return <div className="x-field">
+//             <div className="x-field-input"
+//             onInput={this.emitChange}
+//             onBlur={this.emitChange}
+//             contentEditable>
+
+//             </div>
+//         </div>;
+//     }
+// });
+
 export default XField;
+

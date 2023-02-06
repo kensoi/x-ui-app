@@ -1,9 +1,12 @@
 import "./scss/x-list.scss"
 
-function XList (props) {
+export function XList (props) {
     return <div className="x-list">
         {props.children}
     </div>
 }
-
-export default XList;
+export function XRaw (props) {
+    return <div className="x-raw">
+        {props.children}
+    </div>
+}

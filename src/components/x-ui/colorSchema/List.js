@@ -22,16 +22,16 @@ export function List (props) {
             "title": "Системная",
             "action": () => {props.toolkit.setColorSchema("auto")},
         },
-        {
-            "icon": <TuneIcon/>, 
-            "title": "Кастомная",
-            "x-dropdown": [
-                {  
-                    "icon": <TuneIcon/>, 
-                    "title": "Розовая",
-                    "action": () => {props.toolkit.setColorSchema("pink")},
-                },
-            ]
-        },
+        // {
+        //     "icon": <TuneIcon/>, 
+        //     "title": "Кастомная",
+        //     "x-dropdown": [
+        //         {  
+        //             "icon": <TuneIcon/>, 
+        //             "title": "Розовая",
+        //             "action": () => {props.toolkit.setColorSchema("pink")},
+        //         },
+        //     ]
+        // },
     ]
 }

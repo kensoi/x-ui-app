@@ -13,6 +13,7 @@
         background: var(--x-button-background);
         border-radius: $point;
         color: var(--x-button-text);
+        margin-bottom: $point;
 
         .x-field-input {
             flex: 1 1 auto;
