@@ -1,7 +1,7 @@
 /* Color Schema Menu Selector */
 
-/* X-UI components */
-import {XButton, XDropdown} from "./x-ui/XForms";
+/* WEB-X-UI components */
+import {XButton, XDropdown} from "./webx/XForms";
 
 /* Material UI icons */
 import LightModeIcon from '@mui/icons-material/LightMode';
@@ -59,10 +59,7 @@ export const changerButtonData = {
 }
 
 function ColorSchemaChanger(props) {
-    return <XDropdown dropdownListContent={List(props)} alignBy="right"
-        onClickOpen={true}
-        onClickClose={true}
-        onMouseLeave={true}> 
+    return <XDropdown dropdownListContent={List(props)} alignBy="right"> 
         <XButton 
                 icon={changerButtonData[props.toolkit.colorSchema]["icon"]}
                 isDropdown={true}>

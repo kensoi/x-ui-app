@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./components/x-ui/css/global.css";
+import "./components/webx/css/global.css";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import CardWrap from "./components/x-ui/CardArticle";
+import CardWrap from "./components/webx/CardArticle";
 import cardLayouts from "./components/NotifyCards/LayoutWrapper";
 import AppContent from "./AppContent";
 
@@ -94,7 +94,7 @@ class App extends React.Component {
     }
 
     return (
-      <div className={`x-ui app-layout ${toolkit.colorSchema}`}>
+      <div className={`webx app-layout ${toolkit.colorSchema}`}>
         <Header toolkit={toolkit} />
         <AppContent toolkit={toolkit} />
         <Footer toolkit={toolkit} />

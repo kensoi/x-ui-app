@@ -1,7 +1,7 @@
 @import "./global.scss";
 @import "./box-shadows.scss";
 
-.x-ui {
+.webx {
     .wrapper {
         @include blur-backdrop();
         @include centering();

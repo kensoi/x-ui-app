@@ -1,5 +1,5 @@
 import React from "react";
-import { Headline, Paragraph } from "../x-ui/XBlock";
+import { Headline, Paragraph } from "../webx/XBlock";
 
 class NotifyCard extends React.Component {
     render () {
@@ -8,7 +8,7 @@ class NotifyCard extends React.Component {
                 О приложении 
             </Headline>
             <Paragraph> 
-                Данный репозиторий служит демонстрацией компонентов X-UI (название в следствии 
+                Данный репозиторий служит демонстрацией компонентов WEB-X-UI (название в следствии 
                 может быть изменено), а также может быть использован в качестве шаблона для других
                 приложений.
             </Paragraph>

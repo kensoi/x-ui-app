@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Headline, Paragraph } from "../x-ui/XBlock";
-import { XField, XButton } from "../x-ui/XForms";
-import { XList } from "../x-ui/Separators";
+import { Headline, Paragraph } from "../webx/XBlock";
+import { XField, XButton } from "../webx/XForms";
+import { XList } from "../webx/Separators";
 
 class NotifyCard extends React.Component {
     state = {

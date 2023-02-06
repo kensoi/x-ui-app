@@ -1,6 +1,6 @@
 import "./scss/header.scss";
 
-import {XButton, XDropdown} from "./x-ui/XForms";
+import {XButton, XDropdown} from "./webx/XForms";
 import MenuIcon from '@mui/icons-material/Menu';
 
 import TextFieldsIcon from '@mui/icons-material/TextFields';
@@ -59,7 +59,7 @@ const MenuList = [
 
 function HeaderLogo (props) {
     return <div className="header-logo">
-        X-UI шаблон
+        WebCrossUI
     </div>
 }
 

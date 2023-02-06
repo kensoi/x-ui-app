@@ -1,4 +1,4 @@
-# X-UI Шаблон приложения
+# WEB-X-UI Шаблон приложения
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

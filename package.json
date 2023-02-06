@@ -1,7 +1,7 @@
 {
-  "name": "x-ui-app",
-  "version": "0.3.2",
-  "homepage": "https://kensoi.github.io/x-ui-app",
+  "name": "web-webx",
+  "version": "0.3.3",
+  "homepage": "https://kensoi.github.io/WebCrossUI",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",

@@ -1,11 +1,11 @@
-@import "../x-ui/scss/global.scss";
-@import "../x-ui/scss/box-shadows.scss";
+@import "../webx/scss/global.scss";
+@import "../webx/scss/box-shadows.scss";
 
 $footer-background: #000000;
 $footer-content-background: #000000;
 $footer-text-color: #FFFFFF;
 
-.x-ui {
+.webx {
     .footer {
         @include centering();
         @include box-shadow($box-border);

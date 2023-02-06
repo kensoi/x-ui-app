@@ -1,8 +1,8 @@
-import "./css/XTumble.css";
-import "./scss/x-slider.scss";
-import "./scss/x-field.scss";
-import "./scss/x-dropdown.scss";
-import "./scss/x-button.scss";
+import "./scss/x-forms/x-tumbler.scss";
+import "./scss/x-forms/x-slider.scss";
+import "./scss/x-forms/x-field.scss";
+import "./scss/x-forms/x-dropdown.scss";
+import "./scss/x-forms/x-button.scss";
 
 import React from "react";
 import { nanoid } from 'nanoid'
@@ -74,13 +74,11 @@ export class XDropdown extends React.Component {
                 wonderbread: false,
             })
             setTimeout(() => {
-                // console.log("done!")
                 this.setState({overflow: false})
             }, 100)
         }
         else {
             setTimeout(() => {
-                // console.log("done!")
                 this.setState({
                     wonderbread: true,
                 })
@@ -95,7 +93,6 @@ export class XDropdown extends React.Component {
             wonderbread: false,
         })
         setTimeout(() => {
-            // console.log("done!")
             this.setState({overflow: false})
         }, 100)
     }
@@ -125,24 +122,25 @@ export class XField extends React.Component {
     state = {
         field: ""
     }
+
     componentWillMount () {
         this.setState({
             field: this.props.field
-        })
-    }
+        });
+    };
+
     componentWillUnmount () {
         this.setState({
             field: ""
-        })
-    }
+        });
+    };
+
     render () {
         return <div className="x-field">
-            <div 
-                    className="x-field-input" contentEditable="true" 
+            <div className="x-field-input" contentEditable="true" 
                     suppressContentEditableWarning={true} 
                     onInput={e=> this.props.setField(e.target.innerHTML)}
-                    data-placeholder={this.props.children} 
-                >
+                    data-placeholder={this.props.children}>
                 {this.state.field}
             </div>
         </div> 
@@ -189,9 +187,9 @@ export class XTumbler extends React.Component {
     };
     
     getContextButton = (item) => {
-        var classList = ['xtumble-item']
+        var classList = ['x-tumbler-item']
         if (this.state.context !== item.context) {
-            classList.push("xtumble-selected")
+            classList.push("x-tumbler-selected")
         }
         if (item.type) {
             classList.push("svg")
@@ -202,8 +200,8 @@ export class XTumbler extends React.Component {
         </div>
     }
     render () {
-        return <div className="xtumble"> 
-            <div className="xtumble-wrapper">
+        return <div className="x-tumbler"> 
+            <div className="x-tumbler-wrapper">
                 {this.props.tumbleConfig.map(this.getContextButton)}
             </div>
         </div>

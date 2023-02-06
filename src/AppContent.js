@@ -1,9 +1,9 @@
 
 
-import "./components/x-ui/scss/app-content.scss";
-import {XList} from "./components/x-ui/Separators";
-import {XButton} from "./components/x-ui/XForms";
-import {XBlock} from "./components/x-ui/XBlock";
+import "./components/webx/scss/app-content.scss";
+import {XList} from "./components/webx/Separators";
+import {XButton} from "./components/webx/XForms";
+import {XBlock} from "./components/webx/XBlock";
 
 function AppContent (props) {
     return <div className="app-content">
