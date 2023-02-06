@@ -1,5 +1,4 @@
 import { CardAH, CardAP } from "../x-ui/CardArticle";
-import XDropdown from "../x-ui/XDropdown";
 import XButton from "../x-ui/XButton";
 import XField from "../x-ui/XField";
 import { XList } from "../x-ui/Separators";

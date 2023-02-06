@@ -1,7 +1,7 @@
 import "./scss/x-dropdown.scss";
 import { CheckValue } from "./Utils";
 import { nanoid } from 'nanoid'
-import React, { useState, useRef} from "react";
+import React from "react";
 import XButton from './XButton';
 
 function XDropdownButton (props) {

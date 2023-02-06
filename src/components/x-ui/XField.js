@@ -6,10 +6,14 @@ class XField extends React.Component {
         field: ""
     }
     componentWillMount () {
-        this.state.field = this.props.field
+        this.setState({
+            field: this.props.field
+        })
     }
     componentWillUnmount () {
-        this.state.field = ""
+        this.setState({
+            field: ""
+        })
     }
     render () {
         return <div className="x-field">

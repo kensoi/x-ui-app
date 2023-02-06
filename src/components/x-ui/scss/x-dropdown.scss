@@ -13,8 +13,6 @@
         $padding-y: $padding;
         --x-button-height: #{ $point * 5 };
         --dropdown-icon-transition: 0.1s;
-        .x-dropdown-clickarea {
-        }
         .x-dropdown-content {
             position: absolute;
             z-index: 990;
