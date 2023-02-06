@@ -1,11 +1,14 @@
-import { Headline, CardAP } from "../x-ui/CardArticle";
+import React from "react";
+
+import { Headline, Paragraph } from "../x-ui/XBlock";
 import { XRaw } from "../x-ui/Separators";
-import XTumble from "../x-ui/XTumble";
-import { useState } from "react";
+import { XTumbler } from "../x-ui/XForms";
+
 import DoneIcon from '@mui/icons-material/Done';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
-function NotifyCard (props) {
-    const contexts = [
+
+class NotifyCard extends React.Component {
+    contexts = [
         {
             name: <DoneIcon />,
             type: "svg",
@@ -17,18 +20,35 @@ function NotifyCard (props) {
             context: "Мандарины без косточек"
         }
     ]
-    const [context, setContext] = useState(contexts[0].context); // state test
-    return <> 
-        <Headline> 
-            Проверка тумблета 
-        </Headline>
-        <CardAP> 
-            <XRaw>
-                Включить свет
-                <XTumble tumbleConfig={contexts} context={context} setContext={setContext}/>
-            </XRaw>
-        </CardAP>
-    </>
+    state = {
+        context: this.contexts[0].context,
+    }
+
+    setContext = (value) => {
+        this.setState({
+            context: value,
+        })
+    }
+
+    render () {
+        return <> 
+            <Headline> 
+                Проверка тумблета 
+            </Headline>
+            <Paragraph> 
+                <XRaw>
+                    Включить свет
+                    <XTumbler 
+                        tumbleConfig={this.contexts} 
+                        context={this.state.context} 
+                        setContext={this.setContext}/>
+                </XRaw>
+                <XRaw>
+                    Выставленное значение: {this.state.context}
+                </XRaw>
+            </Paragraph>
+        </>
+    }
 }
 
 export default NotifyCard;

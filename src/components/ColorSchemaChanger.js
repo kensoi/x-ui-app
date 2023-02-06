@@ -1,8 +1,7 @@
 /* Color Schema Menu Selector */
 
 /* X-UI components */
-import XButton from "./x-ui/XButton";
-import XDropdown from "./x-ui/XDropdown";
+import {XButton, XDropdown} from "./x-ui/XForms";
 
 /* Material UI icons */
 import LightModeIcon from '@mui/icons-material/LightMode';
@@ -27,17 +26,17 @@ export function List (props) {
             "title": "Системная",
             "action": () => {props.toolkit.setColorSchema("auto")},
         },
-        // {
-        //     "icon": <TuneIcon/>, 
-        //     "title": "Кастомная",
-        //     "x-dropdown": [
-        //         {  
-        //             "icon": <TuneIcon/>, 
-        //             "title": "Розовая",
-        //             "action": () => {props.toolkit.setColorSchema("pink")},
-        //         },
-        //     ]
-        // },
+        {
+            "icon": <TuneIcon/>, 
+            "title": "Кастомная",
+            "x-dropdown": [
+                {  
+                    "icon": <TuneIcon/>, 
+                    "title": "Розовая",
+                    "action": () => {props.toolkit.setColorSchema("pink")},
+                },
+            ]
+        },
     ]
 }
 export const changerButtonData = {

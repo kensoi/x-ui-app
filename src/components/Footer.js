@@ -1,6 +1,6 @@
 import "./scss/footer.scss";
 
-export function Footer (props) {
+function Footer (props) {
     if (props.toolkit.enableFooter) {
         return (
             <div className="footer">
@@ -11,3 +11,5 @@ export function Footer (props) {
         )
     }
 }
+
+export default Footer;

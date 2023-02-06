@@ -2,10 +2,10 @@
 
 import "./components/x-ui/scss/app-content.scss";
 import {XList} from "./components/x-ui/Separators";
-import XButton from "./components/x-ui/XButton";
-import XBlock from "./components/x-ui/XBlock";
+import {XButton} from "./components/x-ui/XForms";
+import {XBlock} from "./components/x-ui/XBlock";
 
-export function AppContent (props) {
+function AppContent (props) {
     return <div className="app-content">
         <XBlock>
             <XList>
@@ -25,3 +25,5 @@ export function AppContent (props) {
         </XBlock>
     </div>
 }
+
+export default AppContent;

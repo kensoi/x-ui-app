@@ -1,6 +1,6 @@
 {
   "name": "x-ui-app",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://kensoi.github.io/x-ui-app",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "node ./gen_404.js",
+    "postbuild": "node ./NotFoundUtil.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

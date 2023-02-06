@@ -48,6 +48,7 @@
 }
 .xtumble .xtumble-item.svg {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
