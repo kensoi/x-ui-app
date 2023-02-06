@@ -1,0 +1,10 @@
+@import "./global.scss";
+@import "./box-shadows.scss";
+
+.x-block {
+    $note-block-shadow: $box-shadow, $box-border;
+    border-radius: $point * 2;
+    padding: $point;
+    background: var(--card-background);
+    margin-bottom: $point;
+}

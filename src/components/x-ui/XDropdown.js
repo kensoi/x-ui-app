@@ -1,7 +1,7 @@
 import "./scss/x-dropdown.scss";
 import { CheckValue } from "./Utils";
 import { nanoid } from 'nanoid'
-import React, { useState } from "react";
+import React, { useState, useRef} from "react";
 import XButton from './XButton';
 
 function XDropdownButton (props) {
@@ -9,9 +9,12 @@ function XDropdownButton (props) {
     let icon = props.button["icon"]
     let title = props.button["title"]
     let XDropdownObj = props.button["x-dropdown"]
-
+    let overflow = props.overflow
+    if (!overflow) {
+        return
+    }
     if (XDropdownObj) {
-        return <XDropdown dropdownListContent={XDropdownObj} action="hover" alignBy={props.alignBy}>
+        return <XDropdown dropdownListContent={XDropdownObj} alignBy={props.alignBy}>
             <XButton 
                     icon={icon} 
                     isDropdown={true}>
@@ -22,56 +25,79 @@ function XDropdownButton (props) {
     else {
         return <XButton 
                 icon={icon} 
-                onClick={() => {props.onClick(); onButtonClick();}}>
+                onClick={() => {
+                        props.onClick(); onButtonClick();
+                    }
+                }>
             {title}
         </XButton>
     }
 }
 
-function XDropdownContent (props) {
-    const arr = Array.from(props.dropdownListContent);
-    return <div className={`x-dropdown-content ${props.listDirection}`}>
-            <div className="x-dropdown-list">
-                {arr.map(button => <XDropdownButton button={button} key={nanoid()} onClick={props.onClick} alignBy={props.alignBy} />)}
+class XDropdown extends React.Component {
+    state = {
+        dropdownListContent: Array.from(this.props.dropdownListContent),
+        wonderbread: false, // открытость-закрытость
+        alignBy: CheckValue(this.props.alignBy, "right", "left"),
+        listDirection: CheckValue(this.props.listDirection, "row", "column"),
+        overflow: false,
+    }
+    
+    onClickToToggle = () => {
+        if (this.state.wonderbread) {
+            this.setState({
+                wonderbread: false,
+            })
+            setTimeout(() => {
+                console.log("done!")
+                this.setState({overflow: false})
+            }, 100)
+        }
+        else {
+            this.setState({
+                wonderbread: true,
+                overflow: true,
+            })
+
+        }
+    }
+    
+    onMouseLeave = () => {
+        this.setState({
+            wonderbread: false,
+        })
+        setTimeout(() => {
+            console.log("done!")
+            this.setState({overflow: false})
+        }, 100)
+    }
+
+
+    XDropdownContent = () => {
+        return <div className={`x-dropdown-content ${this.state.listDirection}`}>
+                <div className="x-dropdown-list"
+                    onMouseLeave={this.onMouseLeave} >
+                    {
+                        this.state.dropdownListContent.map(button => <XDropdownButton button={button} key={nanoid()} overflow={this.state.overflow} onClick={
+                            () => {
+                                this.setState({
+                                    wonderbread: false,
+                                })
+                            }} alignBy={this.state.alignBy} />)}
+                </div>
             </div>
-        </div>
-}
-
-function XDropdown(props) {
-    const [state, setState] = useState(false);
-
-    let onClick;
-    let onMouseEnter;
-    let onDone = () => setState(false); 
-
-    let alignBy = CheckValue(props.alignBy, "right", "left");
-    let listDirection = CheckValue(props.listDirection, "row", "column");
-
-    switch (props.openOn) {
-        case "hover":
-            onMouseEnter = () => setState(true); 
-            break;
-
-        default:
-            onClick = () => setState(true); 
-            break;
     }
-
-    if (!props.dropdownListContent) {
-        return props.children
+    ChildButton = () => {
+        return this.props.children
     }
-
-    return <div className={`x-dropdown ${state ? "opened" : "closed"} align-${alignBy}`}
-                onClick={onClick}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onDone}>
-            {props.children}
-            <XDropdownContent
-                dropdownListContent={props.dropdownListContent} 
-                listDirection={listDirection} 
-                onClick={onDone} 
-                alignBy={props.alignBy}/>
+    
+    render () {
+        return <div className={`x-dropdown ${this.state.wonderbread ? "opened" : "closed"} align-${this.state.alignBy}`}>
+            <div className="x-dropdown-clickarea" onClick={this.onClickToToggle}></div>
+            <this.ChildButton />
+            {this.state.overflow ? <this.XDropdownContent /> : ""}
         </div>
+    }
 }
 
 export default XDropdown;

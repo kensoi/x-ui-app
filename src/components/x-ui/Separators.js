@@ -1,4 +1,4 @@
-import "./scss/x-list.scss"
+import "./scss/separators.scss"
 
 export function XList (props) {
     return <div className="x-list">

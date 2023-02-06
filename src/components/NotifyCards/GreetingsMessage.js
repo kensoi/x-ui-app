@@ -1,5 +1,5 @@
 import { CardAH, CardAP } from "../x-ui/CardArticle";
-import { XList } from "../x-ui/XList";
+import { XList } from "../x-ui/Separators";
 import XButton from "../x-ui/XButton";
 
 function NotifyCard (props) {

@@ -1,13 +1,4 @@
 @import "./global.scss";
-@import "./box-shadows.scss";
-
-.x-block {
-    $note-block-shadow: $box-shadow, $box-border;
-    border-radius: $point * 2;
-    padding: $point;
-    background: var(--card-background);
-    margin-bottom: $point;
-}
 
 .x-list {
     margin-bottom: $point;
@@ -18,6 +9,9 @@
     @media screen and (min-width: 721px) {
         @include horizontal-list();
     }
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .x-raw {
@@ -25,4 +19,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: $point;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }

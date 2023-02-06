@@ -1,10 +1,9 @@
 
 
 import "./components/x-ui/scss/app-content.scss";
-import XSlider from "./components/x-ui/XSlider";
-import {XList} from "./components/x-ui/XList";
-import XField from "./components/x-ui/XField";
+import {XList} from "./components/x-ui/Separators";
 import XButton from "./components/x-ui/XButton";
+import XBlock from "./components/x-ui/XBlock";
 import { useState } from "react";
 
 function ToggleState (state, setstate) {
@@ -17,19 +16,15 @@ function ToggleState (state, setstate) {
 export function AppContent (props) {
     const [field, setField] = useState("");
     return <div className="app-content">
-        <XList>
-            <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.settings)}>
-                Открыть настройки 
-            </XButton>
-            <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.register)}>
-                Открыть форму регистрации 
-            </XButton>
-        </XList>
-        <XList>
-            <XSlider value={0} min={1} max={100}/>
-            <XField field={field} setField={setField}>
-                Type here anything
-            </XField>
-        </XList>
+        <XBlock>
+            <XList>
+                <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.settings)}>
+                    Открыть настройки 
+                </XButton>
+                <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.register)}>
+                    Открыть форму регистрации 
+                </XButton>
+            </XList>
+        </XBlock>
     </div>
 }

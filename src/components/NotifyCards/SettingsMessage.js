@@ -1,5 +1,5 @@
 import { CardAH, CardAP } from "../x-ui/CardArticle";
-import { XRaw } from "../x-ui/XList";
+import { XRaw } from "../x-ui/Separators";
 import ColorSchemaChanger from "../x-ui/colorSchema/Changer";
 import XDropdown from "../x-ui/XDropdown";
 import XButton from "../x-ui/XButton";
@@ -37,12 +37,18 @@ function NotifyCard (props) {
             <XRaw>
                 Включить Header
                 <Dropdown 
+                    onClickOpen={true}
+                    onMissClickClose={true}
+                    onMouseOver={true}
                     currentState={props.toolkit.enableHeader} 
                     setCurrentState={props.toolkit.setHeaderState} />
             </XRaw>
             <XRaw>
                 Включить Footer
                 <Dropdown 
+                    onClickOpen={true}
+                    onClickClose={true}
+                    onMouseOver={true}
                     currentState={props.toolkit.enableFooter} 
                     setCurrentState={props.toolkit.setFooterState} />
             </XRaw>
