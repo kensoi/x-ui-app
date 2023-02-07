@@ -66,7 +66,7 @@ function HeaderLogo (props) {
 function Header (props) {
     if (props.toolkit.enableHeader) {
         return (
-            <div className="header dark">
+            <div className="header">
                 <div className="header-content">
                     <div className="header-buttons">
                         <XDropdown dropdownListContent={MenuList}>

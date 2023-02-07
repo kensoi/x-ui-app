@@ -13,6 +13,15 @@
         $padding-y: $padding;
         --x-button-height: #{ $point * 5 };
         --dropdown-icon-transition: 0.1s;
+        
+        --x-button-background: var(--x-field-background);
+        --x-button-background-hover: var(--x-field-background-hover);
+        --x-button-text: var(--x-field-text);
+        --x-button-icon: var(--x-field-icon);
+        .x-button {
+            box-shadow: none;
+        }
+
         .x-dropdown-content {
             position: absolute;
             z-index: 990;
@@ -43,7 +52,7 @@
                 opacity: var(--x-menu-dropdown-opacity);
                 padding: $padding-x $padding-y;
                 width: fit-content;
-                box-shadow: var(--box-shadow);
+                box-shadow: $box-shadow, $box-border;
 
                 border-radius: calc(var(--border-radius) + 2px);
                 box-sizing: unset;

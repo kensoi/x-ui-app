@@ -10,6 +10,7 @@
         user-select: none;
         cursor: pointer;
         height: var(--x-button-height);
+        box-shadow: $box-shadow;
 
         &:hover {
             background: var(--x-button-background-hover);
@@ -21,7 +22,7 @@
             align-items: center;
             width: var(--x-button-height);
             height: var(--x-button-height);
-            color: var(--x-button-icon)
+            color: var(--x-button-icon);
         }
         .x-button-title {
             flex: 1 1 auto;

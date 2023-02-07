@@ -4,9 +4,13 @@ import "./components/webx/scss/app-content.scss";
 import {XList} from "./components/webx/Separators";
 import {XButton} from "./components/webx/XForms";
 import {XBlock} from "./components/webx/XBlock";
+import Teaser from "./components/WebXUI";
 
 function AppContent (props) {
     return <div className="app-content">
+        <XBlock>
+            <Teaser />
+        </XBlock>
         <XBlock>
             <XList>
                 <XButton onClick = {()=> props.toolkit.openCard(props.toolkit.cardLayouts.settings)}>

@@ -3,7 +3,6 @@
 
 .webx {
     .wrapper {
-        @include blur-backdrop();
         @include centering();
 
         background: rgba(0, 0, 0, 0.274);
@@ -17,10 +16,11 @@
         z-index: 100;
         transition: .2s;
         &.opened {
-            opacity: 1;
+            @include blur-backdrop();
         }
         &.closed {
             opacity: 0;
+            @include blur-backdrop-disabled();
         }
 
         .note {

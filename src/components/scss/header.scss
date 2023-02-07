@@ -6,12 +6,40 @@ $header-text-color: #FFFFFF;
 $header-logo-size: 3px;
 
 .webx {
+    &.dark {
+        .header {
+            background: $header-background;
+            color: $header-text-color;
+        }
+        
+    }
+    &.light {
+        .header {
+            background: $header-text-color;
+            color: $header-background;
+        }
+    }
+    &.pink {
+        .header {
+            background: $header-text-color;
+            color: $header-background;
+        }
+    }
+    &.auto {
+        .header {
+            @media screen and (prefers-color-scheme: dark) {
+                background: $header-background;
+                color: $header-text-color;
+            }
+            @media screen and (prefers-color-scheme: light) {
+                background: $header-text-color;
+                color: $header-background;
+            }
+        }
+    }
     .header {
         @include centering();
         @include box-shadow($box-border);
-        
-        background: $header-background;
-        color: $header-text-color;
 
         position: sticky;
         top: 0;

@@ -3,6 +3,7 @@ import React from "react";
 import { Headline, Paragraph } from "../webx/XBlock";
 import { XField, XButton } from "../webx/XForms";
 import { XList } from "../webx/Separators";
+import ShortTextIcon from '@mui/icons-material/ShortText';
 
 class NotifyCard extends React.Component {
     state = {
@@ -39,20 +40,21 @@ class NotifyCard extends React.Component {
     };
 
     render () {
+        const icon = <ShortTextIcon />
         return <> 
             <Headline> 
                 Регистрация пользователя 
             </Headline>
             <Paragraph> 
                 <XList>
-                    <XField field = {this.state.name} setField = {this.setName}>
+                    <XField icon = {icon} field = {this.state.name} setField = {this.setName}>
                         Имя пользователя
                     </XField>
-                    <XField field = {this.state.username} setField = {this.setUsername}>
+                    <XField icon = {icon} field = {this.state.username} setField = {this.setUsername}>
                         Никнейм
                     </XField>
                 </XList>
-                <XField field = {this.state.email} setField = {this.setEmail}>
+                <XField icon = {icon} field = {this.state.email} setField = {this.setEmail}>
                     Электронная почта
                 </XField>
             </Paragraph>

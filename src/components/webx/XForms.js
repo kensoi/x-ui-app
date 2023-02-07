@@ -137,6 +137,9 @@ export class XField extends React.Component {
 
     render () {
         return <div className="x-field">
+            {
+                this.props.icon ? <div className="x-field-icon">{this.props.icon}</div> : ""
+            }
             <div className="x-field-input" contentEditable="true" 
                     suppressContentEditableWarning={true} 
                     onInput={e=> this.props.setField(e.target.innerHTML)}

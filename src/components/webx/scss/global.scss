@@ -10,6 +10,10 @@ $point: 8px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
+@mixin blur-backdrop-disabled() {
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
 
 
 @mixin vertical-list() {
