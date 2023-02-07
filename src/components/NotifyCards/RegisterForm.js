@@ -31,12 +31,11 @@ class NotifyCard extends React.Component {
     };
     
     sendResponse = () => {
-        this.props.toolkit.saveCardResponse({
+        this.props.toolkit.returnCardResponse({
             "name": this.state.name,
             "username": this.state.username,
             "email": this.state.email,
         });
-        this.props.toolkit.closeCard();
     };
 
     goToLogin = () => {

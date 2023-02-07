@@ -20,7 +20,7 @@ function AppContent (props) {
         {
             props.toolkit.cardResponse ? 
             <XBlock>
-                {JSON.stringify(props.toolkit.cardResponse)}
+                Card Response: {JSON.stringify(props.toolkit.cardResponse)}
             </XBlock>
             : ""
         }
@@ -29,10 +29,10 @@ function AppContent (props) {
                 Примеры форм
             </Headline>
             <XList>
-                <Icon icon={<AppShortcutIcon/>} onClick = {()=> props.toolkit.openCard("hello")} title="Открыть приветствие" />
-                <Icon icon={<HowToRegIcon/>} onClick = {()=> props.toolkit.openCard("register")} title="Зарегистрироваться" />
-                <Icon icon={<LoginIcon/>} onClick = {()=> props.toolkit.openCard("login")} title="Авторизироваться" />
-                <Icon icon={<SettingsIcon/>} onClick = {()=> props.toolkit.openCard("settings")} title="Настройки" />
+                <Icon icon={<AppShortcutIcon/>} onClick = {()=> props.toolkit.showCard("hello")} title="Открыть приветствие" />
+                <Icon icon={<HowToRegIcon/>} onClick = {()=> props.toolkit.showCard("register")} title="Зарегистрироваться" />
+                <Icon icon={<LoginIcon/>} onClick = {()=> props.toolkit.showCard("login")} title="Авторизироваться" />
+                <Icon icon={<SettingsIcon/>} onClick = {()=> props.toolkit.showCard("settings")} title="Настройки" />
             </XList>
         </XBlock>
         <XBlock>
@@ -40,10 +40,10 @@ function AppContent (props) {
                 Тестовые компоненты
             </Headline>
             <XList>
-                <XButton onClick = {()=> props.toolkit.openCard("slider")}>
+                <XButton onClick = {()=> props.toolkit.showCard("slider")}>
                     Тестовый ползунок 
                 </XButton>
-                <XButton onClick = {()=> props.toolkit.openCard("tumbler")}>
+                <XButton onClick = {()=> props.toolkit.showCard("tumbler")}>
                     Тестовый переключатель 
                 </XButton>
             </XList>

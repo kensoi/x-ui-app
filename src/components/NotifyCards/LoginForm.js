@@ -7,15 +7,8 @@ import ShortTextIcon from '@mui/icons-material/ShortText';
 
 class NotifyCard extends React.Component {
     state = {
-        name: "",
         username: "",
-        email: "",
-    };
-    
-    setName = (value) => {
-        this.setState({
-            name: value,
-        });
+        password: "",
     };
 
     setUsername = (value) => {
@@ -24,31 +17,26 @@ class NotifyCard extends React.Component {
         });
     };
 
-    setEmail = (value) => {
+    setPassword = (value) => {
         this.setState({
-            email: value,
+            password: value,
         });
     };
     
     sendResponse = () => {
-        this.props.toolkit.saveCardResponse({
-            "name": this.state.name,
+        this.props.toolkit.returnCardResponse({
             "username": this.state.username,
-            "email": this.state.email,
+            "password": this.state.password,
         });
-        this.props.toolkit.closeCard();
     };
 
 
     goToRegister = () => {
-        this.props.closeCard();
-        setTimeout(
-            () => {this.props.toolkit.openCard("register")}, 300
-        )
-    }
+        this.props.toolkit.showCard("register");
+    };
 
     render () {
-        const icon = <ShortTextIcon />
+        const icon = <ShortTextIcon />;
         return <> 
             <Headline> 
                 Войти 
@@ -60,7 +48,7 @@ class NotifyCard extends React.Component {
                     </XField>
                 </XList>
                 <XList>
-                    <XField icon = {icon} field = {this.state.username} setField = {this.setUsername}>
+                    <XField icon = {icon} field = {this.state.password} setField = {this.setPassword}>
                         Пароль
                     </XField>
                 </XList>

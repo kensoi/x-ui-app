@@ -14,25 +14,78 @@ class App extends React.Component {
 
     this.state = {
       cardOffset: "0px",
-      cardArticleState: false,
       cardLayout: null,
       cardResponse: null,
+      cardMounted: false,
+      cardLoaded: false,
+
       headerState: JSON.parse(localStorage.getItem("headerState")) || true,
       footerState: JSON.parse(localStorage.getItem("footerState")) || true,
       colorSchema: localStorage.getItem("colorSchema") || "auto",
     };
   }
 
-  componentDidUpdate() {
-    // this.toolkit.cardArticleState ? this.enableScroll() : this.disableScroll();
-  }
+  loadCard = () => {
+    this.setState({
+      cardLoaded: true,
+    });
+  };
+
   createToolkit () {
     this.toolkit = {
+      cardMounted: this.state.cardMounted, // Component mounted and ready to show
+      cardLoaded: this.state.cardLoaded, // Component showed
       cardResponse: this.state.cardResponse,
-      saveCardResponse: (response) => {
+      cardLayout: this.state.cardLayout,
+
+      showCard: (layout) => {
         this.setState({
-          cardResponse: response,
+          cardOffset: window.scrollY + "px",
+        })
+        if (this.state.cardMounted) {
+          this.toolkit.returnCardResponse({})
+          setTimeout(() => {
+            this.setState({
+              cardMounted: true,
+              cardLayout: cardLayouts[layout],
+            });
+          }, 300)
+          setTimeout(() => {
+            this.setState({
+              cardLoaded: true,
+            });
+          }, 400);
+        }
+        else {
+          this.setState({
+            cardMounted: true,
+            cardLayout: cardLayouts[layout],
+          });
+          setTimeout(() => {
+            this.setState({
+              cardLoaded: true,
+            });
+          }, 100);
+        };
+      },
+      returnCardResponse: (response) => {
+        this.setState({
+          cardLoaded: false,
         });
+        setTimeout(() => {
+          this.setState({
+            cardResponse: { ...response },
+          });
+        }, 100);
+        setTimeout(() => {
+          this.setState({
+            cardMounted: false,
+          });
+        }, 200);
+      },
+
+      getCardOffset: ()=>{
+        return this.state.cardOffset
       },
 
       colorSchema: this.state.colorSchema,
@@ -43,40 +96,8 @@ class App extends React.Component {
         });
       },
 
-      cardArticleState: this.state.cardArticleState,
-      cardLayout: this.state.cardLayout,
-
-      setCardArticleState: (state) => {
-        this.setState({
-          cardArticleState: state,
-        });
-      },
-
-      setCardLayout: (content) => {
-        this.setState({
-          cardLayout: content,
-        });
-      },
-
-      closeCard: () => {
-        this.setState({
-          cardArticleState: false,
-        });
-      },
-
-      openCard: (content) => {
-        this.setState({
-          cardOffset: window.scrollY + "px",
-          cardArticleState: true,
-          cardLayout: cardLayouts[content],
-        });
-      },
-      getScrollLock: () => {
-        return this.state.cardOffset;
-      },
 
       enableHeader: this.state.headerState,
-
       setHeaderState: (state) => {
         this.setState({
           headerState: state,
@@ -110,11 +131,11 @@ class App extends React.Component {
 
     return (
       <div className={`webx ${this.toolkit.colorSchema}`}>
-          <Header toolkit={this.toolkit} />
-          <AppContent toolkit={this.toolkit} />
-          <Footer toolkit={this.toolkit} />
-        {this.toolkit.cardArticleState ? (
-          <CardWrap toolkit={this.toolkit} />
+        <Header toolkit={this.toolkit} />
+        <AppContent toolkit={this.toolkit} />
+        <Footer toolkit={this.toolkit} />
+        { this.toolkit.cardMounted ? (
+          <CardWrap toolkit={this.toolkit} loadCard={this.loadCard}/>
         ) : (
           ""
         )}

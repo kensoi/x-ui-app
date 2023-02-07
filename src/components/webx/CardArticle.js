@@ -4,40 +4,26 @@ import React from "react";
 
 
 class CardWrap extends React.Component {
-  state = {
-    opened: false,
-  };
-
-  open = () => {
-    setTimeout(() => this.setState({
-      opened: true,
-    }), 100);
-    
-  };
-
-  close = () => {
-    this.setState({
-      opened: false,
-    });
-    setTimeout(() => this.props.toolkit.closeCard(false), 200);
+  returnNull = () => {
+    this.props.toolkit.returnCardResponse({});
   };
 
   componentDidMount() {
-    setTimeout(this.open(), 100);
+    setTimeout(() => this.props.loadCard(), 100);
   };
 
   render() {
     try {
       return (
         <>
-        <div className={`wrapper ${this.state.opened ? "opened" : "closed"}`}>
+        <div className={`wrapper ${this.props.toolkit.cardLoaded ? "opened" : "closed"}`}>
         </div>
-        <div className="note-positioner" style={{top: this.props.toolkit.getScrollLock()}}>
-          <div className={`note ${this.state.opened ? "opened" : "closed"}`} >
-              <div className="icon" onClick={this.close}>
+        <div className="note-positioner" style={{top: this.props.toolkit.getCardOffset()}}>
+          <div className={`note ${this.props.toolkit.cardLoaded ? "opened" : "closed"}`} >
+              <div className="icon" onClick={this.returnNull}>
                 <CloseIcon />
               </div>
-              <this.props.toolkit.cardLayout closeCard={this.close} toolkit={this.props.toolkit} />
+              <this.props.toolkit.cardLayout toolkit={this.props.toolkit} />
             </div>
           </div>
         </>

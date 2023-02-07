@@ -123,7 +123,7 @@ export class XField extends React.Component {
         field: ""
     }
 
-    componentWillMount () {
+    componentDidMount () {
         this.setState({
             field: this.props.field
         });
