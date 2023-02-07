@@ -40,6 +40,8 @@ $header-logo-size: 3px;
     .header {
         @include centering();
         @include box-shadow($box-border);
+        --x-button-header-bg: rgba(0,0,0,0)!important;
+        --x-button-header-bg-hover: var(--x-field-background);
 
         position: sticky;
         top: 0;
@@ -53,6 +55,7 @@ $header-logo-size: 3px;
 
             justify-content: space-between;
             width: 100%;
+            max-width: $point * 120;
             height: $point * 7;
             
             padding: 0 $point * 2;

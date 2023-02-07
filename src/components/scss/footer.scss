@@ -6,24 +6,55 @@ $footer-content-background: #000000;
 $footer-text-color: #FFFFFF;
 
 .webx {
-    .footer {
-        @include centering();
-        @include box-shadow($box-border);
+    &.dark {
+        .footer {
+            background: $footer-background;
+            color: $footer-text-color;
+        }
         
-        position: sticky;
-        bottom: 0;
+    }
+    &.light {
+        .footer {
+            background: $footer-text-color;
+            color: $footer-background;
+        }
+    }
+    &.pink {
+        .footer {
+            background: $footer-text-color;
+            color: $footer-background;
+        }
+    }
+    &.auto {
+        .footer {
+            @media screen and (prefers-color-scheme: dark) {
+                background: $footer-background;
+                color: $footer-text-color;
+            }
+            @media screen and (prefers-color-scheme: light) {
+                background: $footer-text-color;
+                color: $footer-background;
+            }
+        }
+    }
+    .footer {
+        @include box-shadow($box-border);
+
         background: $footer-background;
         color: $footer-text-color;
 
-        height: $point * 7;
+        min-height: $point * 7;
+        box-sizing: border-box;
 
         .footer-content {
-            background: $footer-content-background;
-
             width: 100%;
+            margin: 0 auto;
             max-width: $point * 120;
-            height: $point * 7;
-            padding: 0 $point * 2;
+            min-height: $point * 7;
+            padding: $point $point * 2;
+            font-family: 'TT Commons';
+            font-size: $point * 2;
+            box-sizing: border-box;
         }
     }
 }

@@ -9,28 +9,36 @@ import cardLayouts from "./components/NotifyCards/LayoutWrapper";
 import AppContent from "./AppContent";
 
 class App extends React.Component {
-  state = {
-    cardArticleState: false,
-    cardLayout: null,
-    cardResponse: null,
-    headerState: JSON.parse(localStorage.getItem("headerState")) || true,
-    footerState: JSON.parse(localStorage.getItem("footerState")) || true,
-    colorSchema: localStorage.getItem("colorSchema") || "auto",
-  };
+  constructor(props) {
+    super(props);
 
-  render() {
-    const toolkit = {
+    this.state = {
+      cardOffset: "0px",
+      cardArticleState: false,
+      cardLayout: null,
+      cardResponse: null,
+      headerState: JSON.parse(localStorage.getItem("headerState")) || true,
+      footerState: JSON.parse(localStorage.getItem("footerState")) || true,
+      colorSchema: localStorage.getItem("colorSchema") || "auto",
+    };
+  }
+
+  componentDidUpdate() {
+    // this.toolkit.cardArticleState ? this.enableScroll() : this.disableScroll();
+  }
+  createToolkit () {
+    this.toolkit = {
       cardResponse: this.state.cardResponse,
       saveCardResponse: (response) => {
         this.setState({
           cardResponse: response,
         });
       },
-        
+
       colorSchema: this.state.colorSchema,
       setColorSchema: (schema) => {
         localStorage.setItem("colorSchema", schema);
-        this.setState({ 
+        this.setState({
           colorSchema: schema,
         });
       },
@@ -39,7 +47,7 @@ class App extends React.Component {
       cardLayout: this.state.cardLayout,
 
       setCardArticleState: (state) => {
-        this.setState({ 
+        this.setState({
           cardArticleState: state,
         });
       },
@@ -58,9 +66,13 @@ class App extends React.Component {
 
       openCard: (content) => {
         this.setState({
-          cardArticleState: true, 
-          cardLayout: content,
+          cardOffset: window.scrollY + "px",
+          cardArticleState: true,
+          cardLayout: cardLayouts[content],
         });
+      },
+      getScrollLock: () => {
+        return this.state.cardOffset;
       },
 
       enableHeader: this.state.headerState,
@@ -69,7 +81,10 @@ class App extends React.Component {
         this.setState({
           headerState: state,
         });
-        localStorage.setItem("headerState", JSON.stringify(this.state.headerState));
+        localStorage.setItem(
+          "headerState",
+          JSON.stringify(this.state.headerState)
+        );
       },
 
       enableFooter: this.state.footerState,
@@ -80,25 +95,29 @@ class App extends React.Component {
           JSON.stringify(this.state.footerState)
         );
       },
-      cardLayouts: cardLayouts,
     };
+  }
 
+  render() {
+    this.createToolkit();
     const helloMessage =
       JSON.parse(localStorage.getItem("HelloMessage")) || false;
+
     if (!helloMessage) {
       localStorage.setItem("HelloMessage", JSON.stringify(true));
-      this.setState({
-        cardArticleState: true,
-        cardContent: toolkit.cardLayouts.hello,
-      });
+      this.toolkit.openCard("hello");
     }
 
     return (
-      <div className={`webx app-layout ${toolkit.colorSchema}`}>
-        <Header toolkit={toolkit} />
-        <AppContent toolkit={toolkit} />
-        <Footer toolkit={toolkit} />
-        {toolkit.cardArticleState ? <CardWrap toolkit={toolkit} /> : ""}
+      <div className={`webx ${this.toolkit.colorSchema}`}>
+          <Header toolkit={this.toolkit} />
+          <AppContent toolkit={this.toolkit} />
+          <Footer toolkit={this.toolkit} />
+        {this.toolkit.cardArticleState ? (
+          <CardWrap toolkit={this.toolkit} />
+        ) : (
+          ""
+        )}
       </div>
     );
   }

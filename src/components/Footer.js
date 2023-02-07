@@ -5,7 +5,10 @@ function Footer (props) {
         return (
             <div className="footer">
                 <div className="footer-content">
-                    footer
+                    <p>
+                        WebCrossUI beta 2020-2023 <br/>
+                        Developed by Kensoi
+                    </p>
                 </div>
             </div>
         )

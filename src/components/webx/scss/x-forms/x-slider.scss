@@ -9,7 +9,7 @@
         display: flex;
         height: var(--x-button-height);
         $thumb-size: calc(var(--x-button-height) - 2 * $point);
-        background: var(--x-button-background);
+        background: var(--x-field-background);
         border-radius: $point;
         user-select: none;
         cursor: pointer;
@@ -26,9 +26,9 @@
                 -webkit-appearance: none;  /* Переопределение стилей CSS по умолчанию */
                 appearance: none;
                 width: 100%; /* Полная ширина */
-                height: $point;
+                height: $point * 0.8;
                 border-radius: $point;
-                background: var(--x-button-text);
+                background: var(--x-field-text);
                 outline: none; /* Удалить контур */
                 opacity: 0.7; /* Установите прозрачность (для эффектов наведения мыши при наведении курсора) */
                 -webkit-transition: .2s; /* 0.2 секундный переход при наведении курсора */
@@ -39,17 +39,17 @@
                 &::-webkit-slider-thumb {
                     -webkit-appearance: none; /* Переопределить внешний вид по умолчанию */
                     appearance: none;
-                    width: $point * 3;
-                    height: $point * 3;
+                    width: $point * 2;
+                    height: $point * 2;
                     border-radius: $point * 3;
-                    background: var(--x-button-icon);
+                    background: var(--x-field-icon);
                     cursor: pointer; /* Курсор при наведении */
                 }
                 &::-moz-range-thumb {
                     width: $point * 3;
                     height: $point * 3;
                     border-radius: $point * 3;
-                    background: var(--x-button-icon);
+                    background: var(--x-field-icon);
                     cursor: pointer; /* Курсор при наведении */
                 }
             }
@@ -59,7 +59,7 @@
             padding: $point;
             width: var(--x-button-height);
             height: $thumb-size;
-            color: var(--x-button-text);
+            color: var(--x-field-text);
             font-family: 'TT Commons';
             font-weight: 500;
             font-size: $point * 3;

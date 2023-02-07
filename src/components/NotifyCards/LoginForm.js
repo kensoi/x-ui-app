@@ -39,12 +39,11 @@ class NotifyCard extends React.Component {
         this.props.toolkit.closeCard();
     };
 
-    goToLogin = () => {
+
+    goToRegister = () => {
         this.props.closeCard();
         setTimeout(
-            () => {
-                this.props.toolkit.openCard("login")
-            }, 300
+            () => {this.props.toolkit.openCard("register")}, 300
         )
     }
 
@@ -52,25 +51,24 @@ class NotifyCard extends React.Component {
         const icon = <ShortTextIcon />
         return <> 
             <Headline> 
-                Регистрация пользователя 
+                Войти 
             </Headline>
             <Paragraph> 
                 <XList>
-                    <XField icon = {icon} field = {this.state.name} setField = {this.setName}>
-                        Имя пользователя
-                    </XField>
                     <XField icon = {icon} field = {this.state.username} setField = {this.setUsername}>
                         Никнейм
                     </XField>
                 </XList>
-                <XField icon = {icon} field = {this.state.email} setField = {this.setEmail}>
-                    Электронная почта
-                </XField>
+                <XList>
+                    <XField icon = {icon} field = {this.state.username} setField = {this.setUsername}>
+                        Пароль
+                    </XField>
+                </XList>
             </Paragraph>
             <Paragraph>
                 <XList>
-                    <XButton onClick={this.sendResponse}>Зарегистрироваться</XButton>
-                    <XButton onClick={this.goToLogin}>Войти в аккаунт</XButton>
+                    <XButton onClick={this.sendResponse}>Войти</XButton>
+                    <XButton onClick={this.goToRegister}>Зарегистрироваться</XButton>
                 </XList>
             </Paragraph>
         </>

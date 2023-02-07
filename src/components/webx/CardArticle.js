@@ -29,14 +29,18 @@ class CardWrap extends React.Component {
   render() {
     try {
       return (
+        <>
         <div className={`wrapper ${this.state.opened ? "opened" : "closed"}`}>
-          <div className={`note ${this.state.opened ? "opened" : "closed"}`}>
-            <div className="icon" onClick={this.close}>
-              <CloseIcon />
-            </div>
-            <this.props.toolkit.cardLayout toolkit={this.props.toolkit} />
-          </div>
         </div>
+        <div className="note-positioner" style={{top: this.props.toolkit.getScrollLock()}}>
+          <div className={`note ${this.state.opened ? "opened" : "closed"}`} >
+              <div className="icon" onClick={this.close}>
+                <CloseIcon />
+              </div>
+              <this.props.toolkit.cardLayout closeCard={this.close} toolkit={this.props.toolkit} />
+            </div>
+          </div>
+        </>
       );
     }
     catch (err) {
