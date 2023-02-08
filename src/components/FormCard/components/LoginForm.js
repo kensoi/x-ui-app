@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Headline, Paragraph } from "../webx/XBlock";
-import { XField, XButton } from "../webx/XForms";
+import { Headline, Paragraph } from "../XBlock/XBlock";
+import { XField, XButton } from "../XForms/XForms";
 import { XList } from "../webx/Separators";
 import ShortTextIcon from '@mui/icons-material/ShortText';
 

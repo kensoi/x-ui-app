@@ -2,8 +2,8 @@
 
 import "./components/webx/scss/app-content.scss";
 import {XList} from "./components/webx/Separators";
-import {XButton} from "./components/webx/XForms";
-import {Headline, XBlock} from "./components/webx/XBlock";
+import {XButton} from "./components/XForms/XForms";
+import {Headline, XBlock} from "./components/XBlock/XBlock";
 import Teaser from "./components/WebXUI";
 
 import SettingsIcon from '@mui/icons-material/Settings';

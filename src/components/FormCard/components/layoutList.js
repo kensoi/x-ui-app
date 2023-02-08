@@ -6,7 +6,7 @@ import LoginForm from "./LoginForm";
 import SliderTest from "./SliderTest";
 import TumbletTest from "./TumbletTest";
 
-const cardLayouts = {
+const layoutList = {
     "hello": GreetingsMessage,
     "settings": SettingsMessage,
     "register": RegisterForm,
@@ -15,4 +15,4 @@ const cardLayouts = {
     "slider": SliderTest,
 }
 
-export default cardLayouts;
+export default layoutList;

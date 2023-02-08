@@ -2,10 +2,10 @@ import React from "react";
 
 import "./components/webx/css/global.css";
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import CardWrap from "./components/webx/CardArticle";
-import cardLayouts from "./components/NotifyCards/LayoutWrapper";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import FormCard from "./components/FormCard/FormCard";
+import cardLayouts from "./components/FormCard/LayoutWrapper";
 import AppContent from "./AppContent";
 
 class App extends React.Component {
@@ -16,6 +16,7 @@ class App extends React.Component {
       cardOffset: "0px",
       cardLayout: null,
       cardResponse: null,
+      
       cardMounted: false,
       cardLoaded: false,
 
@@ -25,67 +26,62 @@ class App extends React.Component {
     };
   }
 
-  loadCard = () => {
+  openFormCard = () => {
     this.setState({
-      cardLoaded: true,
+      cardMounted: true,
+      cardLayout: cardLayouts[layout],
     });
-  };
+    setTimeout(() => {
+      this.setState({
+        cardLoaded: true,
+      });
+    }, 100);
+  }
 
   createToolkit () {
     this.toolkit = {
-      cardMounted: this.state.cardMounted, // Component mounted and ready to show
-      cardLoaded: this.state.cardLoaded, // Component showed
-      cardResponse: this.state.cardResponse,
-      cardLayout: this.state.cardLayout,
+      formCard: {
+        isMounted: this.state.cardMounted, // Component mounted and ready to show
+        isVisible: this.state.cardLoaded, // Component showed
+        response: this.state.cardResponse,
+        layout: this.state.cardLayout,
+        topOffset: this.state.cardOffset,
 
-      showCard: (layout) => {
-        this.setState({
-          cardOffset: window.scrollY + "px",
-        })
-        if (this.state.cardMounted) {
-          this.toolkit.returnCardResponse({})
-          setTimeout(() => {
-            this.setState({
-              cardMounted: true,
-              cardLayout: cardLayouts[layout],
-            });
-          }, 300)
-          setTimeout(() => {
-            this.setState({
-              cardLoaded: true,
-            });
-          }, 400);
-        }
-        else {
+        showCard: (layout, response=null) => {
           this.setState({
-            cardMounted: true,
-            cardLayout: cardLayouts[layout],
+            cardOffset: window.scrollY,
+          })
+  
+          if (this.state.cardMounted) {
+            this.toolkit.returnCardResponse(response)
+            setTimeout(this.openFormCard, 300)
+          }
+  
+          else {
+            this.openFormCard();
+          };
+        },
+  
+        returnCardResponse: (response) => {
+          this.setState({
+            cardLoaded: false,
           });
+  
           setTimeout(() => {
             this.setState({
-              cardLoaded: true,
+              cardResponse: {
+                "layout": this.state.cardLayout,
+                "response": response,
+              },
             });
           }, 100);
-        };
-      },
-      returnCardResponse: (response) => {
-        this.setState({
-          cardLoaded: false,
-        });
-        setTimeout(() => {
-          this.setState({
-            cardResponse: { ...response },
-          });
-        }, 100);
-        setTimeout(() => {
-          this.setState({
-            cardMounted: false,
-          });
-        }, 200);
-      },
-
-      getCardOffset: ()=>{
-        return this.state.cardOffset
+  
+          setTimeout(() => {
+            this.setState({
+              cardMounted: false,
+            });
+          }, 200);
+        },
       },
 
       colorSchema: this.state.colorSchema,
@@ -134,11 +130,7 @@ class App extends React.Component {
         <Header toolkit={this.toolkit} />
         <AppContent toolkit={this.toolkit} />
         <Footer toolkit={this.toolkit} />
-        { this.toolkit.cardMounted ? (
-          <CardWrap toolkit={this.toolkit} loadCard={this.loadCard}/>
-        ) : (
-          ""
-        )}
+        <FormCard toolkit={this.toolkit}/>
       </div>
     );
   }

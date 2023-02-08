@@ -1,6 +1,6 @@
 import "./scss/header.scss";
 
-import {XButton, XDropdown} from "./webx/XForms";
+import {XButton, XDropdown} from "../XForms/XForms";
 import MenuIcon from '@mui/icons-material/Menu';
 
 import TextFieldsIcon from '@mui/icons-material/TextFields';

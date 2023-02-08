@@ -7,7 +7,7 @@ import "./scss/x-forms/x-button.scss";
 import React from "react";
 import { nanoid } from 'nanoid'
 
-import { CheckValue, handleChange} from "./Utils";
+import { CheckValue, handleChange} from "../webx/Utils";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 

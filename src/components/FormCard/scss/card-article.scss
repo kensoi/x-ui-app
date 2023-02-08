@@ -2,7 +2,7 @@
 @import "./box-shadows.scss";
 
 .webx {
-    .wrapper {
+    .form-card-background {
         display: flex;
         justify-content: center;
         background: rgba(0, 0, 0, 0.432);
@@ -14,22 +14,24 @@
         box-sizing: border-box;
         z-index: 100;
         transition: .2s;
-        &.opened {
+
+        &.visible {
             @include blur-backdrop();
         }
-        &.closed {
-            opacity: 0;
+
+        &.unvisible {
             @include blur-backdrop-disabled();
         }
     }
-    .note-positioner {
+
+    .form-card-wrapper {
         position: absolute;
-        top: attr("scroll-lock");
+        top: attr("top");
         left: 0;
         width: 100%;
         z-index: 101;
     }
-    .note {
+    .form-card-layout {
         $text-padding-x: 8;
         $note-block-shadow: $box-shadow, $box-border;
 
@@ -41,14 +43,15 @@
         $margin-top: 15vh;
         $margin-top-disabled: 15vh;
 
-        &.opened {
+        &.visible {
             opacity: 1;
             margin: $margin-top auto;
         }
-        &.closed {
+        &.invisible {
             opacity: 0;
             margin: $margin-top + $margin-top-disabled auto;
         }
+
         max-width: $point * 90;
         width: 100vw;
         box-sizing: border-box;
@@ -59,7 +62,7 @@
             padding: $point $point * $text-padding-x;
         }
 
-        .icon {
+        .form-card-close-button {
             $notification-close-icon-size: 4;
 
             @include centering();

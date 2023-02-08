@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Headline, Paragraph } from "../webx/XBlock";
+import { Headline, Paragraph } from "../XBlock/XBlock";
 import { XRaw } from "../webx/Separators";
-import { XTumbler } from "../webx/XForms";
+import { XTumbler } from "../XForms/XForms";
 
 import ColorSchemaChanger from "../ColorSchemaChanger";
 

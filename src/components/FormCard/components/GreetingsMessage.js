@@ -1,5 +1,5 @@
 import React from "react";
-import { Headline, Paragraph } from "../webx/XBlock";
+import { Headline, Paragraph } from "../../XBlock/XBlock";
 
 class NotifyCard extends React.Component {
     render () {

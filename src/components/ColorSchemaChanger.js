@@ -1,7 +1,7 @@
 /* Color Schema Menu Selector */
 
 /* WEB-X-UI components */
-import {XButton, XDropdown} from "./webx/XForms";
+import {XButton, XDropdown} from "./XForms/XForms";
 
 /* Material UI icons */
 import LightModeIcon from '@mui/icons-material/LightMode';
