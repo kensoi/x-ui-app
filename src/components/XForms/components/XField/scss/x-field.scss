@@ -1,0 +1,45 @@
+@import "../../../../../scss/global.scss";
+@import "../../../../../scss/box-shadows.scss";
+
+.webx {
+    .x-field {
+        $note-block-shadow: $box-shadow, $box-border;
+
+        font-family: 'TT Commons';
+        font-size: 20px;
+        @include box-shadow($note-block-shadow);
+        min-height: var(--x-button-height);
+        box-sizing: border-box;
+        padding: 0 calc(var(--x-button-height) - $point) 0 $point;
+        @include centering();
+        background: var(--x-field-background);
+        border-radius: $point;
+        color: var(--x-field-text);
+        margin-bottom: $point;
+        min-width: 25 * $point;
+
+        .x-field-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: $point;
+            width: calc(var(--x-button-height) - 2 * $point);
+            height: var(--x-button-height);
+        }
+        .x-field-input {
+            flex: 1 1 auto;
+            outline: none;
+            padding-top: 2px;
+            &[contenteditable=true]:empty:before{
+                content: attr(data-placeholder);
+                pointer-events: none;
+                display: block; /* For Firefox */
+                opacity: 0.5;
+                text-transform: lowercase;
+            }
+        }
+        &.selected {
+            background: var(--x-field-background-hover);
+        }
+    }
+}

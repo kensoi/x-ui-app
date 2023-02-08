@@ -1,10 +1,9 @@
 import React from "react";
 
-import { Headline, Paragraph } from "../XBlock/XBlock";
-import { XRaw } from "../webx/Separators";
-import { XTumbler } from "../XForms/XForms";
+import { Headline, Paragraph, XRaw } from "../../XBlock/XBlock";
+import { XTumbler } from "../../XForms/XForms";
 
-import ColorSchemaChanger from "../ColorSchemaChanger";
+import ColorSchemaChanger from "../../ColorSchemaChanger/ColorSchemaChanger";
 
 class NotifyCard extends React.Component {
     contexts = [

@@ -69,8 +69,8 @@ function Header (props) {
             <div className="header">
                 <div className="header-content">
                     <div className="header-buttons">
-                        <XDropdown dropdownListContent={MenuList}>
-                            <XButton icon={<MenuIcon/>} />
+                        <XDropdown dropdown={MenuList}>
+                            <XButton icon={<MenuIcon/>} hideEmptyPaddings={true}/>
                         </XDropdown>
                         <HeaderLogo />
                     </div>

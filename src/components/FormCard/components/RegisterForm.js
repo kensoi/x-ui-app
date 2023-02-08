@@ -1,8 +1,7 @@
 import React from "react";
 
-import { Headline, Paragraph } from "../XBlock/XBlock";
-import { XField, XButton } from "../XForms/XForms";
-import { XList } from "../webx/Separators";
+import { Headline, Paragraph, XList } from "../../XBlock/XBlock";
+import { XField, XButton } from "../../XForms/XForms";
 import ShortTextIcon from '@mui/icons-material/ShortText';
 
 class NotifyCard extends React.Component {
@@ -31,7 +30,7 @@ class NotifyCard extends React.Component {
     };
     
     sendResponse = () => {
-        this.props.toolkit.returnCardResponse({
+        this.props.toolkit.formCard.returnResponse({
             "name": this.state.name,
             "username": this.state.username,
             "email": this.state.email,

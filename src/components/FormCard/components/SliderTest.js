@@ -1,7 +1,6 @@
 import React from "react";
-import { Headline, Paragraph } from "../XBlock/XBlock";
-import { XList } from "../webx/Separators";
-import { XSlider } from "../XForms/XForms";
+import { Headline, Paragraph, XList } from "../../XBlock/XBlock";
+import { XSlider } from "../../XForms/XForms";
 
 class NotifyCard extends React.Component {
     state = {

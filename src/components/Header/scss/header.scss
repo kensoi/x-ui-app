@@ -1,0 +1,85 @@
+@import "../../../scss/global.scss";
+@import "../../../scss/box-shadows.scss";
+
+$header-background: #000000;
+$header-text-color: #FFFFFF;
+$header-logo-size: 3px;
+
+.webx {
+    &.dark {
+        .header {
+            background: $header-background;
+            color: $header-text-color;
+        }
+        
+    }
+    &.light {
+        .header {
+            background: $header-text-color;
+            color: $header-background;
+        }
+    }
+    &.pink {
+        .header {
+            background: $header-text-color;
+            color: $header-background;
+        }
+    }
+    &.auto {
+        .header {
+            @media screen and (prefers-color-scheme: dark) {
+                background: $header-background;
+                color: $header-text-color;
+            }
+            @media screen and (prefers-color-scheme: light) {
+                background: $header-text-color;
+                color: $header-background;
+            }
+        }
+    }
+    .header {
+        @include centering();
+        @include box-shadow($box-border);
+        --x-button-header-bg: rgba(0,0,0,0)!important;
+        --x-button-header-bg-hover: var(--x-field-background);
+
+        position: sticky;
+        top: 0;
+        height: $point * 7;
+        z-index: 100;
+
+        .header-content {
+            @include centering();
+
+            // max-width: $point * 120;
+
+            justify-content: space-between;
+            width: 100%;
+            max-width: $point * 120;
+            height: $point * 7;
+            
+            padding: 0 $point * 2;
+
+            .header-logo {
+                font-family: 'TT Commons';
+                font-weight: 500;
+                font-size: $point * 3;
+                user-select: none;
+            }
+
+            .header-buttons {
+                @include centering();
+                > * {
+                    margin-left: $point * 0.5;
+                    margin-right: $point * 0.5;
+                }
+                :first-child {
+                    margin-left: 0;
+                }
+                :last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

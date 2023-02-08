@@ -1,0 +1,45 @@
+import React from 'react';
+import "./scss/x-button.scss";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+class XButton extends React.Component {
+    constructor (props) {
+        super(props)
+        this.hideEmptyPaddings = this.props.hideEmptyPaddings || false
+    }
+    icon = () => {
+        if (!this.hideEmptyPaddings || this.props.icon) {
+            return <div className="x-button-icon">
+                { this.props.icon || " "}
+            </div>
+        }
+        return " "
+    };
+
+    title = () => {
+        if (!this.hideEmptyPaddings || this.props.title || this.props.children) {
+            return <div className="x-button-title">
+                { this.props.title || this.props.children || " "}
+            </div>
+        }
+        return " "
+    };
+
+    dropdown = () => {
+        if (!this.hideEmptyPaddings || this.props.isDropdown) {
+            return <div className="x-button-dropdown-icon">
+                { this.props.isDropdown && <KeyboardArrowDownIcon/>}
+            </div>
+        }
+        return " "
+    };
+    render () {
+        return <div className="x-button" onClick={this.props.onClick}>
+            <this.icon />
+            <this.title />
+            <this.dropdown />
+        </div>
+    }
+}
+
+export default XButton;

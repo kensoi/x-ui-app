@@ -1,19 +1,18 @@
 import React from "react";
 
-import "./components/webx/css/global.css";
+import "./css/global.css";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import FormCard from "./components/FormCard/FormCard";
-import cardLayouts from "./components/FormCard/LayoutWrapper";
-import AppContent from "./AppContent";
+import AppContent from "./components/Content/Content";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cardOffset: "0px",
+      cardOffset: 0,
       cardLayout: null,
       cardResponse: null,
       
@@ -26,10 +25,10 @@ class App extends React.Component {
     };
   }
 
-  openFormCard = () => {
+  openFormCard = (layout) => {
     this.setState({
       cardMounted: true,
-      cardLayout: cardLayouts[layout],
+      cardLayout: layout,
     });
     setTimeout(() => {
       this.setState({
@@ -47,22 +46,22 @@ class App extends React.Component {
         layout: this.state.cardLayout,
         topOffset: this.state.cardOffset,
 
-        showCard: (layout, response=null) => {
+        showLayout: (layout, response=null) => {
           this.setState({
             cardOffset: window.scrollY,
           })
   
           if (this.state.cardMounted) {
-            this.toolkit.returnCardResponse(response)
-            setTimeout(this.openFormCard, 300)
+            this.toolkit.formCard.returnResponse(response)
+            setTimeout(() => {this.openFormCard(layout)}, 300)
           }
   
           else {
-            this.openFormCard();
+            this.openFormCard(layout);
           };
         },
   
-        returnCardResponse: (response) => {
+        returnResponse: (response) => {
           this.setState({
             cardLoaded: false,
           });
@@ -122,7 +121,7 @@ class App extends React.Component {
 
     if (!helloMessage) {
       localStorage.setItem("HelloMessage", JSON.stringify(true));
-      this.toolkit.openCard("hello");
+      this.toolkit.formCard.showLayout("hello");
     }
 
     return (

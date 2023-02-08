@@ -1,0 +1,60 @@
+@import "../../../scss/global.scss";
+@import "../../../scss/box-shadows.scss";
+
+$footer-background: #000000;
+$footer-content-background: #000000;
+$footer-text-color: #FFFFFF;
+
+.webx {
+    &.dark {
+        .footer {
+            background: $footer-background;
+            color: $footer-text-color;
+        }
+        
+    }
+    &.light {
+        .footer {
+            background: $footer-text-color;
+            color: $footer-background;
+        }
+    }
+    &.pink {
+        .footer {
+            background: $footer-text-color;
+            color: $footer-background;
+        }
+    }
+    &.auto {
+        .footer {
+            @media screen and (prefers-color-scheme: dark) {
+                background: $footer-background;
+                color: $footer-text-color;
+            }
+            @media screen and (prefers-color-scheme: light) {
+                background: $footer-text-color;
+                color: $footer-background;
+            }
+        }
+    }
+    .footer {
+        @include box-shadow($box-border);
+
+        background: $footer-background;
+        color: $footer-text-color;
+
+        min-height: $point * 7;
+        box-sizing: border-box;
+
+        .footer-content {
+            width: 100%;
+            margin: 0 auto;
+            max-width: $point * 120;
+            min-height: $point * 7;
+            padding: $point $point * 2;
+            font-family: 'TT Commons';
+            font-size: $point * 2;
+            box-sizing: border-box;
+        }
+    }
+}

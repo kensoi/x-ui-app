@@ -1,0 +1,151 @@
+@import "../../../scss/global.scss";
+@import "../../../scss/box-shadows.scss";
+
+.webx {
+    .form-card-background {
+        display: flex;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.432);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        box-sizing: border-box;
+        z-index: 98;
+        transition: .2s;
+
+        &.visible {
+            @include blur-backdrop();
+        }
+
+        &.invisible {
+            @include blur-backdrop-disabled();
+        }
+    }
+    .form-card-layout {
+        $text-padding-x: 8;
+        $note-block-shadow: $box-shadow, $box-border;
+
+        @include box-shadow($note-block-shadow);
+
+        background-color: var(--card-background);
+        color: var(--color);
+        transition: .1s;
+        position: absolute;
+        left: 50%;
+        z-index: 99;
+
+        margin: 15vh auto 50vh auto;
+        $transitionY: 15vh;
+
+        &.visible {
+            opacity: 1;
+            transform: translate(-50%, 15vh);
+        }
+        &.invisible {
+            opacity: 0;
+            transform: translate(-50%, calc($transitionY + 15vh));
+        }
+
+
+        max-width: $point * 90;
+        width: 100vw;
+        box-sizing: border-box;
+        min-height: 70vh;
+        border-radius: $point * 4;
+        
+        .paragraph {
+            padding: $point $point * $text-padding-x;
+        }
+
+        .form-card-close-button {
+            $notification-close-icon-size: 4;
+
+            @include centering();
+
+            background: rgb(180, 20, 20);
+            position: sticky;
+            top: $point * 4;
+            bottom: $point * 4;
+            margin-bottom: $point * 4;
+            width: $point * $notification-close-icon-size;
+            height: $point * $notification-close-icon-size;
+            border-radius: $point * 2;
+            color: var(--card-background);
+            cursor: pointer;
+
+            svg {
+                width: 75%;
+                height: 75%;
+            }
+
+            &:hover {
+                background: rgb(218, 39, 33);
+            }
+            &:active {
+                background: rgb(129, 18, 33);
+            }
+        }
+
+        @media screen and (max-width: 425px) {
+            $text-padding-x: 8;
+
+            padding: $point * 4 $point * 4 $point * 8;
+            
+            .headline {
+                $headline-height: 7;
+                
+                min-height: $point * $headline-height;
+                line-height: $point * $headline-height;
+                font-size: $point * 6;
+            }
+            .subline {
+                $headline-height: 4;
+                
+                min-height: $point * $headline-height;
+                line-height: $point * $headline-height;
+                font-size: $point * 3;
+            }
+            
+            .paragraph {
+                padding: $point 0;
+            }
+        }
+        
+        @media screen and (min-width: 425px) and (max-width: 768px) {
+            $text-padding-x: 8;
+
+            border-radius: $point * 4;
+            margin: $point * 4 $point * 4;
+            padding: $point * 4 $point * 4 $point * 8;
+            
+            .headline {
+                padding: 0 $point * $text-padding-x;
+            }
+
+            .paragraph {
+                padding: $point $point * $text-padding-x;
+            }
+        }
+
+        @media screen and (min-width: 721px) {
+            $text-padding-x: 8;
+            
+            border-radius: $point * 2;
+            margin: $point * 4 $point * 4;
+            padding: $point * 4 $point * 4 $point * 8;
+            
+            .headline {
+                padding: 0 $point * $text-padding-x;
+            }
+            .subline {
+                padding: 0 $point * $text-padding-x;
+            }
+            
+            .paragraph {
+                padding: $point $point * $text-padding-x;
+            }
+        }
+    }
+}

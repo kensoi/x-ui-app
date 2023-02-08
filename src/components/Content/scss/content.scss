@@ -1,0 +1,10 @@
+@import "./global.scss";
+
+.webx {
+    position: relative;
+    .app-content {
+        background: var(--background);
+        flex: 1 1 auto;
+        padding: $point * 2;
+    }
+}

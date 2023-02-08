@@ -1,8 +1,7 @@
 import React from "react";
 
-import { Headline, Paragraph } from "../XBlock/XBlock";
-import { XRaw } from "../webx/Separators";
-import { XTumbler } from "../XForms/XForms";
+import { Headline, Paragraph, XRaw } from "../../XBlock/XBlock";
+import { XTumbler } from "../../XForms/XForms";
 
 import DoneIcon from '@mui/icons-material/Done';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
