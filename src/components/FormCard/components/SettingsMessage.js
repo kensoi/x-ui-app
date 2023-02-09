@@ -38,7 +38,7 @@ class NotifyCard extends React.Component {
                     Включить Footer {XTumbleFooter}
                 </XRaw>
                 <XRaw>
-                    Цветовая схема <ColorSchemaChanger toolkit={this.props.toolkit} />
+                    Цветовая схема <ColorSchemaChanger align="right" toolkit={this.props.toolkit} />
                 </XRaw>
             </Paragraph>
         </>

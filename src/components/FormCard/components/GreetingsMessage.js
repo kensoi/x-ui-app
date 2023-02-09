@@ -1,5 +1,6 @@
 import React from "react";
 import { Headline, Paragraph } from "../../XBlock/XBlock";
+import Teaser from "../../Teaser/Teaser";
 
 class NotifyCard extends React.Component {
     render () {
@@ -13,6 +14,9 @@ class NotifyCard extends React.Component {
             </Paragraph>
             <Paragraph> 
                 Данное оповещение несёт информативный характер и появляется всего 1 раз.
+            </Paragraph>
+            <Paragraph> 
+                <Teaser />
             </Paragraph>
         </>
     }

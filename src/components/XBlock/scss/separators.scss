@@ -4,6 +4,9 @@
     margin-bottom: $point;
     @media screen and (max-width: 720px) {
         @include vertical-list();
+        .x-button .x-button-title {
+            text-align: center;
+        }
     }
 
     @media screen and (min-width: 721px) {

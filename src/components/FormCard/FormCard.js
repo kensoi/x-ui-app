@@ -50,7 +50,6 @@ class FormCard extends React.Component {
   }
 
   closeButton = () => {
-    const returnNull = () => {this.props.toolkit.formCard.returnResponse(null)};
     return <div className="form-card-close-button" onClick={this.closeForm}>
       <CloseIcon />
     </div>
@@ -65,7 +64,6 @@ class FormCard extends React.Component {
     const isVisible = this.props.toolkit.formCard.isVisible ? "visible" : "invisible";
     const ClassList = ["form-card-layout", isVisible].join(" ");
     const scrollY = this.props.toolkit.formCard.topOffset + "px";
-    const returnNull = () => {this.props.toolkit.formCard.returnResponse(null)};
 
     return <div className={ClassList} style={{top: scrollY}}>
         <this.closeButton />

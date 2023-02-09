@@ -36,7 +36,7 @@
         left: 50%;
         z-index: 99;
 
-        margin: 15vh auto 50vh auto;
+        margin: 15vh 0 50vh 0;
         $transitionY: 15vh;
 
         &.visible {
@@ -66,8 +66,8 @@
 
             background: rgb(180, 20, 20);
             position: sticky;
-            top: $point * 4;
-            bottom: $point * 4;
+            top: 0;
+            bottom: 0;
             margin-bottom: $point * 4;
             width: $point * $notification-close-icon-size;
             height: $point * $notification-close-icon-size;
@@ -133,7 +133,7 @@
             $text-padding-x: 8;
             
             border-radius: $point * 2;
-            margin: $point * 4 $point * 4;
+            margin: $point * 4 0;
             padding: $point * 4 $point * 4 $point * 8;
             
             .headline {

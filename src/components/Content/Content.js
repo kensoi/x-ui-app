@@ -3,7 +3,6 @@
 import "./scss/content.scss";
 import { XButton } from "../XForms/XForms";
 import XBlock, { Headline, XList } from "../XBlock/XBlock";
-import Teaser from "../Teaser/Teaser";
 import Panel from "../Panel/Panel";
 
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -13,13 +12,10 @@ import AppShortcutIcon from '@mui/icons-material/AppShortcut';
 
 function AppContent (props) {
     return <div className="app-content">
-        <XBlock>
-            <Teaser />
-        </XBlock>
         {
             props.toolkit.cardResponse ? 
             <XBlock>
-                Card Response: {JSON.stringify(props.toolkit.cardResponse)}
+                Form Card Response: {JSON.stringify(props.toolkit.cardResponse)}
             </XBlock>
             : ""
         }

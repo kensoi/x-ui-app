@@ -38,19 +38,14 @@ class NotifyCard extends React.Component {
     };
 
     goToLogin = () => {
-        this.props.closeCard();
-        setTimeout(
-            () => {
-                this.props.toolkit.openCard("login")
-            }, 300
-        )
+        this.props.toolkit.formCard.showLayout("login");
     }
 
     render () {
         const icon = <ShortTextIcon />
         return <> 
             <Headline> 
-                Регистрация пользователя 
+                Создать аккаунт 
             </Headline>
             <Paragraph> 
                 <XList>
@@ -67,8 +62,8 @@ class NotifyCard extends React.Component {
             </Paragraph>
             <Paragraph>
                 <XList>
-                    <XButton onClick={this.sendResponse}>Зарегистрироваться</XButton>
-                    <XButton onClick={this.goToLogin}>Войти в аккаунт</XButton>
+                    <XButton onClick={this.sendResponse}>Создать</XButton>
+                    <XButton onClick={this.goToLogin}>Войти в существующий</XButton>
                 </XList>
             </Paragraph>
         </>
