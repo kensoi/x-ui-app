@@ -4,89 +4,21 @@ import "./css/global.css";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import FC from "./components/FormCard/FormCard";
 import AppContent from "./components/Content/Content";
-import LL from "./components/FormCard/components/LayoutList/LayoutList"
-
-const FormCard = FC.default ? FC.default : FC;
-const layoutList = LL.default ? LL.default : LL;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cardOffset: 0,
-      cardLayout: null,
-      cardResponse: null,
-      
-      cardMounted: false,
-      cardLoaded: false,
-
       headerState: JSON.parse(localStorage.getItem("headerState")) || true,
       footerState: JSON.parse(localStorage.getItem("footerState")) || true,
       colorSchema: localStorage.getItem("colorSchema") || "auto",
     };
   }
 
-  openFormCard = (layout) => {
-    this.setState({
-      cardMounted: true,
-      cardLayout: layoutList(layout),
-    });
-    setTimeout(() => {
-      this.setState({
-        cardLoaded: true,
-      });
-    }, 100);
-  }
-
   createToolkit () {
     this.toolkit = {
-      formCard: {
-        isMounted: this.state.cardMounted, // Component mounted and ready to show
-        isVisible: this.state.cardLoaded, // Component showed
-        response: this.state.cardResponse,
-        layout: this.state.cardLayout,
-        topOffset: this.state.cardOffset,
-
-        showLayout: (layout, response=null) => {
-          this.setState({
-            cardOffset: window.scrollY,
-          })
-          
-          if (this.state.cardMounted) {
-            this.toolkit.formCard.returnResponse(response)
-            setTimeout(() => {this.openFormCard(layout)}, 300)
-          }
-  
-          else {
-            this.openFormCard(layout);
-          }
-        },
-  
-        returnResponse: (response) => {
-          this.setState({
-            cardLoaded: false,
-          });
-  
-          setTimeout(() => {
-            this.setState({
-              cardResponse: {
-                "layout": this.state.cardLayout,
-                "response": response,
-              },
-            });
-          }, 100);
-  
-          setTimeout(() => {
-            this.setState({
-              cardMounted: false,
-            });
-          }, 200);
-        },
-      },
-
       colorSchema: this.state.colorSchema,
       setColorSchema: (schema) => {
         localStorage.setItem("colorSchema", schema);
@@ -134,7 +66,6 @@ class App extends React.Component {
           <Header toolkit={this.toolkit} />
           <AppContent toolkit={this.toolkit} />
           <Footer toolkit={this.toolkit} />
-          <FormCard toolkit={this.toolkit}/>
         </div>
       );
     }

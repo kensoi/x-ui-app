@@ -26,10 +26,10 @@ function Index (props) {
                 Примеры форм
             </Headline>
             <XList>
-                <Panel icon={<AppShortcutIcon/>} onClick = {()=> props.toolkit.formCard.showLayout("hello")} title="Открыть приветствие" />
-                <Panel icon={<HowToRegIcon/>} onClick = {()=> props.toolkit.formCard.showLayout("register")} title="Зарегистрироваться" />
-                <Panel icon={<LoginIcon/>} onClick = {()=> props.toolkit.formCard.showLayout("login")} title="Авторизироваться" />
-                <Panel icon={<SettingsIcon/>} onClick = {()=> props.toolkit.formCard.showLayout("settings")} title="Настройки" />
+                <Panel icon={<AppShortcutIcon/>} onClick = {()=> console.log("open hello")} title="Приветствие" />
+                <Panel icon={<HowToRegIcon/>} onClick = {()=> console.log("open register")} title="Войти" />
+                <Panel icon={<LoginIcon/>} onClick = {()=> console.log("open login")} title="Регистрация" />
+                <Panel icon={<SettingsIcon/>} onClick = {()=> console.log("open settings")} title="Настройки" />
             </XList>
         </XBlock>
     </>
@@ -43,7 +43,7 @@ function FormTests (props) {
                 Тестовые компоненты
             </Headline>
             <Paragraph>
-                <XButton onClick = {()=> props.toolkit.formCard.showLayout("slider")}>
+                <XButton onClick = {()=> console.log("open slider")}>
                     Тестовый ползунок 
                 </XButton>
             </Paragraph>
