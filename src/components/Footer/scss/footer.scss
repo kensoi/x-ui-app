@@ -5,7 +5,7 @@ $footer-background: #000000;
 $footer-content-background: #000000;
 $footer-text-color: #FFFFFF;
 
-.webx {
+body {
     &.dark {
         .footer {
             background: $footer-background;
@@ -37,11 +37,10 @@ $footer-text-color: #FFFFFF;
             }
         }
     }
+}
+.webx {
     .footer {
         @include box-shadow($box-border);
-
-        background: $footer-background;
-        color: $footer-text-color;
 
         min-height: $point * 7;
         box-sizing: border-box;
