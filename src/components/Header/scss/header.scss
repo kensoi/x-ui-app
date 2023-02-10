@@ -5,7 +5,8 @@ $header-background: #000000;
 $header-text-color: #FFFFFF;
 $header-logo-size: 3px;
 
-.webx {
+body {
+    
     &.dark {
         .header {
             background: $header-background;
@@ -36,7 +37,9 @@ $header-logo-size: 3px;
                 color: $header-background;
             }
         }
-    }
+    }   
+}
+.webx {
     .header {
         @include centering();
         @include box-shadow($box-border);
@@ -46,7 +49,7 @@ $header-logo-size: 3px;
         position: sticky;
         top: 0;
         height: $point * 7;
-        z-index: 100;
+        z-index: 98;
 
         .header-content {
             @include centering();

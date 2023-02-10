@@ -1,67 +1,82 @@
 @import "../../../scss/global.scss";
 @import "../../../scss/box-shadows.scss";
+
 .webx {
-    .form-card-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        
-        background-color: rgba(0, 0, 0, 0);
-        transition: 0.1s;
-        width: 100%;
-        height: 100vh;
-        transition: 0.1s ease-in-out;
-
-        &.invisible {
-            z-index: -100;
-        }
-        &.visible {
-            z-index: 95;
-            background-color: rgba(0, 0, 0, 0.582);
-        }
-    }
     .form-card-wrapper {
-        $box-shadow: $box-border, $box-shadow;
-        @include box-shadow($box-shadow);
-
         position: absolute;
         left: 50%;
-        background-color: white;
-        color: black;
-        width: 100%;
-        max-width: 720px;
-        min-height: 60vh;
         z-index: 100;
-        box-sizing: border-box;
-        border-radius: $point * 2;
-        padding: $point;
+        transform: translate(-50%, 0);
+        max-width: 720px;
+        width: 100%;
+        @media screen and (max-width: 425px) {
+            --bottom-offset: 20vh;
+        }
+        @media screen and (min-width: 425px) and (max-width: 720px) {
+            --bottom-offset: 10vh;
+        }
+        @media screen and (min-width: 720px) {
+            --bottom-offset: 0;
+        }
+        --bottom-offset-invis: calc(var(var(--bottom-offset)) + 20vh);
+        .form-card {
+            $box-shadow: $box-border, $box-shadow;
+            @include box-shadow($box-shadow);
+
+            width: 100%;
+            background-color: var(--card-background);
+            color: var(--color);
+            min-height: 60vh;
+            border-radius: $point * 2;
+            box-sizing: border-box;
+            padding: 0 $point $point * 12;
+            margin-top: 20vh;
+            margin-bottom: 20vh;
+            transition: 0.1s ease-in-out;
+        }
 
         transition: 0.1s ease-in-out;
         &.invisible {
-            transform: translate(-50%, 40vh);
             opacity: 0;
+            .form-card {
+                transform: translate(0, 40vh);
+            }
         }
         &.visible {
-            transform: translate(-50%, 20vh);
             opacity: 1;
+            .form-card {
+                transform: translate(0, var(--bottom-offset));
+            }
         }
-        .form-card-close-button {
+        .form-card-close-wrapper {
             position: sticky;
-            top: $point * 3;
-            bottom: $point * 3;
-            margin: $point * 3;
-            width: $point * 4;
-            height: $point * 4;
-            border-radius: $point * 4;
-            background-color: gray;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-            cursor: pointer;
+            top: 0;
+            bottom: 0;
+            padding: $point * 4 $point * 3;
+            .form-card-close-button {
+                cursor: pointer;
+                @include box-shadow($box-shadow);
+                width: $point * 4;
+                height: $point * 4;
+                border-radius: $point * 4;
+                background-color: gray;
+                color: var(--card-background);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                user-select: none;
+            }
         }
         .form-card-layout {
-            padding: 0 $point * 12 $point * 3;
+            @media screen and (max-width: 425px) {
+                padding: 0 $point * 3 $point * 3;
+            }
+            @media screen and (min-width: 425px) and (max-width: 720px) {
+                padding: 0 $point * 3 $point * 3;
+            }
+            @media screen and (min-width: 720px) {
+                padding: 0 $point * 11 $point * 3;
+            }
         }
     }
 }

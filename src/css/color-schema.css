@@ -175,3 +175,7 @@
         --x-menu-text: var(--color);
     }
 }
+
+body {
+    background: var(--background);
+}

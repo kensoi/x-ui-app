@@ -23,7 +23,7 @@ export default class LoginForm extends React.Component {
     };
     
     sendResponse = () => {
-        this.props.toolkit.formCard.returnResponse({
+        this.props.toolkit.returnCardResponse({
             "username": this.state.username,
             "password": this.state.password,
         });
@@ -31,7 +31,7 @@ export default class LoginForm extends React.Component {
 
 
     goToRegister = () => {
-        this.props.toolkit.formCard.showLayout("register");
+        this.props.toolkit.showCard("register");
     };
 
     render () {

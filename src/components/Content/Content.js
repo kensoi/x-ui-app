@@ -20,16 +20,15 @@ function CardResponseBlock (props) {
 
 function Index (props) {
     return <>
-        <CardResponseBlock toolkit={props.toolkit} />
         <XBlock>
             <Headline>
                 Примеры форм
             </Headline>
             <XList>
-                <Panel icon={<AppShortcutIcon/>} onClick = {()=> console.log("open hello")} title="Приветствие" />
-                <Panel icon={<HowToRegIcon/>} onClick = {()=> console.log("open register")} title="Войти" />
-                <Panel icon={<LoginIcon/>} onClick = {()=> console.log("open login")} title="Регистрация" />
-                <Panel icon={<SettingsIcon/>} onClick = {()=> console.log("open settings")} title="Настройки" />
+                <Panel icon={<AppShortcutIcon/>} onClick = {()=> props.toolkit.showCard("hello")} title="Приветствие" />
+                <Panel icon={<HowToRegIcon/>} onClick = {()=> props.toolkit.showCard("register")} title="Войти" />
+                <Panel icon={<LoginIcon/>} onClick = {()=> props.toolkit.showCard("login")} title="Регистрация" />
+                <Panel icon={<SettingsIcon/>} onClick = {()=> props.toolkit.showCard("settings")} title="Настройки" />
             </XList>
         </XBlock>
     </>
@@ -37,7 +36,6 @@ function Index (props) {
 
 function FormTests (props) {
     return <>
-        <CardResponseBlock toolkit={props.toolkit} />
         <XBlock>
             <Headline>
                 Тестовые компоненты
@@ -53,6 +51,7 @@ function FormTests (props) {
 
 function AppContent (props) {
     return <div className="app-content">
+        <CardResponseBlock toolkit={props.toolkit} />
         <Index toolkit={props.toolkit}/>
         <FormTests toolkit={props.toolkit}/>
     </div>

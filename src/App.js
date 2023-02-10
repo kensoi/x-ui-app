@@ -6,10 +6,12 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import AppContent from "./components/Content/Content";
 import FormCard from "./components/FormCard/FormCard";
+import OverflowBG from "./components/OverflowBG/OverflowBG";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
 
     this.state = {
       headerState: JSON.parse(localStorage.getItem("headerState")) || true,
@@ -25,6 +27,7 @@ class App extends React.Component {
         response: null
       }
     };
+    
   }
 
   createToolkit () {
@@ -36,17 +39,27 @@ class App extends React.Component {
       cardLoaded: this.state.cardLoaded,
 
       showCard: (layout) => {
-        this.setState({
-          cardLayout: layout,
-          cardTopOffset: window.scrollY,
-          cardMounted: true,
-        })
+        var offset = 100;
+        if (this.state.cardMounted) {
+          this.toolkit.returnCardResponse(null)
+          offset += 100
+        }
+
+        setTimeout(() => {
+          this.setState({
+            cardLayout: layout,
+            cardTopOffset: window.scrollY,
+            cardMounted: true,
+          })
+        }, offset)
+
         setTimeout(() => {
           this.setState({
             cardLoaded: true,
           })
-        }, 100)
+        }, 100 + offset)
       },
+
       returnCardResponse: (response) => {
         this.setState({
           cardResponse: {
@@ -55,11 +68,12 @@ class App extends React.Component {
           },
           cardLoaded: false,
         })
+        window.scrollTo(window.scrollX, this.toolkit.cardTopOffset + 0);
         setTimeout(() => {
           this.setState({
             cardMounted: false,
           })
-        }, 500)
+        }, 100)
       },
       colorSchema: this.state.colorSchema,
       setColorSchema: (schema) => {
@@ -94,6 +108,7 @@ class App extends React.Component {
 
   render() {
     this.createToolkit();
+    document.body.classList.add(this.toolkit.colorSchema);
     const helloMessage =
       JSON.parse(localStorage.getItem("HelloMessage")) || false;
 
@@ -104,10 +119,11 @@ class App extends React.Component {
 
     try {
       return (
-        <div className={`webx ${this.toolkit.colorSchema}`}>
+        <div className={`webx`}>
           <Header toolkit={this.toolkit} />
           <AppContent toolkit={this.toolkit} />
           <Footer toolkit={this.toolkit} />
+          <OverflowBG toolkit={this.toolkit} />
           <FormCard toolkit={this.toolkit} />
         </div>
       );

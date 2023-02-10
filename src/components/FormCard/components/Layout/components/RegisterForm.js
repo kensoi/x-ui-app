@@ -30,7 +30,7 @@ export default class RegisterForm extends React.Component {
     };
     
     sendResponse = () => {
-        this.props.toolkit.formCard.returnResponse({
+        this.props.toolkit.returnCardResponse({
             "name": this.state.name,
             "username": this.state.username,
             "email": this.state.email,
@@ -38,7 +38,7 @@ export default class RegisterForm extends React.Component {
     };
 
     goToLogin = () => {
-        this.props.toolkit.formCard.showLayout("login");
+        this.props.toolkit.showCard("login");
     }
 
     render () {
