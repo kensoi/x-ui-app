@@ -108,7 +108,7 @@ class App extends React.Component {
 
   render() {
     this.createToolkit();
-    document.body.classList.add(this.toolkit.colorSchema);
+    document.body.className = this.toolkit.colorSchema;
     const helloMessage =
       JSON.parse(localStorage.getItem("HelloMessage")) || false;
 

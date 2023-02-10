@@ -1,39 +1,35 @@
 @import "../../../scss/global.scss";
 @import "../../../scss/box-shadows.scss";
 
-$footer-background: #000000;
-$footer-content-background: #000000;
-$footer-text-color: #FFFFFF;
-
 body {
     &.dark {
         .footer {
-            background: $footer-background;
-            color: $footer-text-color;
+            background: #000000;
+            color: #FFFFFF;
         }
         
     }
     &.light {
         .footer {
-            background: $footer-text-color;
-            color: $footer-background;
+            background: #FFFFFF;
+            color: #000000;
         }
     }
     &.pink {
         .footer {
-            background: $footer-text-color;
-            color: $footer-background;
+            background: #FFFFFF;
+            color: #000000;
         }
     }
     &.auto {
         .footer {
             @media screen and (prefers-color-scheme: dark) {
-                background: $footer-background;
-                color: $footer-text-color;
+                background: #000000;
+                color: #FFFFFF;
             }
             @media screen and (prefers-color-scheme: light) {
-                background: $footer-text-color;
-                color: $footer-background;
+                background: #FFFFFF;
+                color: #000000;
             }
         }
     }
