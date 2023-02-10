@@ -1,9 +1,6 @@
 import "./scss/form-card.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
-import LL from "./components/LayoutList/LayoutList";
-
-const layoutList = LL.default ? LL.default : LL;
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -67,8 +64,7 @@ class FormCard extends React.Component {
 
   layout = () => {
     try {
-      var ActualLayout = layoutList(this.props.toolkit.formCard.layout)
-      return <ActualLayout toolkit={this.props.toolkit}/>
+      return <this.props.toolkit.formCard.layout toolkit={this.props.toolkit}/>
     }
     catch (error) {
       console.log(error)

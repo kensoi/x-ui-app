@@ -6,8 +6,10 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import FC from "./components/FormCard/FormCard";
 import AppContent from "./components/Content/Content";
+import LL from "./components/FormCard/components/LayoutList/LayoutList"
 
 const FormCard = FC.default ? FC.default : FC;
+const layoutList = LL.default ? LL.default : LL;
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +32,7 @@ class App extends React.Component {
   openFormCard = (layout) => {
     this.setState({
       cardMounted: true,
-      cardLayout: layout,
+      cardLayout: layoutList(layout),
     });
     setTimeout(() => {
       this.setState({
