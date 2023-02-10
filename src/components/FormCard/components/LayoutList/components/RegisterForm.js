@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Headline, Paragraph, XList } from "../../XBlock/XBlock";
-import { XField, XButton } from "../../XForms/XForms";
+import { Headline, Paragraph, XList } from "../../../../XBlock/XBlock";
+import { XField, XButton } from "../../../../XForms/XForms";
 import ShortTextIcon from '@mui/icons-material/ShortText';
 
-class NotifyCard extends React.Component {
+export default class RegisterForm extends React.Component {
     state = {
         name: "",
         username: "",
@@ -69,5 +69,3 @@ class NotifyCard extends React.Component {
         </>
     }
 }
-
-export default NotifyCard;

@@ -1,8 +1,8 @@
 import React from "react";
-import { Headline, Paragraph } from "../../XBlock/XBlock";
-import Teaser from "../../Teaser/Teaser";
+import { Headline, Paragraph } from "../../../../XBlock/XBlock";
+import Teaser from "../../../../Teaser/Teaser";
 
-class NotifyCard extends React.Component {
+export default class GreetingsMessage extends React.Component {
     render () {
         return <> 
             <Headline> 
@@ -21,5 +21,3 @@ class NotifyCard extends React.Component {
         </>
     }
 }
-
-export default NotifyCard;

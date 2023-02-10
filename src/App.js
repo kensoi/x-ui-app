@@ -4,8 +4,10 @@ import "./css/global.css";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import FormCard from "./components/FormCard/FormCard";
+import FC from "./components/FormCard/FormCard";
 import AppContent from "./components/Content/Content";
+
+const FormCard = FC.default ? FC.default : FC;
 
 class App extends React.Component {
   constructor(props) {
@@ -50,7 +52,7 @@ class App extends React.Component {
           this.setState({
             cardOffset: window.scrollY,
           })
-  
+          
           if (this.state.cardMounted) {
             this.toolkit.formCard.returnResponse(response)
             setTimeout(() => {this.openFormCard(layout)}, 300)
@@ -58,7 +60,7 @@ class App extends React.Component {
   
           else {
             this.openFormCard(layout);
-          };
+          }
         },
   
         returnResponse: (response) => {
@@ -124,14 +126,26 @@ class App extends React.Component {
       this.toolkit.formCard.showLayout("hello");
     }
 
-    return (
-      <div className={`webx ${this.toolkit.colorSchema}`}>
-        <Header toolkit={this.toolkit} />
-        <AppContent toolkit={this.toolkit} />
-        <Footer toolkit={this.toolkit} />
-        <FormCard toolkit={this.toolkit}/>
-      </div>
-    );
+    try {
+      return (
+        <div className={`webx ${this.toolkit.colorSchema}`}>
+          <Header toolkit={this.toolkit} />
+          <AppContent toolkit={this.toolkit} />
+          <Footer toolkit={this.toolkit} />
+          <FormCard toolkit={this.toolkit}/>
+        </div>
+      );
+    }
+    catch (error) {
+      return <>
+        <h1>
+          Error
+        </h1>
+        <p>
+          {error}
+        </p>
+      </>
+    }
   }
 }
 

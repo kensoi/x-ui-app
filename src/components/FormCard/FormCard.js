@@ -1,27 +1,37 @@
 import "./scss/form-card.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
+import LL from "./components/LayoutList/LayoutList";
 
-import GreetingsMessage from "./components/GreetingsMessage";
-import SettingsMessage from "./components/SettingsMessage";
-import RegisterForm from "./components/RegisterForm";
-import LoginForm from "./components/LoginForm";
-import SliderTest from "./components/SliderTest";
-import TumbletTest from "./components/TumbletTest";
+const layoutList = LL.default ? LL.default : LL;
 
-class FormCard extends React.Component {
+class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-
-    this.layoutList = {
-      "hello": GreetingsMessage,
-      "settings": SettingsMessage,
-      "register": RegisterForm,
-      "tumbler": TumbletTest,
-      "login": LoginForm,
-      "slider": SliderTest,
-    }
+    this.state = { hasError: false };
   }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log(error)
+    console.log(errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+
+class FormCard extends React.Component {
   state = {
     freezed: false,
   }
@@ -56,8 +66,16 @@ class FormCard extends React.Component {
   }
 
   layout = () => {
-    const ActualLayout = this.layoutList[this.props.toolkit.formCard.layout]
-    return <ActualLayout toolkit={this.props.toolkit}/>
+    try {
+      var ActualLayout = layoutList(this.props.toolkit.formCard.layout)
+      return <ActualLayout toolkit={this.props.toolkit}/>
+    }
+    catch (error) {
+      console.log(error)
+      return <h1>
+        Trouble!
+      </h1>
+    }
   }
 
   wrapper = () => {
@@ -67,7 +85,9 @@ class FormCard extends React.Component {
 
     return <div className={ClassList} style={{top: scrollY}}>
         <this.closeButton />
-        <this.layout/>
+        <ErrorBoundary>
+          <this.layout/>
+        </ErrorBoundary>
       </div>
   };
 

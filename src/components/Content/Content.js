@@ -47,11 +47,6 @@ function FormTests (props) {
                     Тестовый ползунок 
                 </XButton>
             </Paragraph>
-            <Paragraph>
-                <XButton onClick = {()=> props.toolkit.formCard.showLayout("dropdown")}>
-                    Тестовый выпадающий список 
-                </XButton>
-            </Paragraph>
         </XBlock>
     </>
 }

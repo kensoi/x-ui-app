@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Headline, Paragraph, XRaw } from "../../XBlock/XBlock";
-import { XTumbler } from "../../XForms/XForms";
+import { Headline, Paragraph, XRaw } from "../../../../XBlock/XBlock";
+import { XTumbler } from "../../../../XForms/XForms";
 
-import ColorSchemaChanger from "../../ColorSchemaChanger/ColorSchemaChanger";
+import ColorSchemaChanger from "../../../../ColorSchemaChanger/ColorSchemaChanger";
 
-class NotifyCard extends React.Component {
+export default class SettingsMessage extends React.Component {
     contexts = [
         {
             name: "OFF",
@@ -45,5 +45,3 @@ class NotifyCard extends React.Component {
     }
     
 }
-
-export default NotifyCard;

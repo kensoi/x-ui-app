@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Headline, Paragraph, XRaw } from "../../XBlock/XBlock";
-import { XTumbler } from "../../XForms/XForms";
+import { Headline, Paragraph, XRaw } from "../../../../XBlock/XBlock";
+import { XTumbler } from "../../../../XForms/XForms";
 
 import DoneIcon from '@mui/icons-material/Done';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 
-class NotifyCard extends React.Component {
+export default class TumbletTest extends React.Component {
     contexts = [
         {
             name: <DoneIcon />,
@@ -49,5 +49,3 @@ class NotifyCard extends React.Component {
         </>
     }
 }
-
-export default NotifyCard;

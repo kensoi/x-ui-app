@@ -1,8 +1,8 @@
 import React from "react";
-import { Headline, Paragraph, XList } from "../../XBlock/XBlock";
-import { XSlider } from "../../XForms/XForms";
+import { Headline, Paragraph, XList } from "../../../../XBlock/XBlock";
+import { XSlider } from "../../../../XForms/XForms";
 
-class NotifyCard extends React.Component {
+export default class SliderTest extends React.Component {
     state = {
         value: 0,
     };
@@ -29,5 +29,3 @@ class NotifyCard extends React.Component {
         </>
     }
 }
-
-export default NotifyCard;
