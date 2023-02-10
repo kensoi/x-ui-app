@@ -1,5 +1,6 @@
 /* Color Schema Menu Selector */
 import React from "react";
+import { nanoid } from "nanoid";
 
 /* WEB-X-UI components */
 import {XButton, XDropdown} from "../XForms/XForms";
@@ -55,14 +56,14 @@ class ColorSchemaChanger extends React.Component {
     getSchemaButton = item => {
         if (item["x-dropdown"] !== undefined) {
             const dropdown = item["x-dropdown"];
-            return <XDropdown dropdown={this.dropdownContent(dropdown)} contentPosition={this.props.contentPosition || "bottom-right"}>
+            return <XDropdown key={nanoid()} dropdown={this.dropdownContent(dropdown)} contentPosition={this.props.contentPosition || "bottom-left"}>
                 <XButton icon={item["icon"]}>
                     {item["title"]}
                 </XButton>
             </XDropdown>
         }
         else {
-            return <XButton icon={item["icon"]} onClick={item["action"]}>
+            return <XButton key={nanoid()} icon={item["icon"]} onClick={item["action"]}>
                 {item["title"]}
             </XButton>
         }

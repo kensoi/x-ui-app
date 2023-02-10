@@ -1,6 +1,6 @@
 {
   "name": "web-x-ui",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "homepage": "https://kensoi.github.io/web-cross-ui",
   "private": true,
   "dependencies": {
