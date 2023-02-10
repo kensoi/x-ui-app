@@ -3,7 +3,6 @@
 
 .webx {
     .x-button {
-
         display: flex;
         background: var(--x-button-background);
         border-radius: calc(var(--border-radius) / 2);
@@ -53,6 +52,14 @@
             height: var(--x-button-height);
             transform: rotate(var(--dropdown-content-angle, 0deg));
             transition: var(--dropdown-icon-transition, 0s);
+
+            --display: none;
+            &.visible {
+                --display: default;
+            }
+            svg {
+                display: var(--display, none);
+            }
         }
     }
 }

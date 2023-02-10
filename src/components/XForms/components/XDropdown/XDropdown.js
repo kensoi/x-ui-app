@@ -1,85 +1,100 @@
 import React from "react";
 import "./scss/x-dropdown.scss";
-import { nanoid } from "nanoid";
-import XButton from "../XButton/XButton";
 import { CheckValue } from "../../../../shared/Utils";
 
-export class XDropdown extends React.Component {
+class XDropdown extends React.Component {
     state = {
-        dropdown: Array.from(this.props.dropdown),
-        wonderbread: false, // открытость-закрытость
-        align: CheckValue(this.props.align, "right", "left"),
-        listDirection: CheckValue(this.props.listDirection, "row", "column"),
-        overflow: false,
+        isVisible: false,
+        isMounted: false
     }
 
-    button = (button) => {
-        const icon = button["icon"]
-        const title = button["title"]
-        const dropdown = button["x-dropdown"]
-
-        if (dropdown) {
-            return <XDropdown key={nanoid()} dropdown={dropdown} listDirection={this.props.listDirection} align={this.state.align}>
-                <XButton icon={icon} title={title} isDropdown={true}/>
-            </XDropdown>
-        }
-        else {
-            const action = button["action"];
-            const wrappedButtonAction = () => {
-                action(); 
-                this.close();
-            };
-            return <XButton key={nanoid()} icon={icon} title={title} onClick={wrappedButtonAction}/>
-        }
-
-    }
-    
-    onClickToToggle = () => {
-        if (this.state.wonderbread) {
-            this.setState({
-                wonderbread: false,
-            })
-            setTimeout(() => {
-                this.setState({overflow: false})
-            }, 100)
-        }
-        else {
-            setTimeout(() => {
-                this.setState({
-                    wonderbread: true,
-                })
-            }, 100)
-            this.setState({overflow: true})
-
-        }
-    }
-    
     close = () => {
         this.setState({
-            wonderbread: false,
+            isVisible: false,
         })
         setTimeout(() => {
-            this.setState({overflow: false})
+            this.setState({isMounted: false})
         }, 100)
     }
 
+    open = () => {
+        this.setState({
+            isMounted: true,
+        })
+        setTimeout(() => {
+            this.setState({isVisible: true})
+        }, 100)
+    }
 
-    XDropdownContent = () => {
-        return <div className={`x-dropdown-content ${this.state.listDirection}`}>
-                <div className="x-dropdown-list"
-                    onMouseLeave={this.close} >
-                    {this.state.dropdown.map(this.button)}
+    toggleClick = () => {
+        this.state.isMounted ? this.close() : this.open()
+    }
+
+    Content = () => {
+        const wrapperClassList = ['x-dropdown-wrapper']
+        const contentClassList = ['x-dropdown-content']
+        wrapperClassList.push(this.state.isVisible ? "visible" : "invisible");
+        
+        switch (this.props.contentPosition) {
+            case "left-top":
+                wrapperClassList.push("x-dropdown-pose-at-left-top");
+                break;
+            
+            case "left-bottom":
+                wrapperClassList.push("x-dropdown-pose-at-left-bottom");
+                break;
+                
+            case "right-top":
+                wrapperClassList.push("x-dropdown-pose-at-right-top");
+                break;
+
+            case "right-bottom":
+                wrapperClassList.push("x-dropdown-pose-at-right-bottom");
+                break;
+    
+            case "top-left":
+                wrapperClassList.push("x-dropdown-pose-at-top-left");
+                break;
+
+            case "top-right":
+                wrapperClassList.push("x-dropdown-pose-at-top-right");
+                break;
+            
+            case "bottom-left":
+                wrapperClassList.push("x-dropdown-pose-at-bottom-left");
+                break;
+                            
+            default:
+                wrapperClassList.push("x-dropdown-pose-at-bottom-right");
+                break;
+        }
+
+        contentClassList.push(`direction-${CheckValue(this.props.listDirection, "row", "column")}`);
+
+        if (this.state.isMounted) {
+            return <div className={wrapperClassList.join(" ")}>
+                <div className={contentClassList.join(" ")}>
+                    { this.props.dropdown }
                 </div>
             </div>
+        }
     }
-    ChildButton = () => {
-        return this.props.children
+
+    Children = () => {
+        const buttonClassList = ['x-dropdown-children']
+        buttonClassList.push(this.state.isVisible ? "visible" : "invisible");
+
+        return <div className={buttonClassList.join(" ")} onClick={this.toggleClick}>
+            {this.props.children}
+        </div>
     }
-    
+
     render () {
-        return <div className={`x-dropdown ${this.state.wonderbread ? "opened" : "closed"} align-${this.state.align}`}>
-            <div className="x-dropdown-clickarea" onClick={this.onClickToToggle}><this.ChildButton /></div>
-            {this.state.overflow ? <this.XDropdownContent /> : ""}
+        const dropdownClassList = ['x-dropdown']
+
+        return <div className={dropdownClassList.join(" ")}>
+            <this.Children />
+            <this.Content />
         </div>
     }
 }

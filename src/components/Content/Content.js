@@ -2,7 +2,7 @@
 
 import "./scss/content.scss";
 import { XButton } from "../XForms/XForms";
-import XBlock, { Headline, XList } from "../XBlock/XBlock";
+import XBlock, { Headline, Paragraph, XList } from "../XBlock/XBlock";
 import Panel from "../Panel/Panel";
 
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -10,15 +10,17 @@ import LoginIcon from '@mui/icons-material/Login';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import AppShortcutIcon from '@mui/icons-material/AppShortcut';
 
-function AppContent (props) {
-    return <div className="app-content">
-        {
-            props.toolkit.cardResponse ? 
-            <XBlock>
-                Form Card Response: {JSON.stringify(props.toolkit.cardResponse)}
-            </XBlock>
-            : ""
-        }
+function CardResponseBlock (props) {
+    if (props.toolkit.cardResponse) {
+        return <XBlock>
+            Card Response: {JSON.stringify(props.toolkit.formCard.response)}
+        </XBlock>
+    }
+}
+
+function Index (props) {
+    return <>
+        <CardResponseBlock toolkit={props.toolkit} />
         <XBlock>
             <Headline>
                 Примеры форм
@@ -30,19 +32,34 @@ function AppContent (props) {
                 <Panel icon={<SettingsIcon/>} onClick = {()=> props.toolkit.formCard.showLayout("settings")} title="Настройки" />
             </XList>
         </XBlock>
+    </>
+}
+
+function FormTests (props) {
+    return <>
+        <CardResponseBlock toolkit={props.toolkit} />
         <XBlock>
             <Headline>
                 Тестовые компоненты
             </Headline>
-            <XList>
+            <Paragraph>
                 <XButton onClick = {()=> props.toolkit.formCard.showLayout("slider")}>
                     Тестовый ползунок 
                 </XButton>
-                <XButton onClick = {()=> props.toolkit.formCard.showLayout("tumbler")}>
-                    Тестовый переключатель 
+            </Paragraph>
+            <Paragraph>
+                <XButton onClick = {()=> props.toolkit.formCard.showLayout("dropdown")}>
+                    Тестовый выпадающий список 
                 </XButton>
-            </XList>
+            </Paragraph>
         </XBlock>
+    </>
+}
+
+function AppContent (props) {
+    return <div className="app-content">
+        <Index toolkit={props.toolkit}/>
+        <FormTests toolkit={props.toolkit}/>
     </div>
 }
 

@@ -50,16 +50,36 @@ class ColorSchemaChanger extends React.Component {
             },
         ]
         this.actualSchemaIcon = this.icons[this.actualSchema];
-        this.align = this.props.align || "left"
+    }
+
+    getSchemaButton = item => {
+        if (item["x-dropdown"] !== undefined) {
+            const dropdown = item["x-dropdown"];
+            return <XDropdown dropdown={this.dropdownContent(dropdown)} contentPosition={this.props.contentPosition || "bottom-right"}>
+                <XButton icon={item["icon"]}>
+                    {item["title"]}
+                </XButton>
+            </XDropdown>
+        }
+        else {
+            return <XButton icon={item["icon"]} onClick={item["action"]}>
+                {item["title"]}
+            </XButton>
+        }
+    }
+
+    dropdownContent = (dropdown) => {
+        return <> { dropdown.map(this.getSchemaButton) } </>
     }
 
     render () {
-        return <XDropdown dropdown={this.dropdown} align={this.align}>
+        return <XDropdown 
+                dropdown={this.dropdownContent(this.dropdown)} 
+                contentPosition={this.props.contentPosition || "bottom-right"}
+                listDirection="row">
             <XButton icon={this.actualSchemaIcon} isDropdown={true}/>
         </XDropdown>
     }
 }
-
-
 
 export default ColorSchemaChanger;

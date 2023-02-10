@@ -26,9 +26,13 @@ class XButton extends React.Component {
     };
 
     dropdown = () => {
+        const classList = ["x-button-dropdown-icon"]
+        if (this.props.isDropdown) {
+            classList.push("visible")
+        }
         if (!this.hideEmptyPaddings || this.props.isDropdown) {
-            return <div className="x-button-dropdown-icon">
-                { this.props.isDropdown && <KeyboardArrowDownIcon/>}
+            return <div className={classList.join(" ")}>
+                <KeyboardArrowDownIcon/>
             </div>
         }
         return " "
