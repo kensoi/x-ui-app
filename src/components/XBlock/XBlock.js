@@ -7,26 +7,26 @@ import ParagraphObject from "./components/Paragraph";
 import XRawObject from "./components/XRaw";
 import XListObject from "./components/XList";
 
-export function Headline (props) {
-  return <HeadlineObject {...props}/>
+export function Headline(props) {
+  return <HeadlineObject {...props} />;
 }
 
-export function Subline (props) {
-  return <SublineObject {...props}/>
+export function Subline(props) {
+  return <SublineObject {...props} />;
 }
 
-export function Paragraph (props) {
-  return <ParagraphObject {...props}/>
+export function Paragraph(props) {
+  return <ParagraphObject {...props} />;
 }
 
-export function XRaw (props) {
-  return <XRawObject {...props}/>
+export function XRaw(props) {
+  return <XRawObject {...props} />;
 }
 
-export function XList (props) {
-  return <XListObject {...props}/>
+export function XList(props) {
+  return <XListObject {...props} />;
 }
 
 export default function XBlock(props) {
-  return <div className="x-block">{props.children}</div>
+  return <div className="x-block">{props.children}</div>;
 }

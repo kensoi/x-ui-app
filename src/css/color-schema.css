@@ -26,12 +26,6 @@
     --your-pink: #ffc7c7;
     --zircon: #f5f6f8;
 }
-
-.app-content {
-    --box-shadow: 0 2px 5px var(--opacity1);
-    --card-border: var(--opacity2);
-
-}
 .light {
     --background: var(--athens-gray);
 

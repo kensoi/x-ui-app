@@ -48,6 +48,7 @@ body {
         top: 0;
         height: $point * 7;
         z-index: 98;
+        margin-bottom: $point;
 
         .header-content {
             @include centering();

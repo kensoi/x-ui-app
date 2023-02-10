@@ -22,7 +22,7 @@ class App extends React.Component {
       cardMounted: false,
       cardLoaded: true,
       cardLayout: "settings",
-      cardResponse: {
+      cardResponse: JSON.parse(localStorage.getItem("latestResponse")) || {
         layout: "settings",
         response: null
       }
@@ -68,6 +68,13 @@ class App extends React.Component {
           },
           cardLoaded: false,
         })
+        localStorage.setItem(
+          "latestResponse",
+          JSON.stringify({
+            layout: this.state.cardLayout + "",
+            response: response
+          })
+        );
         window.scrollTo(window.scrollX, this.toolkit.cardTopOffset + 0);
         setTimeout(() => {
           this.setState({

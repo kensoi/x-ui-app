@@ -61,18 +61,12 @@
             }
 
             &.x-dropdown-pose-at-left-top {
-                .x-dropdown-content {
-                    border-top-right-radius: 0;
-                }
                 padding: 0 var(--dropdown-offset);
                 padding-bottom: var(--dropdown-offset);
                 right: 100%;
                 top: 0;
             }
             &.x-dropdown-pose-at-left-bottom {
-                .x-dropdown-content {
-                    border-bottom-right-radius: 0;
-                }
                 padding: 0 var(--dropdown-offset);
                 padding-bottom: var(--dropdown-offset);
                 right: 100%;
@@ -80,18 +74,12 @@
 
             }
             &.x-dropdown-pose-at-right-top {
-                .x-dropdown-content {
-                    border-top-left-radius: 0;
-                }
                 padding: 0 var(--dropdown-offset);
                 padding-bottom: var(--dropdown-offset);
                 left: 100%;
                 top: 0;
             }
             &.x-dropdown-pose-at-right-bottom {
-                .x-dropdown-content {
-                    border-bottom-left-radius: 0;
-                }
                 padding: 0 var(--dropdown-offset);
                 padding-bottom: var(--dropdown-offset);
                 left: 100%;
@@ -99,35 +87,23 @@
 
             }
             &.x-dropdown-pose-at-top-left {
-                .x-dropdown-content {
-                    border-bottom-left-radius: 0;
-                }
                 padding: var(--dropdown-offset) 0;
                 bottom: 100%;
                 left: 0;
 
             }
             &.x-dropdown-pose-at-top-right {
-                .x-dropdown-content {
-                    border-bottom-right-radius: 0;
-                }
                 padding: var(--dropdown-offset) 0;
                 bottom: 100%;
                 right: 0;
 
             }
             &.x-dropdown-pose-at-bottom-left {
-                .x-dropdown-content {
-                    border-top-left-radius: 0;
-                }
                 padding: var(--dropdown-offset) 0;
                 top: 100%;
                 left: 0;
             }
             &.x-dropdown-pose-at-bottom-right {
-                .x-dropdown-content {
-                    border-top-right-radius: 0;
-                }
                 padding: var(--dropdown-offset) 0;
                 top: 100%;
                 right: 0;

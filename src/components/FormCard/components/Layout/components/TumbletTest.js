@@ -3,49 +3,48 @@ import React from "react";
 import { Headline, Paragraph, XRaw } from "../../../../XBlock/XBlock";
 import { XTumbler } from "../../../../XForms/XForms";
 
-import DoneIcon from '@mui/icons-material/Done';
-import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
+import DoneIcon from "@mui/icons-material/Done";
+import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 
 export default class TumbletTest extends React.Component {
-    contexts = [
-        {
-            name: <DoneIcon />,
-            type: "svg",
-            context: "Пряники с орешками"
-        },
-        {
-            name: <DoNotDisturbIcon/>,
-            type: "svg",
-            context: "Мандарины без косточек"
-        }
-    ]
-    state = {
-        context: this.contexts[0].context,
-    }
+  contexts = [
+    {
+      name: <DoneIcon />,
+      type: "svg",
+      context: "Пряники с орешками",
+    },
+    {
+      name: <DoNotDisturbIcon />,
+      type: "svg",
+      context: "Мандарины без косточек",
+    },
+  ];
+  state = {
+    context: this.contexts[0].context,
+  };
 
-    setContext = (value) => {
-        this.setState({
-            context: value,
-        })
-    }
+  setContext = (value) => {
+    this.setState({
+      context: value,
+    });
+  };
 
-    render () {
-        return <> 
-            <Headline> 
-                Проверка тумблета 
-            </Headline>
-            <Paragraph> 
-                <XRaw>
-                    Включить свет
-                    <XTumbler 
-                        tumbleConfig={this.contexts} 
-                        context={this.state.context} 
-                        setContext={this.setContext}/>
-                </XRaw>
-                <XRaw>
-                    Выставленное значение: {this.state.context}
-                </XRaw>
-            </Paragraph>
-        </>
-    }
+  render() {
+    return (
+      <>
+        <Headline>Проверка тумблета</Headline>
+        <Paragraph>
+          <XRaw>
+            Включить свет
+            <XTumbler
+              tumbleConfig={this.contexts}
+              context={this.state.context}
+              setContext={this.setContext}
+            />
+          </XRaw>
+          <XRaw>Выставленное значение: {this.state.context}</XRaw>
+        </Paragraph>
+      </>
+    );
+  }
 }
