@@ -5,6 +5,7 @@ import "./css/global.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import AppContent from "./components/Content/Content";
+import FormCard from "./components/FormCard/FormCard";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,11 +15,52 @@ class App extends React.Component {
       headerState: JSON.parse(localStorage.getItem("headerState")) || true,
       footerState: JSON.parse(localStorage.getItem("footerState")) || true,
       colorSchema: localStorage.getItem("colorSchema") || "auto",
+
+      cardTopOffset: 0,
+      cardMounted: false,
+      cardLoaded: true,
+      cardLayout: "settings",
+      cardResponse: {
+        layout: "settings",
+        response: null
+      }
     };
   }
 
   createToolkit () {
     this.toolkit = {
+      cardMounted: this.state.cardMounted,
+      cardLayout: this.state.cardLayout,
+      cardResponse: this.state.cardResponse,
+      cardTopOffset: this.state.cardTopOffset,
+      cardLoaded: this.state.cardLoaded,
+
+      showCard: (layout) => {
+        this.setState({
+          cardLayout: layout,
+          cardTopOffset: window.scrollY,
+          cardMounted: true,
+        })
+        setTimeout(() => {
+          this.setState({
+            cardLoaded: true,
+          })
+        }, 100)
+      },
+      returnCardResponse: (response) => {
+        this.setState({
+          cardResponse: {
+            layout: this.state.cardLayout + "",
+            response: response
+          },
+          cardLoaded: false,
+        })
+        setTimeout(() => {
+          this.setState({
+            cardMounted: false,
+          })
+        }, 500)
+      },
       colorSchema: this.state.colorSchema,
       setColorSchema: (schema) => {
         localStorage.setItem("colorSchema", schema);
@@ -66,6 +108,7 @@ class App extends React.Component {
           <Header toolkit={this.toolkit} />
           <AppContent toolkit={this.toolkit} />
           <Footer toolkit={this.toolkit} />
+          <FormCard toolkit={this.toolkit} />
         </div>
       );
     }

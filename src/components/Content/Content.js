@@ -13,7 +13,7 @@ import AppShortcutIcon from '@mui/icons-material/AppShortcut';
 function CardResponseBlock (props) {
     if (props.toolkit.cardResponse) {
         return <XBlock>
-            Card Response: {JSON.stringify(props.toolkit.formCard.response)}
+            Card Response: {JSON.stringify(props.toolkit.cardResponse)}
         </XBlock>
     }
 }
@@ -43,7 +43,7 @@ function FormTests (props) {
                 Тестовые компоненты
             </Headline>
             <Paragraph>
-                <XButton onClick = {()=> console.log("open slider")}>
+                <XButton onClick = {()=> props.toolkit.showCard("slider")}>
                     Тестовый ползунок 
                 </XButton>
             </Paragraph>

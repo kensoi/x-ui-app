@@ -17,50 +17,42 @@ import {nanoid} from "nanoid";
 export default class Layout extends React.Component {
     layoutList = [
         {
-            name: "not-found",
-            layout: NotFoundMessage,
-        },
-        {
             name: "hello",
-            layout: GreetingsMessage,
+            layout: <GreetingsMessage key={nanoid()} toolkit={this.props.toolkit} />,
         },
         {
             name: "settings",
-            layout: SettingsMessage,
+            layout: <SettingsMessage key={nanoid()} toolkit={this.props.toolkit} />,
         },
         {
             name: "register",
-            layout: RegisterForm,
+            layout: <RegisterForm key={nanoid()} toolkit={this.props.toolkit} />,
         },
         {
             name: "tumbler",
-            layout: TumbletTest,
+            layout: <TumbletTest key={nanoid()} toolkit={this.props.toolkit} />,
         },
         {
             name: "login",
-            layout: LoginForm,
+            layout: <LoginForm key={nanoid()} toolkit={this.props.toolkit} />,
         },
         {
             name: "slider",
-            layout: SliderTest,
+            layout: <SliderTest key={nanoid()} toolkit={this.props.toolkit} />,
         },
     ]
 
     getLayout = (layout) => {
-        const layoutKey = nanoid()
         const loadedLayout = layout
-        if (loadedLayout.name === this.props.toolkit.formCard.layout) {
-            return <loadedLayout.layout key={layoutKey} toolkit={this.props.toolkit}/>
-        }
-        else {
-            return <div key={layoutKey}></div>
+        if (loadedLayout.name === this.props.toolkit.cardLayout) {
+            return loadedLayout.layout
         }
     }
 
     render () {
         return <>
             {
-                this.layoutList.map(this.getLayout)
+                this.layoutList.map(this.getLayout) || <NotFoundMessage toolkit={this.props.toolkit} />
             }
         </>
     }
