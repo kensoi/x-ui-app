@@ -9,15 +9,7 @@
         transform: translate(-50%, 0);
         max-width: 720px;
         width: 100%;
-        @media screen and (max-width: 425px) {
-            --bottom-offset: 20vh;
-        }
-        @media screen and (min-width: 425px) and (max-width: 720px) {
-            --bottom-offset: 10vh;
-        }
-        @media screen and (min-width: 720px) {
-            --bottom-offset: 0;
-        }
+        --bottom-offset: 0;
         --bottom-offset-invis: calc(var(var(--bottom-offset)) + 20vh);
         .form-card {
             $box-shadow: $box-border, $box-shadow;

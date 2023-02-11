@@ -4,32 +4,53 @@
 .webx {
     .x-field {
         $note-block-shadow: $box-shadow, $box-border;
-
         font-family: 'TT Commons';
         font-size: 20px;
-        @include box-shadow($note-block-shadow);
-        min-height: var(--x-button-height);
-        box-sizing: border-box;
-        padding: 0 calc(var(--x-button-height) - $point) 0 $point;
-        @include centering();
-        background: var(--x-field-background);
-        border-radius: $point;
-        color: var(--x-field-text);
-        margin-bottom: $point;
-        min-width: 25 * $point;
 
-        .x-field-icon {
+        @include box-shadow($note-block-shadow);
+        background: var(--x-field-background);
+        color: var(--x-field-text);
+
+        box-sizing: border-box;
+        padding: calc((var(--x-button-height) - 25px) / 2) $point;
+        margin-bottom: $point;
+        border-radius: $point;
+
+        display: flex;
+
+        outline-color: var(--x-field-text);
+        outline-style: solid;
+        outline-width: 0px;
+        transition: 0.05s;
+        overflow: hidden;
+        cursor: text;
+        &.selected {
+            outline-width: 2px;
+        }
+        .x-field-wrap {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .x-field-icon {
+            width: 25px;
+            height: 100%;
             margin-right: $point;
-            width: calc(var(--x-button-height) - 2 * $point);
-            height: var(--x-button-height);
+            .x-field-icon-wrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                min-height: 25px;
+            }
         }
         .x-field-input {
             flex: 1 1 auto;
             outline: none;
             padding-top: 2px;
+            overflow: hidden;
+            box-sizing: border-box;
+
             &[contenteditable=true]:empty:before{
                 content: attr(data-placeholder);
                 pointer-events: none;
@@ -38,8 +59,8 @@
                 text-transform: lowercase;
             }
         }
-        &.selected {
-            background: var(--x-field-background-hover);
+        &.no-wrap .x-field-input {
+            white-space: nowrap;
         }
     }
 }

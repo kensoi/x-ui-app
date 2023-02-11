@@ -5,7 +5,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import AppShortcutIcon from "@mui/icons-material/AppShortcut";
-import XBlock, { Headline, Paragraph, XList } from "../../XBlock/XBlock";
+import XBlock, { Headline, XList } from "../../XBlock/XBlock";
 
 
 export default function Index(props) {
@@ -22,12 +22,12 @@ export default function Index(props) {
             <Panel
               icon={<HowToRegIcon />}
               onClick={() => props.toolkit.showCard("register")}
-              title="Войти"
+              title="Регистрация"
             />
             <Panel
               icon={<LoginIcon />}
               onClick={() => props.toolkit.showCard("login")}
-              title="Регистрация"
+              title="Войти"
             />
             <Panel
               icon={<SettingsIcon />}

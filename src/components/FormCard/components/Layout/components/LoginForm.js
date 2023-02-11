@@ -3,6 +3,18 @@ import React from "react";
 import { Headline, Paragraph, XList } from "../../../../XBlock/XBlock";
 import { XField, XButton } from "../../../../XForms/XForms";
 import ShortTextIcon from "@mui/icons-material/ShortText";
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+
+function GridTemplate (props) {
+  return <div className="grid-template-field">
+    {props.children}
+  </div>
+}
+function Centerize (props) {
+  return <div className="div-centerize disable-on-vertical">
+    {props.children}
+  </div>
+}
 
 export default class LoginForm extends React.Component {
   state = {
@@ -34,29 +46,29 @@ export default class LoginForm extends React.Component {
   };
 
   render() {
-    const icon = <ShortTextIcon />;
     return (
       <>
         <Headline>Войти</Headline>
         <Paragraph>
-          <XList>
+          <GridTemplate>
+            <Centerize>Никнейм:</Centerize>
             <XField
-              icon={icon}
+              icon={<AlternateEmailIcon />}
               field={this.state.username}
               setField={this.setUsername}
+              noWrap={true}
             >
               Никнейм
             </XField>
-          </XList>
-          <XList>
+            <Centerize>E-mail:</Centerize>
             <XField
-              icon={icon}
+              icon={<ShortTextIcon />}
               field={this.state.password}
               setField={this.setPassword}
             >
               Пароль
             </XField>
-          </XList>
+          </GridTemplate>
         </Paragraph>
         <Paragraph>
           <XList>

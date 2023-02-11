@@ -1,5 +1,5 @@
 import React from "react";
-import { Headline, Paragraph, XRaw } from "../../../../XBlock/XBlock";
+import { Headline, Paragraph } from "../../../../XBlock/XBlock";
 import { XSlider, XButton } from "../../../../XForms/XForms";
 
 export default class SliderTest extends React.Component {
@@ -38,33 +38,35 @@ export default class SliderTest extends React.Component {
       <>
         <Headline>Пример ползунка</Headline>
         <Paragraph>
-          <XRaw>
-            Первое значение (в поинтах)
+          <div className="grid-template-field">
+            <div className="div-centerize">
+              Первое значение (в поинтах)
+            </div>
             <XSlider
               min={0}
               max={100}
               setValue={this.setFirst}
               currency="points"
             />
-          </XRaw>
-          <XRaw>
-            Второе значение (в метрах)
+            <div className="div-centerize">
+              Второе значение (в метрах)
+            </div>
             <XSlider
               min={0}
               max={100}
               setValue={this.setSecond}
               currency="metres"
             />
-          </XRaw>
-          <XRaw>
-            Третье значение (в рублях)
+            <div className="div-centerize">
+              Третье значение (в рублях)
+            </div>
             <XSlider
               min={0}
               max={100}
               setValue={this.setThird}
               currency="rubles"
             />
-          </XRaw>
+          </div>
         </Paragraph>
         <Paragraph>
           <XButton title="Ответить" onClick={this.response}/>

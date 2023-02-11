@@ -1,8 +1,21 @@
 import React from "react";
 
-import { Headline, Paragraph, XList } from "../../../../XBlock/XBlock";
+import { Headline, Paragraph, XList} from "../../../../XBlock/XBlock";
 import { XField, XButton } from "../../../../XForms/XForms";
-import ShortTextIcon from "@mui/icons-material/ShortText";
+import PersonIcon from '@mui/icons-material/Person';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+
+function GridTemplate (props) {
+  return <div className="grid-template-field">
+    {props.children}
+  </div>
+}
+function Centerize (props) {
+  return <div className="div-centerize disable-on-vertical">
+    {props.children}
+  </div>
+}
 
 export default class RegisterForm extends React.Component {
   state = {
@@ -39,29 +52,34 @@ export default class RegisterForm extends React.Component {
 
   goToLogin = () => {
     this.props.toolkit.showCard("login");
-  };
+  }
 
   render() {
-    const icon = <ShortTextIcon />;
     return (
       <>
-        <Headline>Создать аккаунт</Headline>
+        <Headline>Создать аккаунт -- просто!</Headline>
         <Paragraph>
-          <XList>
-            <XField icon={icon} field={this.state.name} setField={this.setName}>
+          <div className="grid-template-field">
+            <div className="div-centerize disable-on-vertical">Имя пользователя:</div>
+            <XField icon={<PersonIcon />} field={this.state.name} setField={this.setName}
+              noWrap={true}>
               Имя пользователя
             </XField>
+            <div className="div-centerize disable-on-vertical">Никнейм:</div>
             <XField
-              icon={icon}
+              icon={<AlternateEmailIcon />}
               field={this.state.username}
               setField={this.setUsername}
+              noWrap={true}
             >
               Никнейм
             </XField>
-          </XList>
-          <XField icon={icon} field={this.state.email} setField={this.setEmail}>
-            Электронная почта
-          </XField>
+            <div className="div-centerize disable-on-vertical">E-mail:</div>
+            <XField icon={<EmailOutlinedIcon/>} field={this.state.email} setField={this.setEmail}
+              noWrap={true}>
+              E-mail
+            </XField>
+          </div>
         </Paragraph>
         <Paragraph>
           <XList>

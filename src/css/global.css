@@ -5,3 +5,25 @@
     --border-radius: 16px;
     --padding: 16px;
 }
+
+
+.grid-template-field {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: fit-content;
+}
+.div-centerize {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+@media screen and (orientation: portrait) {
+    .grid-template-field {
+        display: grid;
+        grid-template-columns: 1fr;
+        height: fit-content;
+    }
+    .disable-on-vertical {
+        display: none;
+    }
+}
