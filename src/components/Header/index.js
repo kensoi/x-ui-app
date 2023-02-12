@@ -1,4 +1,4 @@
-import "./scss/header.scss";
+import "./scss/stylesheet.scss";
 import ProfileButton from "./components/ProfileButton";
 
 function HeaderLogo(props) {

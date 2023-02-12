@@ -43,5 +43,28 @@ $point: 8px;
 }
 
 .webx {
-    transform: 0.1s ease-in-out;
+    translate: 0.1s ease-in-out;
+    background: var(--background);
+    
+    .form-card {
+        h1 {
+            padding: 0;
+        }
+        p {
+            padding: 0;
+        }
+    }
+
+    h1 {
+        font-family: 'TT Commons';
+        font-weight: 600;
+        font-size: $point * 6;
+        padding: 0 $point * 2;
+    }
+    
+    p {
+        font-family: 'Roboto';
+        font-size: $point * 2;
+        padding: 0 $point * 2;
+    }
 }

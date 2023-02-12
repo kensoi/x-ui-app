@@ -1,6 +1,6 @@
 import React from "react";
 import "./scss/x-slider.scss";
-import { handleChange } from "../../../../shared/Utils";
+import { handleChange } from "../../../../shared/utils";
 
 class XSlider extends React.Component {
   state = {
@@ -39,4 +39,4 @@ class XSlider extends React.Component {
   }
 }
 
-export default XSlider;
+export {XSlider};

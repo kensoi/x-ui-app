@@ -1,43 +1,44 @@
-@import "../../../scss/global.scss";
+@import "../../../scss/stylesheet.scss";
 @import "../../../scss/box-shadows.scss";
 
 $header-logo-size: 3px;
 
-body {
-    
-    &.dark {
+.webx {
+    &.color-schema-dark {
         .header {
             background: #000000;
             color: #FFFFFF;
         }
-        
     }
-    &.light {
+
+    &.color-schema-light {
         .header {
             background: #FFFFFF;
             color: #000000;
         }
     }
-    &.pink {
+
+    &.color-schema-pink {
         .header {
             background: #FFFFFF;
             color: #000000;
         }
     }
-    &.auto {
+
+    &.color-schema-auto {
         .header {
             @media screen and (prefers-color-scheme: dark) {
                 background: #000000;
                 color: #FFFFFF;
             }
+
             @media screen and (prefers-color-scheme: light) {
                 background: #FFFFFF;
                 color: #000000;
             }
         }
     }   
-}
-.webx {
+    
     .header {
         @include centering();
         @include box-shadow($box-border);
@@ -67,6 +68,7 @@ body {
                 font-weight: 500;
                 font-size: $point * 3;
                 user-select: none;
+                padding: 0 $point * 2;
             }
 
             .header-buttons {

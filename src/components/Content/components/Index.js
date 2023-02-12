@@ -1,12 +1,12 @@
-import XBlock, { Headline } from "../../XBlock";
+import XBlock from "../../XBlock";
 
 export default function Index(props) {
     return (
       <>
         <XBlock>
-          <Headline>
+          <h1>
             Главная
-          </Headline>
+          </h1>
         </XBlock>
       </>
     );

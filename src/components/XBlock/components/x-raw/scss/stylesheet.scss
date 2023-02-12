@@ -1,0 +1,15 @@
+@import "../../../../../scss/stylesheet.scss";
+
+.webx {
+    .x-raw {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: $point;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

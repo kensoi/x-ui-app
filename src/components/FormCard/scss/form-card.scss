@@ -1,4 +1,4 @@
-@import "../../../scss/global.scss";
+@import "../../../scss/stylesheet.scss";
 @import "../../../scss/box-shadows.scss";
 
 .webx {
@@ -7,7 +7,7 @@
         left: 50%;
         z-index: 100;
         transform: translate(-50%, 0);
-        max-width: 720px;
+        max-width: 800px;
         width: 100%;
         --bottom-offset: 0;
         --bottom-offset-invis: calc(var(var(--bottom-offset)) + 20vh);
@@ -31,7 +31,7 @@
         &.invisible {
             opacity: 0;
             .form-card {
-                transform: translate(0, 40vh);
+                transform: translate(0, 5vh);
             }
         }
         &.visible {

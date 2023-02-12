@@ -46,4 +46,4 @@ class XTumbler extends React.Component {
   }
 }
 
-export default XTumbler;
+export {XTumbler};

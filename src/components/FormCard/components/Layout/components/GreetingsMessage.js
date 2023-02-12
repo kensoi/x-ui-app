@@ -1,23 +1,22 @@
 import React from "react";
-import { Headline, Paragraph } from "../../../../XBlock";
 import Teaser from "../../../../Teaser";
 
 export default class GreetingsMessage extends React.Component {
   render() {
     return (
       <>
-        <Headline>О приложении</Headline>
-        <Paragraph>
+        <h1>О приложении</h1>
+        <p>
           Данный репозиторий служит демонстрацией компонентов WebCrossUI, а
           также может быть использован в качестве шаблона для других приложений.
-        </Paragraph>
-        <Paragraph>
+        </p>
+        <p>
           Данное оповещение несёт информативный характер и появляется всего 1
           раз.
-        </Paragraph>
-        <Paragraph>
+        </p>
+        <p>
           <Teaser />
-        </Paragraph>
+        </p>
       </>
     );
   }

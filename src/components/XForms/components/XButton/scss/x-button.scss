@@ -1,9 +1,33 @@
-@import "../../../../../scss/global.scss";
+@import "../../../../../scss/stylesheet.scss";
 @import "../../../../../scss/box-shadows.scss";
 
 .webx {
+    &.screen-device-mobile {
+        .x-button {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+    }
+
+    &.screen-device-tablet, &.screen-device-desktop {
+        .x-button {
+            margin-right: 8px;
+        }
+    }
+    .x-dropdown {
+        .x-button {
+            width: 100%;
+            margin: 0!important;
+        }
+    }
+    .x-dropdown {
+        .x-button-title {
+            text-align: left!important;
+        }
+    }
+    
     .x-button {
-        display: flex;
+        display: inline-flex;
         background: var(--x-button-background);
         border-radius: calc(var(--border-radius) / 2);
         user-select: none;
@@ -16,6 +40,9 @@
         &:hover {
             background: var(--x-button-background-hover);
         }
+        &:last-child {
+            margin-right: 0!important;
+        }
 
         .x-button-icon {
             display: flex;
@@ -26,6 +53,7 @@
             color: var(--x-button-icon);
         }
         .x-button-title {
+            text-align: center;
             flex: 1 1 auto;
             width: max-content;
             padding-top: calc(var(--padding) / 2 + 2px);

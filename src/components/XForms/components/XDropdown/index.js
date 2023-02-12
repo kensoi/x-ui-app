@@ -1,6 +1,6 @@
 import React from "react";
 import "./scss/x-dropdown.scss";
-import { CheckValue } from "../../../../shared/Utils";
+import { CheckValue } from "../../../../shared/utils";
 
 class XDropdown extends React.Component {
   state = {
@@ -107,4 +107,4 @@ class XDropdown extends React.Component {
   }
 }
 
-export default XDropdown;
+export {XDropdown};

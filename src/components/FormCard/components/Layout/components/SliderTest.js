@@ -1,5 +1,4 @@
 import React from "react";
-import { Headline, Paragraph } from "../../../../XBlock";
 import { XSlider, XButton } from "../../../../XForms";
 
 export default class SliderTest extends React.Component {
@@ -36,8 +35,8 @@ export default class SliderTest extends React.Component {
   render() {
     return (
       <>
-        <Headline>Пример ползунка</Headline>
-        <Paragraph>
+        <h1>Пример ползунка</h1>
+        <p>
           <div className="grid-template-field">
             <div className="div-centerize">
               Первое значение (в поинтах)
@@ -67,10 +66,10 @@ export default class SliderTest extends React.Component {
               currency="rubles"
             />
           </div>
-        </Paragraph>
-        <Paragraph>
+        </p>
+        <p>
           <XButton title="Ответить" onClick={this.response}/>
-        </Paragraph>
+        </p>
       </>
     );
   }

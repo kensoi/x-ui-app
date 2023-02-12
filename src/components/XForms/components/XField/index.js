@@ -75,4 +75,4 @@ class XField extends React.Component {
   }
 }
 
-export default XField;
+export {XField};

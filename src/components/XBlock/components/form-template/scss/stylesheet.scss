@@ -1,0 +1,40 @@
+@import "../../../../../scss/stylesheet.scss";
+
+.webx {
+    .form-label {
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        height: 100%;
+    }
+    .form-grid {
+        display: grid;
+        height: fit-content;
+
+        .form-label {
+            padding-bottom: $point;
+        }
+    }
+
+    &.screen-device-mobile {        
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-label {
+            display: none;
+        }
+    }
+
+    &.screen-device-tablet {
+        .form-grid {
+            grid-template-columns: 1fr 1.5fr;
+        }
+    }
+    
+    &.screen-device-desktop {
+        .form-grid {
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+}

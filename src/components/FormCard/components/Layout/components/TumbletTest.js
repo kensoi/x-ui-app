@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Headline, Paragraph, XRaw } from "../../../../XBlock";
+import { XRaw } from "../../../../XBlock";
 import { XTumbler } from "../../../../XForms";
 
 import DoneIcon from "@mui/icons-material/Done";
@@ -32,8 +32,8 @@ export default class TumbletTest extends React.Component {
   render() {
     return (
       <>
-        <Headline>Проверка тумблета</Headline>
-        <Paragraph>
+        <h1>Проверка тумблета</h1>
+        <p>
           <XRaw>
             Включить свет
             <XTumbler
@@ -43,7 +43,7 @@ export default class TumbletTest extends React.Component {
             />
           </XRaw>
           <XRaw>Выставленное значение: {this.state.context}</XRaw>
-        </Paragraph>
+        </p>
       </>
     );
   }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./css/global.css";
+import "./css/stylesheet.css";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -8,10 +8,11 @@ import AppContent from "./components/Content";
 import FormCard from "./components/FormCard";
 import OverflowBG from "./components/OverflowBG";
 
+import {getScreenDeviceType} from "./shared/";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-
 
     this.state = {
       headerState: JSON.parse(localStorage.getItem("headerState")) || true,
@@ -24,13 +25,12 @@ class App extends React.Component {
       cardLayout: "settings",
       cardResponse: JSON.parse(localStorage.getItem("latestResponse")) || {
         layout: "settings",
-        response: null
-      }
+        response: null,
+      },
     };
-    
   }
 
-  createToolkit () {
+  createToolkit() {
     this.toolkit = {
       cardMounted: this.state.cardMounted,
       cardLayout: this.state.cardLayout,
@@ -41,8 +41,8 @@ class App extends React.Component {
       showCard: (layout) => {
         var offset = 100;
         if (this.state.cardMounted) {
-          this.toolkit.returnCardResponse(null)
-          offset += 100
+          this.toolkit.returnCardResponse(null);
+          offset += 100;
         }
 
         setTimeout(() => {
@@ -50,37 +50,37 @@ class App extends React.Component {
             cardLayout: layout,
             cardTopOffset: window.scrollY,
             cardMounted: true,
-          })
-        }, offset)
+          });
+        }, offset);
 
         setTimeout(() => {
           this.setState({
             cardLoaded: true,
-          })
-        }, 100 + offset)
+          });
+        }, 100 + offset);
       },
 
       returnCardResponse: (response) => {
         this.setState({
           cardResponse: {
             layout: this.state.cardLayout + "",
-            response: response
+            response: response,
           },
           cardLoaded: false,
-        })
+        });
         localStorage.setItem(
           "latestResponse",
           JSON.stringify({
             layout: this.state.cardLayout + "",
-            response: response
+            response: response,
           })
         );
         window.scrollTo(window.scrollX, this.toolkit.cardTopOffset + 0);
         setTimeout(() => {
           this.setState({
             cardMounted: false,
-          })
-        }, 100)
+          });
+        }, 100);
       },
       colorSchema: this.state.colorSchema,
       setColorSchema: (schema) => {
@@ -89,7 +89,6 @@ class App extends React.Component {
           colorSchema: schema,
         });
       },
-
 
       enableHeader: this.state.headerState,
       setHeaderState: (state) => {
@@ -113,37 +112,45 @@ class App extends React.Component {
     };
   }
 
-  render() {
-    this.createToolkit();
-    document.body.className = this.toolkit.colorSchema;
-    const helloMessage =
+  showHelloMessage = () => {
+    let helloMessage =
       JSON.parse(localStorage.getItem("HelloMessage")) || false;
 
     if (!helloMessage) {
       localStorage.setItem("HelloMessage", JSON.stringify(true));
       this.toolkit.formCard.showLayout("hello");
     }
+  }
+
+  render() {
+    this.createToolkit();
+
+    this.layoutClassList = ["webx"]
+    this.layoutClassList.push("color-schema-" + this.toolkit.colorSchema)
+    this.layoutClassList.push(getScreenDeviceType())
+
+    document.body.className = this.layoutClassList.join(" ");
+
+
+    this.showHelloMessage();
 
     try {
       return (
-        <div className={`webx`}>
+        <>
           <Header toolkit={this.toolkit} />
           <AppContent toolkit={this.toolkit} />
           <Footer toolkit={this.toolkit} />
           <OverflowBG toolkit={this.toolkit} />
           <FormCard toolkit={this.toolkit} />
-        </div>
+        </>
       );
-    }
-    catch (error) {
-      return <>
-        <h1>
-          Error
-        </h1>
-        <p>
-          {error}
-        </p>
-      </>
+    } catch (error) {
+      return (
+        <>
+          <h1>Error</h1>
+          <p>{error}</p>
+        </>
+      );
     }
   }
 }
