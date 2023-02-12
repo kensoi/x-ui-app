@@ -2,11 +2,11 @@ import React from "react";
 
 import "./css/global.css";
 
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import AppContent from "./components/Content/Content";
-import FormCard from "./components/FormCard/FormCard";
-import OverflowBG from "./components/OverflowBG/OverflowBG";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import AppContent from "./components/Content";
+import FormCard from "./components/FormCard";
+import OverflowBG from "./components/OverflowBG";
 
 class App extends React.Component {
   constructor(props) {

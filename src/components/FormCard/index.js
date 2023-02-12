@@ -1,7 +1,7 @@
 import React from "react";
 import "./scss/form-card.scss";
 import CloseIcon from "@mui/icons-material/Close";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/Layout";
 
 export default class FormCard extends React.Component {
   closeButton = () => {

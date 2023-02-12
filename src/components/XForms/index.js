@@ -1,8 +1,8 @@
-import XButtonObject from "./components/XButton/XButton";
-import XDropdownObject from "./components/XDropdown/XDropdown";
-import XFieldObject from "./components/XField/XField";
-import XSliderObject from "./components/XSlider/XSlider";
-import XTumblerObject from "./components/XTumbler/XTumbler";
+import XButtonObject from "./components/XButton";
+import XDropdownObject from "./components/XDropdown";
+import XFieldObject from "./components/XField";
+import XSliderObject from "./components/XSlider";
+import XTumblerObject from "./components/XTumbler";
 
 export function XButton(props) {
   return <XButtonObject {...props} />;

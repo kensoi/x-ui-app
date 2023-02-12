@@ -1,5 +1,5 @@
 import React from "react";
-import { Headline } from "../../../../XBlock/XBlock";
+import { Headline } from "../../../../XBlock";
 
 export default class NotFoundMessage extends React.Component {
   render() {

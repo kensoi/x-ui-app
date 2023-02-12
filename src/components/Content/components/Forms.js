@@ -1,5 +1,5 @@
-import { XButton } from "../../XForms/XForms"
-import XBlock, { Headline, Paragraph } from "../../XBlock/XBlock";
+import { XButton } from "../../XForms"
+import XBlock, { Headline, Paragraph } from "../../XBlock";
 
 function CardResponseBlock(props) {
     if (props.toolkit.cardResponse) {

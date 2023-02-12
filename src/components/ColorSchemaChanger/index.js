@@ -3,7 +3,7 @@ import React from "react";
 import { nanoid } from "nanoid";
 
 /* WEB-X-UI components */
-import { XButton, XDropdown } from "../XForms/XForms";
+import { XButton, XDropdown } from "../XForms";
 
 /* Material UI icons */
 import LightModeIcon from "@mui/icons-material/LightMode";

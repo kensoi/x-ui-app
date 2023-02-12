@@ -1,6 +1,6 @@
 import React from "react";
-import { Headline, Paragraph } from "../../../../XBlock/XBlock";
-import Teaser from "../../../../Teaser/Teaser";
+import { Headline, Paragraph } from "../../../../XBlock";
+import Teaser from "../../../../Teaser";
 
 export default class GreetingsMessage extends React.Component {
   render() {

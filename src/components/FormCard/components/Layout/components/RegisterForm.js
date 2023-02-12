@@ -1,21 +1,10 @@
 import React from "react";
 
-import { Headline, Paragraph, XList} from "../../../../XBlock/XBlock";
-import { XField, XButton } from "../../../../XForms/XForms";
+import { Headline, Paragraph, XList} from "../../../../XBlock";
+import { XField, XButton } from "../../../../XForms";
 import PersonIcon from '@mui/icons-material/Person';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-
-function GridTemplate (props) {
-  return <div className="grid-template-field">
-    {props.children}
-  </div>
-}
-function Centerize (props) {
-  return <div className="div-centerize disable-on-vertical">
-    {props.children}
-  </div>
-}
 
 export default class RegisterForm extends React.Component {
   state = {

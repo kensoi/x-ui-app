@@ -1,6 +1,6 @@
 import React from "react";
-import { Headline, Paragraph } from "../../../../XBlock/XBlock";
-import { XSlider, XButton } from "../../../../XForms/XForms";
+import { Headline, Paragraph } from "../../../../XBlock";
+import { XSlider, XButton } from "../../../../XForms";
 
 export default class SliderTest extends React.Component {
   state = {

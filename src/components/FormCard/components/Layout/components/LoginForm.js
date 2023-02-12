@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Headline, Paragraph, XList } from "../../../../XBlock/XBlock";
-import { XField, XButton } from "../../../../XForms/XForms";
+import { Headline, Paragraph, XList } from "../../../../XBlock";
+import { XField, XButton } from "../../../../XForms";
 import ShortTextIcon from "@mui/icons-material/ShortText";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
