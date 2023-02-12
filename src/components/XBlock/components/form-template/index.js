@@ -7,7 +7,11 @@ function FormGrid (props) {
 }
 
 function FormLabel (props) {
-    return <div className="form-label">
+    const classList = ["form-label"]
+    if (props.disableAtMobile) {
+        classList.push("disable-at-mobile")
+    }
+    return <div className={classList.join(" ")}>
         { props.children }
     </div>
 }

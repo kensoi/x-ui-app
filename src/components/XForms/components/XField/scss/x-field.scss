@@ -18,14 +18,11 @@
 
         display: flex;
 
-        outline-color: var(--x-field-text);
-        outline-style: solid;
-        outline-width: 0px;
         transition: 0.05s;
         overflow: hidden;
         cursor: text;
         &.selected {
-            outline-width: 2px;
+            
         }
         .x-field-wrap {
             display: flex;

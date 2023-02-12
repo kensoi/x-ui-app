@@ -84,7 +84,7 @@ class ProfileButton extends React.Component {
         contentPosition={this.props.contentPosition || "bottom-right"}
         listDirection="row"
       >
-        <XButton icon={<MenuIcon />} hideEmptyPaddings={true} />
+        <XButton icon={<MenuIcon />} hideEmptyPaddings={true} hideEmptyPaddingsAtMobile={true}/>
       </XDropdown>
     );
   }

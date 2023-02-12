@@ -10,5 +10,6 @@
         color: var(--color);
         margin: 0 auto $point auto;
         max-width: $point * 120;
+        box-sizing: border-box;
     }
 }

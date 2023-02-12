@@ -1,15 +1,10 @@
 @import "../../../../../scss/stylesheet.scss";
 
 .webx {
-    .form-label {
-        display: flex;
-        box-sizing: border-box;
-        align-items: center;
-        height: 100%;
-    }
     .form-grid {
         display: grid;
         height: fit-content;
+        margin-bottom: $point * 3;
 
         .form-label {
             padding-bottom: $point;
@@ -22,7 +17,9 @@
         }
         
         .form-label {
-            display: none;
+            &.disable-at-mobile {
+                display: none;
+            }
         }
     }
 
@@ -30,11 +27,24 @@
         .form-grid {
             grid-template-columns: 1fr 1.5fr;
         }
+        
+        .form-label {
+            display: flex;
+            box-sizing: border-box;
+            align-items: center;
+            height: 100%;
+        }
     }
     
     &.screen-device-desktop {
         .form-grid {
             grid-template-columns: 1fr 2fr;
+        }
+        .form-label {
+            display: flex;
+            box-sizing: border-box;
+            align-items: center;
+            height: 100%;
         }
     }
 }

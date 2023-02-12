@@ -58,11 +58,13 @@ $point: 8px;
     h1 {
         font-family: 'TT Commons';
         font-weight: 600;
+        box-sizing: border-box;
         font-size: $point * 6;
         padding: 0 $point * 2;
     }
     
     p {
+        box-sizing: border-box;
         font-family: 'Roboto';
         font-size: $point * 2;
         padding: 0 $point * 2;

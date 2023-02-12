@@ -39,7 +39,14 @@ class XButton extends React.Component {
   }
 
   render() {
-    this.hideEmptyPaddings = this.props.hideEmptyPaddings || false;
+    
+    if (document.body.classList.contains("screen-device-mobile")) {
+      this.hideEmptyPaddings = this.props.hideEmptyPaddingsAtMobile
+    }
+
+    else {
+      this.hideEmptyPaddings = this.props.hideEmptyPaddings || false;
+    }
 
     return (
       <div className="x-button" onClick={this.props.onClick}>
