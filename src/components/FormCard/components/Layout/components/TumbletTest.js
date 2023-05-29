@@ -3,9 +3,6 @@ import React from "react";
 import { XList, XVertical, FormLabel } from "../../../../XBlock";
 import { XTumbler } from "../../../../XForms";
 
-import DoneIcon from "@mui/icons-material/Done";
-import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
-
 export default class TumbletTest extends React.Component {
   contexts = [
     {

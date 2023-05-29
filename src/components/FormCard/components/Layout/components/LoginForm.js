@@ -6,7 +6,6 @@ import ShortTextIcon from "@mui/icons-material/ShortText";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
 import AddIcon from '@mui/icons-material/Add';
-import { Close } from "@mui/icons-material";
 import LoginIcon from '@mui/icons-material/Login';
 
 export default class LoginForm extends React.Component {

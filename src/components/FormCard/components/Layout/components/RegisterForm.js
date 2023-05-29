@@ -1,13 +1,12 @@
 import React from "react";
 
-import { FormGrid, FormLabel, XRaw, XList, XVertical } from "../../../../XBlock";
+import { FormLabel, XList, XVertical } from "../../../../XBlock";
 import { XField, XButton } from "../../../../XForms";
 import PersonIcon from "@mui/icons-material/Person";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 import AddIcon from '@mui/icons-material/Add';
-import { Close } from "@mui/icons-material";
 import LoginIcon from '@mui/icons-material/Login';
 
 export default class RegisterForm extends React.Component {
