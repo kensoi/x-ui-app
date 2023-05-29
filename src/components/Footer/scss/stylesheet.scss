@@ -38,17 +38,19 @@
     }
 
     .footer {
+        @include centering();
         @include box-shadow($box-border);
 
-        min-height: $point * 7;
-        box-sizing: border-box;
+        z-index: 98;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        border-radius: $point*2;
 
         .footer-content {
             width: 100%;
-            margin: 0 auto;
-            max-width: $point * 120;
             min-height: $point * 7;
-            padding: $point $point * 2;
+            padding: $point $point * 3;
             font-family: 'TT Commons';
             font-size: $point * 2;
             box-sizing: border-box;

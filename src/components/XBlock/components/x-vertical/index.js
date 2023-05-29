@@ -13,15 +13,11 @@ function getSXbyArr(sx, i) {
   }
 }
 
-function XList(props) {
-  let classList = ["x-list"]
-  if (props.horListAtMobile) {
-    classList.push("mobile-horizontal")
-  }
-  
+function XVertical(props) {
+  let classList = ["x-vertical"]
   return <div className={classList.join(" ")} style={props.xstyle}>
     {Children.map(props.children, (child, i) => {
-        return <div className="x-list-children" style={getSXbyArr(props.sx, i)}>
+        return <div className="x-vertical-children" style={getSXbyArr(props.sx, i)}>
             {child}
           </div>
         }
@@ -30,4 +26,4 @@ function XList(props) {
   </div>
 }
 
-export {XList};
+export {XVertical};

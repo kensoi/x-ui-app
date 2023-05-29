@@ -1,6 +1,6 @@
 import React from "react";
 
-import { XRaw } from "../../../../XBlock";
+import { XList, XVertical, FormLabel } from "../../../../XBlock";
 import { XTumbler } from "../../../../XForms";
 
 import DoneIcon from "@mui/icons-material/Done";
@@ -9,14 +9,19 @@ import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 export default class TumbletTest extends React.Component {
   contexts = [
     {
-      name: <DoneIcon />,
-      type: "svg",
+      name: "1",
+      // type: "svg",
       context: "Пряники с орешками",
     },
     {
-      name: <DoNotDisturbIcon />,
-      type: "svg",
+      name: "2",
+      // type: "svg",
       context: "Мандарины без косточек",
+    },
+    {
+      name: "3",
+      // type: "svg",
+      context: "Алишер и сыр",
     },
   ];
   state = {
@@ -29,21 +34,29 @@ export default class TumbletTest extends React.Component {
     });
   };
 
+  xliststyle = {justifyContent:"space-between", width: "100%"}
+  sx = [{}, {width: "100%", maxWidth: "256px"}]
+
+
   render() {
     return (
       <>
-        <h1>Проверка тумблета</h1>
-        <p>
-          <XRaw>
-            Включить свет
+        <h1>Демонстрация переключателя XTumbler</h1>
+        <XVertical>
+          <XList xstyle={this.xliststyle}>
+            <FormLabel>
+              Переключатель
+            </FormLabel>
             <XTumbler
               tumbleConfig={this.contexts}
               context={this.state.context}
               setContext={this.setContext}
             />
-          </XRaw>
-          <XRaw>Выставленное значение: {this.state.context}</XRaw>
-        </p>
+          </XList>
+          <XList xstyle={this.xliststyle}>
+            Выставленное значение: 
+          {this.state.context}</XList>
+        </XVertical>
       </>
     );
   }

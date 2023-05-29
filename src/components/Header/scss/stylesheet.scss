@@ -38,18 +38,28 @@ $header-logo-size: 3px;
             }
         }
     }   
+
+    &.screen-device-desktop {
+        .header-logo {
+            flex: 1 1 auto;
+            margin: 0 8px;
+        }
+    }
     
     .header {
         @include centering();
         @include box-shadow($box-border);
-        --x-button-header-bg: rgba(0,0,0,0)!important;
-        --x-button-header-bg-hover: var(--x-field-background);
+        --x-button-background: rgba(0,0,0,0)!important;
+        --x-button-background-hover: var(--x-field-background);
 
         position: sticky;
         top: 0;
         height: $point * 7;
         z-index: 98;
-        margin-bottom: $point;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        border-radius: $point*2;
 
         .header-content {
             @include centering();
@@ -58,17 +68,23 @@ $header-logo-size: 3px;
 
             justify-content: space-between;
             width: 100%;
-            max-width: $point * 120;
             height: $point * 7;
             
-            padding: 0 $point * 2;
+            padding: 0 $point * 1;
+            box-sizing: border-box;
 
             .header-logo {
                 font-family: 'TT Commons';
                 font-weight: 500;
                 font-size: $point * 3;
                 user-select: none;
-                padding: 0 $point * 2;
+                padding: 0 $point * 0;
+            }
+            .header-dev {
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                background-image: url("./favicon.png");
             }
 
             .header-buttons {

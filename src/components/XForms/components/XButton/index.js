@@ -49,10 +49,10 @@ class XButton extends React.Component {
     }
 
     return (
-      <div className="x-button" onClick={this.props.onClick}>
-        <this.icon />
-        <this.title />
-        <this.dropdown />
+      <div className="x-button" onClick={this.props.onClick} style={this.props.style}>
+        {this.icon()}
+        {this.title()}
+        {this.dropdown()}
       </div>
     )
   }

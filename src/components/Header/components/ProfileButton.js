@@ -7,10 +7,8 @@ import { XButton, XDropdown } from "../../XForms";
 
 /* Material UI icons */
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import PersonIcon from '@mui/icons-material/Person';
 import MenuIcon from "@mui/icons-material/Menu";
 import SettingsIcon from '@mui/icons-material/Settings';
-import LoginIcon from "@mui/icons-material/Login";
 
 class ProfileButton extends React.Component {
   getSchemaButton = (item) => {
@@ -39,29 +37,11 @@ class ProfileButton extends React.Component {
   };
   profileContent = () => {
     return <>
-      {this.dropdownContent(this.noAccountList)}
       {this.dropdownContent(this.globalList)}
     </>
   }
 
   render() {
-    
-    this.noAccountList = [
-      {
-        icon: <PersonIcon />,
-        title: "Регистрация",
-        action: () => {
-          this.props.toolkit.showCard("register")
-        },
-      },
-      {
-        icon: <LoginIcon />,
-        title: "Войти",
-        action: () => {
-          this.props.toolkit.showCard("login")
-        },
-      },
-    ]
     this.globalList = [
         {
           icon: <SettingsIcon />,

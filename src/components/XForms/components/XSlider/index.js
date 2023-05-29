@@ -8,32 +8,36 @@ class XSlider extends React.Component {
   };
 
   setValue = (value) => {
-    if (this.props.min <= value && value < this.props.max) {
+    if (this.props.min <= value && value <= this.props.max) {
       this.props.setValue(value);
       this.setState({
         value: value,
       });
     }
   };
+  input = () => {
+    return <div className="x-slider-input">
+      <input
+        type="range"
+        min={this.props.min}
+        max={this.props.max}
+        value={this.state.value}
+        onChange={handleChange(this.setValue)}
+      />
+    </div>
+  }
+
+  output = () => {
+    return <div className="x-slider-output">
+      {this.state.value}
+    </div>
+  }
 
   render() {
     return (
       <div className="x-slider">
-        <div className="x-slider-input">
-          <input
-            type="range"
-            min={this.props.min}
-            max={this.props.max}
-            value={this.state.value}
-            onChange={handleChange(this.setValue)}
-          />
-        </div>
-        <div className="x-slider-output">{this.state.value}</div>
-        {this.props.currency ? (
-          <div className="x-slider-currency"> {this.props.currency || ""} </div>
-        ) : (
-          <> </>
-        )}
+        {this.input()}
+        {this.output()}
       </div>
     );
   }

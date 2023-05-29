@@ -68,18 +68,17 @@
             padding-bottom: calc(var(--padding) / 2);
         }
         .x-slider-currency {
-            @include centering();
-            padding: $point;
             width: var(--x-button-height);
             height: $thumb-size;
             color: var(--x-field-text);
             font-family: 'TT Commons';
             font-weight: 500;
-            font-size: $point * 2;
-            padding-left: 0;
-            padding-top: calc(var(--padding) / 2);
-            padding-bottom: calc(var(--padding) / 2);
-            padding-right: var(--padding);
+            font-size: 18px;
+            padding: var(--padding) var(--padding) var(--padding) 0;
         }
+    }
+    
+    .x-list .x-slider {
+        margin-bottom: 0;
     }
 }

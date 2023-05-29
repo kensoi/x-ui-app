@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FormGrid, FormLabel, XRaw } from "../../../../XBlock";
+import { FormGrid, FormLabel, XRaw, XList, XVertical } from "../../../../XBlock";
 import { XField, XButton } from "../../../../XForms";
 import PersonIcon from "@mui/icons-material/Person";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
@@ -51,54 +51,55 @@ export default class RegisterForm extends React.Component {
     this.props.toolkit.showCard("login");
   };
 
+  xliststyle = {justifyContent:"space-between", width: "100%"}
+  sx = [{}, {width: "100%", maxWidth: "256px"}]
   render() {
     return (
       <>
         <h1>Создать аккаунт -- просто!</h1>
-        <FormGrid>
-          <FormLabel>Имя пользователя:</FormLabel>
-          <XField
-            icon={<PersonIcon />}
-            field={this.state.name}
-            setField={this.setName}
-            noWrap={true}
-          >
-            Имя пользователя
-          </XField>
-          <FormLabel>Никнейм:</FormLabel>
-          <XField
-            icon={<AlternateEmailIcon />}
-            field={this.state.username}
-            setField={this.setUsername}
-            noWrap={true}
-          >
-            Никнейм
-          </XField>
-          <FormLabel>E-mail:</FormLabel>
-          <XField
-            icon={<EmailOutlinedIcon />}
-            field={this.state.email}
-            setField={this.setEmail}
-            noWrap={true}
-          >
-            E-mail
-          </XField>
-        </FormGrid>
-        <XRaw>
-          <FormLabel>
+        <XVertical>
+          <XList xstyle={this.xliststyle} sx={this.sx}>
+            <FormLabel>Имя пользователя:</FormLabel>
+            <XField
+                icon={<PersonIcon />} cleanable={true}
+                field={this.state.name}
+                setField={this.setName}
+                noWrap={true}
+            >
+              Имя пользователя
+            </XField>
+          </XList>
+          <XList xstyle={this.xliststyle} sx={this.sx}>
+            <FormLabel>Никнейм:</FormLabel>
+            <XField
+              icon={<AlternateEmailIcon />} cleanable={true}
+              field={this.state.username}
+              setField={this.setUsername}
+              noWrap={true}
+            >
+              Никнейм
+            </XField>
+          </XList>
+          <XList xstyle={this.xliststyle} sx={this.sx}>
+            <FormLabel>E-mail:</FormLabel>
+            <XField
+              icon={<EmailOutlinedIcon />} cleanable={true}
+              field={this.state.email}
+              setField={this.setEmail}
+              noWrap={true}
+            >
+              E-mail
+            </XField>
+          </XList>
+          <XList xstyle={this.xliststyle}>
             <XButton onClick={this.sendResponse} icon={<AddIcon/>} hideEmptyPaddings={true}>
               Создать
             </XButton>
             <XButton onClick={this.goToLogin} icon={<LoginIcon/>} hideEmptyPaddings={true}>
               Войти в аккаунт
             </XButton>
-          </FormLabel>
-          <FormLabel>
-            <XButton onClick={this.clearForm} icon={<Close/>} hideEmptyPaddings={true}>
-              Очистить
-            </XButton>
-          </FormLabel>
-        </XRaw>
+          </XList>
+        </XVertical>
       </>
     );
   }

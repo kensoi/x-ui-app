@@ -1,6 +1,6 @@
 import React from "react";
-import { XSlider, XButton } from "../../../../XForms";
-
+import { XSlider, XField, XButton } from "../../../../XForms";
+import { XList, XVertical, FormLabel } from "../../../../XBlock";
 export default class SliderTest extends React.Component {
   state = {
     first: 0,
@@ -32,44 +32,49 @@ export default class SliderTest extends React.Component {
     })
   }
 
+  xliststyle = {justifyContent:"space-between", width: "100%"}
+  sx = [{width: "100%", flex: "1 1 auto"}, {width: "100%", flex: "1 1 auto"}]
+
   render() {
     return (
       <>
         <h1>Пример ползунка</h1>
-        <p>
-          <div className="grid-template-field">
-            <div className="div-centerize">
-              Первое значение (в поинтах)
-            </div>
+        <XVertical>
+          <XList xstyle={this.xliststyle} sx={this.sx}>
+            <FormLabel>
+              Первое значение:
+            </FormLabel>
             <XSlider
               min={0}
-              max={100}
+              max={10}
               setValue={this.setFirst}
-              currency="points"
             />
-            <div className="div-centerize">
-              Второе значение (в метрах)
-            </div>
+          </XList>
+          <XList xstyle={this.xliststyle} sx={this.sx}>
+            <FormLabel>
+              Второе значение:
+            </FormLabel>
             <XSlider
               min={0}
-              max={100}
+              max={10}
               setValue={this.setSecond}
-              currency="metres"
             />
-            <div className="div-centerize">
-              Третье значение (в рублях)
-            </div>
-            <XSlider
-              min={0}
-              max={100}
-              setValue={this.setThird}
-              currency="rubles"
-            />
-          </div>
-        </p>
-        <p>
-          <XButton title="Ответить" onClick={this.response}/>
-        </p>
+          </XList>
+          <XList xstyle={this.xliststyle} sx={this.sx}>
+            <FormLabel>
+              Третье значение:
+            </FormLabel>
+            <XField
+              field={this.state.third} cleanable={true}
+              setField={this.setThird}>
+                Третье значение
+              </XField>
+          </XList>
+          {null}
+          <XList>
+            <XButton title="Ответить" onClick={this.response}/>
+          </XList>
+        </XVertical>
       </>
     );
   }

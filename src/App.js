@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import AppContent from "./components/Content";
 import FormCard from "./components/FormCard";
 import OverflowBG from "./components/OverflowBG";
+import { XVertical } from "./components/XBlock";
 
 import {getScreenDeviceType} from "./shared/";
 
@@ -18,6 +19,7 @@ class App extends React.Component {
       headerState: JSON.parse(localStorage.getItem("headerState")) || true,
       footerState: JSON.parse(localStorage.getItem("footerState")) || true,
       colorSchema: localStorage.getItem("colorSchema") || "auto",
+      cardBG: true,
 
       cardTopOffset: 0,
       cardMounted: false,
@@ -37,6 +39,13 @@ class App extends React.Component {
       cardResponse: this.state.cardResponse,
       cardTopOffset: this.state.cardTopOffset,
       cardLoaded: this.state.cardLoaded,
+      cardBG: this.state.cardBG,
+
+      setCardBG: (state) => {
+        this.setState({
+          cardBG: state
+        })
+      },
 
       showCard: (layout) => {
         var offset = 100;
@@ -137,9 +146,11 @@ class App extends React.Component {
     try {
       return (
         <>
-          <Header toolkit={this.toolkit} />
-          <AppContent toolkit={this.toolkit} />
-          <Footer toolkit={this.toolkit} />
+          <XVertical xstyle={{padding: "8px"}}>
+            <Header toolkit={this.toolkit} />
+            <AppContent toolkit={this.toolkit} />
+            <Footer toolkit={this.toolkit} />
+          </XVertical>
           <OverflowBG toolkit={this.toolkit} />
           <FormCard toolkit={this.toolkit} />
         </>

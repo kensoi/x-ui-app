@@ -1,4 +1,5 @@
 import GreetingsMessage from "./components/GreetingsMessage";
+import HelloWorld from "./components/HelloWorld";
 import SettingsMessage from "./components/SettingsMessage";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
@@ -14,6 +15,10 @@ export default class Layout extends React.Component {
     {
       name: "hello",
       layout: <GreetingsMessage key={nanoid()} toolkit={this.props.toolkit} />,
+    },
+    {
+      name: "hello-world",
+      layout: <HelloWorld key={nanoid()} toolkit={this.props.toolkit} />,
     },
     {
       name: "settings",
