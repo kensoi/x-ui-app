@@ -67,7 +67,7 @@ export default function Index(props) {
     }
 
     let MobileTemplate = () => {
-      <XVertical>
+      return <XVertical>
         <Panels />
         <CardResponseBlock/>
       </XVertical>
