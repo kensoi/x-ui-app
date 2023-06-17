@@ -1,0 +1,33 @@
+@import "@webx-ui/utils/optional.scss";
+
+.webx {
+    .index {
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+        min-height: 100vh;
+
+        padding: $point * 2;
+        box-sizing: border-box;
+        margin: 0 auto;
+
+        .desktop {
+            display: grid!important;
+            gap: $point*2;
+        }
+
+    }
+    .card-layout {
+        .x-block {
+            max-width: 480px;
+            margin: auto;
+            padding: 4px 5% 32px 5%!important;
+            .x-button {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}
