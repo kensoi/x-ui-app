@@ -9,8 +9,8 @@ export default class AppContent extends React.Component {
     return (
     <BrowserRouter>
       <Routes>
-        <Route path="/web-cross-ui/*" element={Index(this.props)} />
-        <Route exact path="/web-cross-ui/" element={Index(this.props)} />
+        <Route path="/template/*" element={Index(this.props)} />
+        <Route exact path="/template/" element={Index(this.props)} />
       </Routes>
     </BrowserRouter>
   )
