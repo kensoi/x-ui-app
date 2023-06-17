@@ -1,16 +1,28 @@
-export const settings = {
+export const reducingState = {
     schema: localStorage.getItem("color-schema") || "auto",
     serviceWorker: JSON.parse(
         localStorage.getItem("service-worker")
     ) || false,
     windowWidth: document.body.clientWidth,
     windowHeight: document.body.clientHeight,
+    mounted: false,
+    loaded: false
 }
 
-export function SettingsReducer(state, action) {
+export function Reducer(state, action) {
     var newState = { ...state }
 
     switch (action.type) {
+        case "set-mount":
+            newState.mounted = action.state
+
+            break
+
+        case "set-visiblity":
+            newState.loaded = action.state
+
+            break
+
         case "set-cache":
             newState.serviceWorker = action.state
 

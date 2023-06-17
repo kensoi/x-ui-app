@@ -39,9 +39,7 @@ function CardWrapperBG () {
     }
 
     const clickAction = () => {
-        toolkit.card.return({
-            hideReason: "closed by clicking on background wrapper",
-          })
+        toolkit.card.hide()
     }
 
     return <div

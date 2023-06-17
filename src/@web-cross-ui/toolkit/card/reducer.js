@@ -1,4 +1,4 @@
-export const card = {
+export const reducingState = {
     mounted: false,
     loaded: false,
 
@@ -6,7 +6,7 @@ export const card = {
     topOffset: 0,
 }
 
-export function CardReducer(state, action) {
+export function Reducer(state, action) {
     var newState = { ...state }
 
     switch (action.type) {

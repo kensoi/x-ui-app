@@ -5,17 +5,17 @@
 }
 
 .webx {
-    &.color-schema-light {
+    &.theme-light {
         @import "./light/index.scss";
         @include theme-light;
     }
 
-    &.color-schema-dark {
+    &.theme-dark {
         @import "./dark/index.scss";
         @include theme-dark;
     }
     
-    &.color-schema-auto {
+    &.theme-auto {
         @media screen and (prefers-color-scheme: dark) {
             @import "./dark/index.scss";
             @include theme-dark;

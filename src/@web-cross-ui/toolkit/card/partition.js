@@ -1,4 +1,4 @@
-export class CardBehaviour {
+export class Partition {
   #state
   #dispatch
   
