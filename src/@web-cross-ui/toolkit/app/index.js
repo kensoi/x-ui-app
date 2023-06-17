@@ -19,8 +19,11 @@ export default function useAppAPI () {
     ] = useReducer(Reducer, reducingState)
 
     const initedPartition = new Partition(dispatch, state)
+    const card = useCardAPI()
 
-    Object.defineProperty(initedPartition, "card", useCardAPI())
+    Object.defineProperty(initedPartition, "card", {
+        get: () => card
+    })
 
     return initedPartition
 }

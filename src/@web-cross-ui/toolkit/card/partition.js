@@ -2,7 +2,7 @@ export class Partition {
   #state
   #dispatch
   
-  constructor(state, dispatch) {
+  constructor(dispatch, state) {
     this.#state = state
     this.#dispatch = dispatch
 

@@ -1,9 +1,4 @@
-import "schema/index.scss"
-
-import {
-    useReducer,
-    useState
-} from "react"
+import "theme/index.scss"
 
 import {
     useToolKit, getToolKitContext
@@ -60,19 +55,20 @@ class ToolKit {
     }
 }
 
-function Wrapper ({children, mount, loaded}) {
+function Wrapper ({ children }) {
+    const toolkit = useToolKit()
     return <MountTransition
-        mountState={mount}
-        visibilityState={loaded}
+        mountState={toolkit.app.mounted}
+        visibilityState={toolkit.app.loaded}
         className="index"
     >
-        {
-            children
-        }
+        { children }
+        <CardWrapper />
     </MountTransition>
+
 }
 
-function ToolKitContext ({children}) {
+function ToolKitContext ({ children }) {
     const toolkit = new ToolKit()
     const app = useAppAPI()
 
@@ -93,14 +89,10 @@ function ToolKitContext ({children}) {
     window.onbeforeunload = () => {
         toolkit.app.hide()
     }
-    
     return <getToolKitContext.Provider value={toolkit}>
-        <Wrapper mount={toolkit.app.mounted} loaded={toolkit.app.loaded}>
-            {
-                children
-            }
+        <Wrapper>
+            { children }
         </Wrapper>
-        <CardWrapper />
     </getToolKitContext.Provider>
 }
 

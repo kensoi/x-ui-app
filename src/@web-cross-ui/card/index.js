@@ -8,12 +8,12 @@ function Card () {
     const toolkit = useToolKit()
 
     const offsetStyle = {
-        top: toolkit.card.offset
+        top: toolkit.app?.card?.offset
     }
 
     const CardWrapperClassList = ["card-wrapper"]
 
-    if (toolkit.card.loaded) {
+    if (toolkit.app?.card?.loaded) {
         CardWrapperClassList.push("visible")
     }
 
@@ -23,7 +23,7 @@ function Card () {
     >
         <div className="card-layout">
             {
-                toolkit.card.layout
+                toolkit.app?.card?.layout
             }
         </div>
     </div>
@@ -34,12 +34,12 @@ function CardWrapperBG () {
 
     const classList = ["card-wrapper-bg"]
     
-    if (toolkit.card.loaded) {
+    if (toolkit.app?.card?.loaded) {
         classList.push("visible")
     }
 
     const clickAction = () => {
-        toolkit.card.hide()
+        toolkit.app?.card?.hide()
     }
 
     return <div

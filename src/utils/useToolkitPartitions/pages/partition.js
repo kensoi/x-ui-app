@@ -1,12 +1,10 @@
 export class Partition {
     #state
     #dispatch
-    #toolkit
     
-    constructor(state, dispatch, toolkit) {
+    constructor(dispatch, state) {
         this.#state = state
         this.#dispatch = dispatch
-        this.#toolkit = toolkit
 
         this.settings = {}
 

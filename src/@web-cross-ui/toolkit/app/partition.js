@@ -2,9 +2,10 @@ export class Partition {
     #state
     #dispatch
     
-    constructor(state, dispatch) {
+    constructor(dispatch, state) {
         this.#state = state
         this.#dispatch = dispatch
+
 
         Object.defineProperties(this, {
             mounted: {
@@ -48,7 +49,7 @@ export class Partition {
                 }
             },
 
-            colorSchema: {
+            theme: {
                 get: () => this.#state.schema,
                 set: (value) => {
                     if (typeof value == "string") {

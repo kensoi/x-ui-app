@@ -23,8 +23,7 @@ export default function usePagesAPI () {
     usePartition(
         "pages", 
         new PagesPartition(
-            state, dispatch,
-            useToolKit()
+            dispatch, state
         )
     )
     
