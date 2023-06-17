@@ -1,15 +1,13 @@
-import "theme/index.scss"
-
 import {
     useToolKit, getToolKitContext
 } from "./context"
 
-import CardWrapper from "@web-cross-ui/card"
+import CardWrapper from "@webx-ui/card"
 import useAppAPI from "./app"
 
 import {
     MountTransition
-} from "@web-cross-ui/transitions"
+} from "@webx-ui/transitions"
 
 import {
     getScreenDeviceType

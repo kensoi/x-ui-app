@@ -1,10 +1,8 @@
-// @import "./auto.css";
-
-#root {
-    min-height: 100%;
-}
-
 .webx {
+    #root {
+        min-height: 100%;
+    }
+
     &.theme-light {
         @import "./light/index.scss";
         @include theme-light;

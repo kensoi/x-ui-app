@@ -52,7 +52,7 @@ export class Partition {
     })
   }
 
-  return() {
+  hide() {
     this.loaded = false
 
     window.scrollTo(window.scrollX, this.offset)

@@ -2,7 +2,7 @@ import "./stylesheet.scss"
 
 import {
     useToolKit
-} from "@web-cross-ui/toolkit"
+} from "@webx-ui/toolkit"
 
 function Card () {
     const toolkit = useToolKit()

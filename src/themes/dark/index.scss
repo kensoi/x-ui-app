@@ -1,4 +1,4 @@
-@import "@web-cross-ui/utils/optional.scss";
+@import "@webx-ui/utils/optional.scss";
 
 @import "./x-block.scss";
 @import "./x-button.scss";
@@ -11,9 +11,9 @@
 @import "./html.scss";
 
 
-@mixin theme-light {
-    background: #edeef0;
-    color: #000000;
+@mixin theme-dark {
+    background: #141414;
+    color: #ffffff;
     font-family: 'TT Commons';
     
     @include html;
