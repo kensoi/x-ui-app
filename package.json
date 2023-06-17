@@ -1,6 +1,7 @@
 {
   "name": "webx-ui-template",
-  "version": "0.5.0",
+  "version": "0.5.1",
+  "author": "Andrew Prokofieff <kensoidev@gmail.com>",
   "homepage": "https://webx-ui.github.io/template",
   "private": true,
   "dependencies": {
@@ -11,12 +12,12 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "node-sass": "^7.0.3",
     "patch-package": "^6.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
-    "sass": "^1.57.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -25,8 +26,11 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "node ./utils/NotFoundPatch.js",
-    "test": "react-scripts test",
+    "postbuild": "node ./utils/postbuild.js",
+    "not-found-patch": "node ./utils/NotFoundPatch.js",
+    "prerender": "react-spa-prerender",
+    "pretest": "npm run build",
+    "test": "node ./utils/server.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,6 +52,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "react-spa-prerender": "^1.0.14"
   }
 }
