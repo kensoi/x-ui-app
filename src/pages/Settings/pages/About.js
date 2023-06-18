@@ -2,7 +2,7 @@ import {
     CardBlock
 } from "@webx-ui/forms"
 
-import Headline from "pages/Settings/components/Headline"
+import Headline from "../components/Headline"
 
 export default function About () {
     return <div className="settings-wrapper">
