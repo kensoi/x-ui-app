@@ -1,0 +1,18 @@
+.settings-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    .webx-button {
+        height: 40px;
+        padding: 0 10px;
+        border-radius: 100%;
+    }
+
+    h4 {
+        transform: translateY(2px);
+        margin: 0 0 0 10px!important;
+    }
+}

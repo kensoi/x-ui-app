@@ -1,0 +1,13 @@
+.settings-icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    margin-top: 20px;
+
+    svg {
+        width: 56px;
+        height: 56px;
+    }
+}

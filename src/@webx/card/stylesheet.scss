@@ -63,7 +63,7 @@
         transition: opacity 0.3s!important;
         z-index: 99;
         opacity: 0;
-        background: rgba(0, 0, 0, 0.8)!important;
+        background: rgba(0, 0, 0, 0.5)!important;
         pointer-events: none;
 
         &.visible {

@@ -18,7 +18,6 @@ export default function () {
         </Label>
         <div className="settings-card-caching">
             <Tumbler />
-            <Button />
         </div>
     </>
 }

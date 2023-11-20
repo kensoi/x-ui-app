@@ -3,8 +3,12 @@ import {
 } from "@webx/toolkit"
 
 import { 
-    Card, Content, Grid, Button
+    Card, Content, Grid
 } from "@webx/components"
+
+import Top from "./Top"
+import Icon from "./Icon"
+import Options from "./Options"
 
 import Caching from "./Caching"
 import Language from "./Language"
@@ -13,33 +17,15 @@ import languages from "./languages"
 import "./stylesheet.scss"
 
 
-function OptionsBlock () {
-    const toolkit = useToolKit()
-    const actualLanguage = languages[toolkit.settings.language]
-
-    const props = {
-        theme: "white",
-        title: actualLanguage.close,
-        onClick: () => {
-            toolkit.card.return()
-        }
-    }
-
-    return <Content className="card-options">
-        <Button {...props} />
-    </Content>
-}
-
 export default function () {
     const toolkit = useToolKit()
     const actualLanguage = languages[toolkit.settings.language]
 
     return <form className="settings-card">
-        <h4>
-            {actualLanguage.title}
-        </h4>
-        <Card>
-            <Content>
+        <Card className="settings-content">
+            <Top />
+            <Icon />
+            <Content className="settings-text">
                 <h6>
                     {actualLanguage.labels[0]}
                 </h6>
@@ -48,7 +34,7 @@ export default function () {
                     <Caching />
                 </Grid>
             </Content>
-            <OptionsBlock />
+            <Options />
         </Card>
     </form>
 }

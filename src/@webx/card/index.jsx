@@ -38,15 +38,8 @@ function CardWrapperBG () {
         classList.push("visible")
     }
 
-    const clickAction = () => {
-        toolkit.card.return({
-            hideReason: "closed by clicking on background wrapper",
-          })
-    }
-
     return <div
             className={classList.join(" ")}
-            onClick={clickAction} 
     />
 }
 
