@@ -1,0 +1,28 @@
+{
+    "ru": {
+        "title": "Настройки",
+        "labels": [
+            "Базовые"
+        ],
+        "offline": {
+            "tumbler": "Кешировать для офлайн-доступа",
+            "reset": "Обновить кеш"
+        },
+        "language": "Выбранный язык",
+        "theme": "Цветовая схема",
+        "close": "Закрыть"
+    },
+    "eng": {
+        "title": "Settings",
+        "labels": [
+            "Basic"
+        ],
+        "offline": {
+            "tumbler": "Cache for offline access",
+            "reset": "Update cache"
+        },
+        "language": "Selected language",
+        "theme": "Color scheme",
+        "close": "Close"
+    }
+}

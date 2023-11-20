@@ -1,6 +1,6 @@
-# Шаблон приложений с использованием WebXUI компонентов
+# Шаблон WebX UI
 ## Полезные ссылки
-* [Использовать шаблон](https://github.com/webx-ui/template/generate)
+* [Использовать шаблон](https://github.com/webx/template/generate)
 
 ## Полезные команды
 * Установить все нужные зависимости (NPM)

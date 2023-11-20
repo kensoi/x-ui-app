@@ -1,0 +1,21 @@
+{
+    "label": {
+        "unset": "???",
+        "ru": "Выбранный язык",
+        "eng": "Selected language"
+    },
+    "data": [
+        {
+            "name": "unset",
+            "title": "unset"
+        },
+        {
+            "name": "eng",
+            "title": "English"
+        },
+        {
+            "name": "ru",
+            "title": "Русский"
+        }
+    ]
+}

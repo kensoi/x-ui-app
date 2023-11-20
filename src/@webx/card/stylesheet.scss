@@ -1,0 +1,75 @@
+@import "@webx/utils/optional.scss";
+@import "@webx/utils/box-shadows.scss";
+
+.webx {
+    &.screen-device-mobile {
+        .card-wrapper {
+            margin-top: 30vh;
+            padding: 0 4px;
+        }
+    }
+    &:not(.screen-device-mobile) {
+        .card-wrapper {
+            margin-top: 20vh;
+        }
+    }
+    .card-wrapper {
+        position: absolute;
+        left: 50%;
+        z-index: 100;
+
+        max-width: 640px;
+        width: 100%;
+
+        box-sizing: border-box;
+
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, 5vh);
+
+        -webkit-transition: 0.1s;
+        -moz-transition: 0.1s;
+        -o-transition: 0.1s;
+        transition: 0.1s;
+
+        &.visible {
+            opacity: 1!important;
+            pointer-events: inherit!important;
+            transform: translate(-50%, 0)!important;
+            
+            -webkit-transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.1s!important;
+            -moz-transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.1s!important;
+            -o-transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.1s!important;
+            transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.1s!important;
+        }
+
+        .card-layout {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+    
+    .card-wrapper-bg {
+        /* Тёмный фон позади карточки, чтобы ограничить действия пользователя во время работы с формой */
+        position: fixed;
+        top: 0;
+        left: 0;
+        
+        width: 100%;
+        height: 100vh;
+        -webkit-transition: opacity 0.3s!important;
+        -moz-transition: opacity 0.3s!important;
+        -o-transition: opacity 0.3s!important;
+        transition: opacity 0.3s!important;
+        z-index: 99;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.8)!important;
+        pointer-events: none;
+
+        &.visible {
+            /* Карточка на экране */
+            opacity: 1!important;
+            pointer-events: inherit!important;
+        }
+    }
+}

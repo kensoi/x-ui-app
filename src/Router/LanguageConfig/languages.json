@@ -1,0 +1,11 @@
+{
+    "unset": {
+        "language": "Selected language"
+    },
+    "ru": {
+        "language": "Выбранный язык"
+    },
+    "eng": {
+        "language": "Selected language"
+    }
+}
